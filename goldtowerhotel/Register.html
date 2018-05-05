@@ -48,20 +48,31 @@
 	<script type="text/javascript">
 		 window.onload=function(){
     	 	document.getElementById('boton').onclick=validarForm;
+    	 	document.getElementById('boton').onclick=validarCon;
     	 	
 
    }
 
 	function validarForm(e){
-		var formulario = document.getElementsByName('formulario');
+		var formulario = document.getElementsByTagName('input');
 		var alerta = document.getElementById('alerta');
 		for (var i = 0; i <= formulario.length; i++) {
 			if(formulario[i].value == 0){
 				
-				alerta.style.display = "inline";
+				alerta.style.visibility = "visible";
 				e.preventDefault();
 				
 			}
+		}
+	}
+
+	function validarCon(e){
+		var pass = document.getElementById('Contrasena');
+		var alerta = document.getElementById('alerta1');
+
+		if(pass.value.length < 5){
+			alerta.style.display = "inline";
+			e.preventDefault();
 		}
 	}
 	</script>
@@ -116,34 +127,90 @@
 	
 
 	
-	<div id="colorlib-contact">
-		<div class="container">
-			<div class="col-sm-3"></div>
-				<div class="col-md-8 animate-box">
-					<h3>Iniciar sesión</h3>
-						<form action="#">
-						<div class="row form-group">
-							<div class="col-md-5">
-								<!-- <label for="fname">First Name</label> -->
-								<input type="text" id="fname" class="form-control" placeholder="Usuario" name="formulario">
-							</div>
-							<div class="col-md-5">
-								<!-- <label for="lname">Last Name</label> -->
-								<input type="password" id="lname" class="form-control" placeholder="Contraseña" name="formulario">
-							</div>
-							<div class="col-md-1 glyphicon glyphicon-eye-open"></div>
-						</div> 	
+	<form class="form-horizontal">
+		<fieldset>
 
 
-						<div class="form-group">
-							<input type="submit" value="Iniciar Sesión" class="btn btn-primary" id="boton">
-						</div>
-
-					</form>		
-					<div class="alert alert-danger" style="display: none;" id="alerta">Debe rellenar todos los campos</div>
-				</div>
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="Email">Email</label>  
+		  <div class="col-md-4">
+		  <input id="Email" name="Email" placeholder="Email" class="form-control input-md" required="" type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+		    
+		  </div>
 		</div>
-	</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="Nombre">Nombre</label>  
+		  <div class="col-md-4">
+		  <input id="Nombre" name="Nombre" placeholder="Nombre" class="form-control input-md" required="" type="text">
+		    
+		  </div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="Apellidos">Apellidos</label>  
+		  <div class="col-md-4">
+		  <input id="Apellidos" name="Apellidos" placeholder="Apellidos" class="form-control input-md" required="" type="text">
+		    
+		  </div>
+		</div>
+
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="Nombre usuario">Nombre usuario</label>  
+		  <div class="col-md-4">
+		  <input id="Nombre usuario" name="Nombre usuario" placeholder="Nombre usuario" class="form-control input-md" required="" type="text">
+		    
+		  </div>
+		</div>
+
+		<!-- Password input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="Contrasena">Contraseña</label>
+		  <div class="col-md-4">
+		    <input id="Contrasena" name="Contrasena" placeholder="Contraseña" class="form-control input-md" required="" type="password">
+		    
+		  </div>
+		</div>
+
+		<!-- Multiple Checkboxes (inline) -->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="terminos"></label>
+		  <div class="col-md-4">
+		    <label class="checkbox-inline" for="terminos-0">
+		      <input name="terminos" id="terminos-0" value="1" type="checkbox">
+		      Acepta términos y condiciones
+		    </label>
+		  </div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="submit" value="Registrarse" class="btn btn-primary" id="boton">
+				</div>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<a href="login.html"><input type="submit" value="¿Ya tienes cuenta?" class="btn btn-primary" id="boton"></a>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div class="alert alert-danger" style="visibility: hidden;" id="alerta">Debe rellenar todos los campos</div>
+				<div class="alert alert-danger" style="display: none;" id="alerta1">La contraseña debe contener más de 5 caracteres</div>
+			</div>
+		</div>
+		</fieldset>
+	</form>
+
 
 
 
