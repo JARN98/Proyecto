@@ -49,9 +49,6 @@
 	<script type="text/javascript">
 		window.onload = function () {
 			document.getElementById('boton').onclick = validarForm;
-			document.getElementById('boton').onclick = validarCon;
-
-
 		}
 
 		function validarForm(e) {
@@ -59,22 +56,10 @@
 			var alerta = document.getElementById('alerta');
 			for (var i = 0; i <= formulario.length; i++) {
 				if (formulario[i].value == 0) {
-
 					alerta.style.visibility = "visible";
 					e.preventDefault();
-
 				}
-			}
-		}
-
-		function validarCon(e) {
-			var pass = document.getElementById('Contrasena');
-			var alerta = document.getElementById('alerta1');
-
-			if (pass.value.length < 5) {
-				alerta.style.display = "inline";
-				e.preventDefault();
-			}
+			}		
 		}
 	</script>
 	<!-- FOR IE9 below -->
