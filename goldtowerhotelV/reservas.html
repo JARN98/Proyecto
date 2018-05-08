@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Lawfirm Template</title>
+	<title>Gold Tower Hotel</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -29,6 +29,7 @@
 	<link rel="stylesheet" href="css/icomoon.css">
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
+	<link href="css/datepicker.css" rel="stylesheet">
 
 	<!-- Magnific Popup -->
 	<link rel="stylesheet" href="css/magnific-popup.css">
@@ -50,7 +51,6 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-
 </head>
 
 <body>
@@ -139,9 +139,23 @@
 						<p>Enano, aquí deberías meter todo el procedimiento de reserva de habitación</p>
 					</div>
 				</div>
-			</div>
+				
+				<div class="well">
+					<table class="table">
+					<thead>
+						<tr>
+							<th>Check in: <input type="text" class="span2" value="" name="dpd1" id="dpd1"></th>
+							<th>Check out: <input type="text" class="span2" value="" name="dpd2"  id="dpd2"></th>
+						</tr>
+					</thead>
+					</table>
+				</div>
+							
+				
+			</div>	
 		</div>
 
+		
 
 
 		<footer id="colorlib-footer" role="contentinfo">
@@ -247,7 +261,40 @@
 	<script src="js/magnific-popup-options.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+	
+	<script src="js/bootstrap-datepicker.js"></script>
 
+	<script>script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<!-- Include Date Range Picker -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+				<script type="text/javascript">
+					$(document).ready(function(){
+					var date_input=$('input[name="dpd1"]'); //our date input has the name "date"
+					var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+					date_input.datepicker({
+						format: 'mm/dd/yyyy',
+						container: container,
+						todayHighlight: true,
+						autoclose: true,
+					})
+				})
+				</script>
+				
+				<script type="text/javascript">
+					$(document).ready(function(){
+					var date_input=$('input[name="dpd2"]'); //our date input has the name "date"
+					var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+					date_input.datepicker({
+						format: 'mm/dd/yyyy',
+						container: container,
+						todayHighlight: true,
+						autoclose: true,
+					})
+				})
+				</script>
 </body>
 
 </html>
