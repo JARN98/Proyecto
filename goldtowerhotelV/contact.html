@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
+
+<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Lawfirm Template</title>
@@ -9,19 +10,19 @@
 	<meta name="keywords" content="" />
 	<meta name="author" content="" />
 
-  <!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
+	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:description" content="" />
 	<meta name="twitter:title" content="" />
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
 
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
-	
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -50,160 +51,215 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
-	</head>
-	<body>
-		
+</head>
+
+<body>
+
 	<div class="colorlib-loader"></div>
-	
+
 	<div id="page">
-	<nav class="colorlib-nav" role="navigation">
-		<div class="top-menu">
+		<nav class="colorlib-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-2" style="background-image: url(images/logo-hotel.png);">
+							<div id="colorlib-logo">
+								<a href="index.html"></a>
+							</div>
+						</div>
+						<div class="col-md-10 text-right menu-1">
+							<ul>
+								<li>
+									<a href="index.html">Home</a>
+								</li>
+								<li>
+									<a href="hotel.html">Hotel</a>
+								</li>
+								<li class="has-dropdown">
+									<a href="Suites.html">Suites</a>
+									<ul class="dropdown">
+										<li>
+											<a href="oro.html">Suite Oro</a>
+										</li>
+										<li>
+											<a href="esmeralda.html">Suite Esmeralda</a>
+										</li>
+										<li>
+											<a href="diamante.html">Suite Diamante</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="reservas.html">Reservas</a>
+								</li>
+								<li class="active">
+									<a href="contact.html">Contacto</a>
+								</li>
+								<li class="btn-cta">
+									<a href="login.html">
+										<span>Login</span>
+									</a>
+								</li>
+								<!-- <li class="btn-cta"><a href="#"><span>Sign Up</span></a></li> -->
+								<li>
+									<a href="Register.html">Registrarse</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</nav>
+
+
+
+		<div id="colorlib-contact">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-2"  style="background-image: url(images/logo-hotel.png);">
-						<div id="colorlib-logo"><a href="index.html"></a></div>
+					<div class="col-md-5 col-md-push-1 animate-box">
+						<div class="colorlib-contact-info">
+							<h3>Información de contacto</h3>
+							<ul class="colorlib-footer-links">
+								<li>Avenida Constitución, 23
+									<br> Sevilla, 41000</li>
+								<li>
+									<a href="tel://1234567920">+ 1235 2355 98</a>
+								</li>
+								<li>
+									<a href="mailto:info@goldtowerhotel.com">info@goldtowerhotel.com</a>
+								</li>
+							</ul>
+						</div>
+
 					</div>
-					<div class="col-md-10 text-right menu-1">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="hotel.html">Hotel</a></li>
-							<li class="has-dropdown">
-								<a href="Suites.html">Suites</a>
-								<ul class="dropdown">
-									<li><a href="oro.html">Suite Oro</a></li>
-									<li><a href="esmeralda.html">Suite Esmeralda</a></li>
-									<li><a href="diamante.html">Suite Diamante</a></li>
-								</ul>
-							</li>
-							<li><a href="reservas.html">Reservas</a></li>
-							<li  class="active"><a href="contact.html">Contacto</a></li>
-							<li class="btn-cta"><a href="login.html"><span>Login</span></a></li>
-							<!-- <li class="btn-cta"><a href="#"><span>Sign Up</span></a></li> -->
-							<li><a href="Register.html">Registrarse</a></li>
-						</ul>
+					<div class="col-md-6 animate-box">
+						<h3>Enviar consulta</h3>
+						<form action="#">
+							<div class="row form-group">
+								<div class="col-md-6">
+									<!-- <label for="fname">First Name</label> -->
+									<input type="text" id="fname" class="form-control" placeholder="Su nombre">
+								</div>
+								<div class="col-md-6">
+									<!-- <label for="lname">Last Name</label> -->
+									<input type="text" id="lname" class="form-control" placeholder="Su apellido">
+								</div>
+							</div>
+
+							<div class="row form-group">
+								<div class="col-md-12">
+									<!-- <label for="email">Email</label> -->
+									<input type="text" id="email" class="form-control" placeholder="Su direccion de correo">
+								</div>
+							</div>
+
+							<div class="row form-group">
+								<div class="col-md-12">
+									<!-- <label for="subject">Subject</label> -->
+									<input type="text" id="subject" class="form-control" placeholder="Cual es el motivo de su consulta">
+								</div>
+							</div>
+
+							<div class="row form-group">
+								<div class="col-md-12">
+									<!-- <label for="message">Message</label> -->
+									<textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Escriba la consulta que tenga para nosotros"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<input type="submit" value="Enviar" class="btn btn-primary">
+							</div>
+
+						</form>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
-	</nav>
 
+		<footer id="colorlib-footer" role="contentinfo">
+			<div class="container">
+				<div class="row row-pb-md">
 
-	
-	<div id="colorlib-contact">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-5 col-md-push-1 animate-box">
-					<div class="colorlib-contact-info">
-						<h3>Información de contacto</h3>
+					<div class="col-md-3 col-md-push-1">
+						<h4>Menú</h4>
 						<ul class="colorlib-footer-links">
-							<li>Avenida Constitución, 23<br> Sevilla, 41000</li>
-							<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
-							<li><a href="mailto:info@goldtowerhotel.com">info@goldtowerhotel.com</a></li>
-					</ul>
+							<li>
+								<a href="index.html">Home</a>
+							</li>
+							<li>
+								<a href="hotel.html">Hotel</a>
+							</li>
+							<li>
+								<a href="Suites.html">Suites</a>
+							</li>
+							<li>
+								<a href="reservas.html">Reservas</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="col-md-3 col-md-push-1">
+						<h4>Información de contacto</h4>
+						<ul class="colorlib-footer-links">
+							<li>Avenida Constitución, 23
+								<br> Sevilla, 41000</li>
+							<li>
+								<a href="tel://1234567920">+ 1235 2355 98</a>
+							</li>
+							<li>
+								<a href="mailto:info@goldtowerhotel.com">info@goldtowerhotel.com</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="col-md-3 col-md-push-1">
+						<h4>Horario recepción</h4>
+						<ul class="colorlib-footer-links">
+							<li>Lu-Dom: 7:00 - 23:30</li>
+						</ul>
 					</div>
 
 				</div>
-				<div class="col-md-6 animate-box">
-					<h3>Enviar consulta</h3>
-					<form action="#">
-						<div class="row form-group">
-							<div class="col-md-6">
-								<!-- <label for="fname">First Name</label> -->
-								<input type="text" id="fname" class="form-control" placeholder="Su nombre">
-							</div>
-							<div class="col-md-6">
-								<!-- <label for="lname">Last Name</label> -->
-								<input type="text" id="lname" class="form-control" placeholder="Su apellido">
-							</div>
-						</div>
 
-						<div class="row form-group">
-							<div class="col-md-12">
-								<!-- <label for="email">Email</label> -->
-								<input type="text" id="email" class="form-control" placeholder="Su direccion de correo">
-							</div>
-						</div>
-
-						<div class="row form-group">
-							<div class="col-md-12">
-								<!-- <label for="subject">Subject</label> -->
-								<input type="text" id="subject" class="form-control" placeholder="Cual es el motivo de su consulta">
-							</div>
-						</div>
-
-						<div class="row form-group">
-							<div class="col-md-12">
-								<!-- <label for="message">Message</label> -->
-								<textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Escriba la consulta que tenga para nosotros"></textarea>
-							</div>
-						</div>
-						<div class="form-group">
-							<input type="submit" value="Enviar" class="btn btn-primary">
-						</div>
-
-					</form>		
-				</div>
-			</div>
-			
-		</div>
-	</div>
-
-	<footer id="colorlib-footer" role="contentinfo">
-		<div class="container">
-			<div class="row row-pb-md">
-				
-				<div class="col-md-3 col-md-push-1">
-					<h4>Menú</h4>
-					<ul class="colorlib-footer-links">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="hotel.html">Hotel</a></li>
-						<li><a href="Suites.html">Suites</a></li>
-						<li><a href="reservas.html">Reservas</a></li>
-					</ul>
-				</div>
-
-				<div class="col-md-3 col-md-push-1">
-					<h4>Información de contacto</h4>
-					<ul class="colorlib-footer-links">
-						<li>Avenida Constitución, 23<br> Sevilla, 41000</li>
-						<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
-						<li><a href="mailto:info@goldtowerhotel.com">info@goldtowerhotel.com</a></li>
-					</ul>
-				</div>
-
-				<div class="col-md-3 col-md-push-1">
-					<h4>Horario recepción</h4>
-					<ul class="colorlib-footer-links">
-						<li>Lu-Dom: 7:00 - 23:30</li>
-					</ul>
+				<div class="row copyright">
+					<div class="col-md-12 text-center">
+						<p>
+							<small class="block">&copy; 2018 Gold Tower Hotel. Reservados todos los drerechos.</small>
+						</p>
+						<p>
+							<ul class="colorlib-social-icons">
+								<li>
+									<a href="#">
+										<i class="icon-twitter"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="icon-facebook"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="icon-linkedin"></i>
+									</a>
+								</li>
+							</ul>
+						</p>
+					</div>
 				</div>
 
 			</div>
-
-			<div class="row copyright">
-				<div class="col-md-12 text-center">
-					<p>
-					<small class="block">&copy; 2018 Gold Tower Hotel. Reservados todos los drerechos.</small> 
-					</p>
-					<p>
-						<ul class="colorlib-social-icons">
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-linkedin"></i></a></li>
-						</ul>
-					</p>
-				</div>
-			</div>
-
-		</div>
-	</footer>
+		</footer>
 	</div>
 
 	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+		<a href="#" class="js-gotop">
+			<i class="icon-arrow-up"></i>
+		</a>
 	</div>
-	
+
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -226,5 +282,6 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
-	</body>
+</body>
+
 </html>
