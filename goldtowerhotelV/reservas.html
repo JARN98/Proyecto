@@ -130,32 +130,41 @@
 			</div>
 		</aside>
 
-
-		<div id="colorlib-about">
-			<div class="container">
-				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2 text-center colorlib-heading">
-						<h2>Reserve su estancia con nosotros</h2>
-						<p>Enano, aquí deberías meter todo el procedimiento de reserva de habitación</p>
+	<div class="container">	
+		<div class="col-md-12 animate-box">
+			<h2>Reserve su estancia con nosotros</h2>
+			<form action="#">
+				<div class="row form-group">
+					<div class="col-md-6">
+						<label for="fechaInicio">Fecha Inicio:</label>
+						<input type="text" class="span2" value="" name="dpd1" id="dpd1">
+					</div>
+					<div class="col-md-6">
+						<label for="fechaFin">Fecha Fin:</label>
+						<input type="text" class="span2" value="" name="dpd2"  id="dpd2">
+					</div>
+								
+					<div class="col-md-6">
+						<label for="tipoHabitacion">Tipo de suite:</label>
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Elija el tipo de suite
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="#">Suite Oro</a>
+							<a class="dropdown-item" href="#">Suite Esmeralda</a>
+							<a class="dropdown-item" href="#">Suite Diamante</a>
+						</div>
+					</div>
+					
+					<div class="col-md-12">
+						<div class="form-group">
+							<input type="submit" value="¡Consulte disponibilidad!" class="btn btn-primary">
+						</div>
 					</div>
 				</div>
-				
-				<div class="well">
-					<table class="table">
-					<thead>
-						<tr>
-							<th>Check in: <input type="text" class="span2" value="" name="dpd1" id="dpd1"></th>
-							<th>Check out: <input type="text" class="span2" value="" name="dpd2"  id="dpd2"></th>
-						</tr>
-					</thead>
-					</table>
-				</div>
-							
-				
-			</div>	
+			</form>
 		</div>
-
-		
+	</div>
 
 
 		<footer id="colorlib-footer" role="contentinfo">
@@ -264,7 +273,6 @@
 	
 	<script src="js/bootstrap-datepicker.js"></script>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 	<!-- Include Date Range Picker -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
