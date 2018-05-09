@@ -1,19 +1,34 @@
 package com.salesianostriana.goldtowerhotel.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Usuario {
 	@GeneratedValue
 	@Id
-	private long id;
+	private Long id;
 	private boolean admin;
 	private String nombre;
 	private String apellidos;
 	private String email;
 	private String contrasena;
+
+	@OneToMany
+	private Set<Reserva> reservaList = new HashSet<Reserva>();
+
+	public Set<Reserva> getReservaList() {
+		return reservaList;
+	}
+
+	public void setReservaList(Set<Reserva> reservaList) {
+		this.reservaList = reservaList;
+	}
 
 	public Usuario() {
 
@@ -27,11 +42,11 @@ public class Usuario {
 		this.contrasena = contrasena;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -128,6 +143,22 @@ public class Usuario {
 		} else if (!nombre.equals(other.nombre))
 			return false;
 		return true;
+	}
+
+	// Helper
+
+	public void addReserva(Reserva r) {
+		if( r != null) {
+			r.setUsuario(this);
+			this.getReservaList().add(r);
+		}
+	}
+	
+	public void removeReserva(Reserva r) {
+		if(r != null) {
+			r.setUsuario(null);
+			this.getReservaList().remove(r);
+		}
 	}
 
 }

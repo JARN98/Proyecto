@@ -3,15 +3,27 @@ package com.salesianostriana.goldtowerhotel.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Habitacion {
 	@GeneratedValue
 	@Id
-	private long id;
+	private Long id;
 	private String tipoHab;
 	private double precioHabTA;
 	private double precioHabTB;
+
+	@OneToOne
+	private Reserva reserva;
+
+	public Reserva getReserva() {
+		return reserva;
+	}
+
+	public void setReserva(Reserva reserva) {
+		this.reserva = reserva;
+	}
 
 	public Habitacion() {
 
@@ -23,11 +35,11 @@ public class Habitacion {
 		this.precioHabTB = precioHabTB;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -97,5 +109,14 @@ public class Habitacion {
 			return false;
 		return true;
 	}
+	
+	// Helper
+	
+	/*public void addReserva(Reserva r) {
+		if( r != null) {
+			r.setHabitacion(this);
+			this.getReserva().add
+		}
+	}*/
 
 }
