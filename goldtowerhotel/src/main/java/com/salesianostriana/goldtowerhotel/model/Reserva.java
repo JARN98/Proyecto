@@ -10,22 +10,22 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Reserva {
-	@GeneratedValue
 	@Id
+	@GeneratedValue
 	private Long id;
-	private LocalDateTime fechaInicio;
 	private LocalDateTime fechaFin;
-	private double precio;
+	private LocalDateTime fechaInicio;
+	private double precioFinal;
 
 	@OneToOne
-	private Habitacion Habitacion;
+	private Habitacion habitacion;
 
 	public Habitacion getHabitacion() {
-		return Habitacion;
+		return habitacion;
 	}
 
 	public void setHabitacion(Habitacion habitacion) {
-		Habitacion = habitacion;
+		this.habitacion = habitacion;
 	}
 
 	@ManyToOne
@@ -39,14 +39,10 @@ public class Reserva {
 		this.usuario = usuario;
 	}
 
-	public Reserva() {
-
-	}
-
-	public Reserva(LocalDateTime fechaInicio, LocalDateTime fechaFin, double precio) {
-		this.fechaInicio = fechaInicio;
+	public Reserva(LocalDateTime fechaFin, LocalDateTime fechaInicio, double precioFinal) {
 		this.fechaFin = fechaFin;
-		this.precio = precio;
+		this.fechaInicio = fechaInicio;
+		this.precioFinal = precioFinal;
 	}
 
 	public Long getId() {
@@ -57,14 +53,6 @@ public class Reserva {
 		this.id = id;
 	}
 
-	public LocalDateTime getFechaInicio() {
-		return fechaInicio;
-	}
-
-	public void setFechaInicio(LocalDateTime fechaInicio) {
-		this.fechaInicio = fechaInicio;
-	}
-
 	public LocalDateTime getFechaFin() {
 		return fechaFin;
 	}
@@ -73,18 +61,20 @@ public class Reserva {
 		this.fechaFin = fechaFin;
 	}
 
-	public double getPrecio() {
-		return precio;
+	public LocalDateTime getFechaInicio() {
+		return fechaInicio;
 	}
 
-	public void setPrecio(double precio) {
-		this.precio = precio;
+	public void setFechaInicio(LocalDateTime fechaInicio) {
+		this.fechaInicio = fechaInicio;
 	}
 
-	@Override
-	public String toString() {
-		return "Reserva [id=" + id + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", precio=" + precio
-				+ "]";
+	public double getPrecioFinal() {
+		return precioFinal;
+	}
+
+	public void setPrecioFinal(double precioFinal) {
+		this.precioFinal = precioFinal;
 	}
 
 	@Override
@@ -93,10 +83,12 @@ public class Reserva {
 		int result = 1;
 		result = prime * result + ((fechaFin == null) ? 0 : fechaFin.hashCode());
 		result = prime * result + ((fechaInicio == null) ? 0 : fechaInicio.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((habitacion == null) ? 0 : habitacion.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		long temp;
-		temp = Double.doubleToLongBits(precio);
+		temp = Double.doubleToLongBits(precioFinal);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
 		return result;
 	}
 
@@ -119,11 +111,30 @@ public class Reserva {
 				return false;
 		} else if (!fechaInicio.equals(other.fechaInicio))
 			return false;
-		if (id != other.id)
+		if (habitacion == null) {
+			if (other.habitacion != null)
+				return false;
+		} else if (!habitacion.equals(other.habitacion))
 			return false;
-		if (Double.doubleToLongBits(precio) != Double.doubleToLongBits(other.precio))
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (Double.doubleToLongBits(precioFinal) != Double.doubleToLongBits(other.precioFinal))
+			return false;
+		if (usuario == null) {
+			if (other.usuario != null)
+				return false;
+		} else if (!usuario.equals(other.usuario))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Reserva [id=" + id + ", fechaFin=" + fechaFin + ", fechaInicio=" + fechaInicio + ", precioFinal="
+				+ precioFinal + ", habitacion=" + habitacion + ", usuario=" + usuario + "]";
 	}
 
 }

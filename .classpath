@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="repository/|model/|services/|controller/" kind="src" path="goldtowerhotel/src/main/java/com/salesianostriana/goldtowerhotel"/>
+	<classpathentry kind="src" path="goldtowerhotel/src/main/java/com/salesianostriana/goldtowerhotel/controller"/>
+	<classpathentry kind="src" path="goldtowerhotel/src/main/java/com/salesianostriana/goldtowerhotel/model"/>
+	<classpathentry kind="src" path="goldtowerhotel/src/main/java/com/salesianostriana/goldtowerhotel/repository"/>
+	<classpathentry kind="src" path="goldtowerhotel/src/main/java/com/salesianostriana/goldtowerhotel/services"/>
+	<classpathentry kind="src" path="goldtowerhotel/src/test/java/com/salesianostriana/goldhoteltower"/>
+	<classpathentry kind="src" path="goldtowerhotelV/ESTO/src/main/java"/>
+	<classpathentry kind="src" path="goldtowerhotelV/ESTO/src/test/java"/>
+	<classpathentry kind="lib" path="goldtowerhotel/.mvn/wrapper/maven-wrapper.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

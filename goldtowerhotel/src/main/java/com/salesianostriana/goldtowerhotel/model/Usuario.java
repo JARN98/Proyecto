@@ -10,9 +10,10 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Usuario {
-	@GeneratedValue
 	@Id
+	@GeneratedValue
 	private Long id;
+
 	private boolean admin;
 	private String nombre;
 	private String apellidos;
@@ -20,18 +21,14 @@ public class Usuario {
 	private String contrasena;
 
 	@OneToMany
-	private Set<Reserva> reservaList = new HashSet<Reserva>();
+	Set<Reserva> listaReservas = new HashSet<Reserva>();
 
-	public Set<Reserva> getReservaList() {
-		return reservaList;
+	public Set<Reserva> getListaReservas() {
+		return listaReservas;
 	}
 
-	public void setReservaList(Set<Reserva> reservaList) {
-		this.reservaList = reservaList;
-	}
-
-	public Usuario() {
-
+	public void setListaReservas(Set<Reserva> listaReservas) {
+		this.listaReservas = listaReservas;
 	}
 
 	public Usuario(boolean admin, String nombre, String apellidos, String email, String contrasena) {
@@ -91,12 +88,6 @@ public class Usuario {
 	}
 
 	@Override
-	public String toString() {
-		return "Usuario [id=" + id + ", admin=" + admin + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email="
-				+ email + ", contrasena=" + contrasena + "]";
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -104,7 +95,8 @@ public class Usuario {
 		result = prime * result + ((apellidos == null) ? 0 : apellidos.hashCode());
 		result = prime * result + ((contrasena == null) ? 0 : contrasena.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((listaReservas == null) ? 0 : listaReservas.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		return result;
 	}
@@ -135,7 +127,15 @@ public class Usuario {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (listaReservas == null) {
+			if (other.listaReservas != null)
+				return false;
+		} else if (!listaReservas.equals(other.listaReservas))
 			return false;
 		if (nombre == null) {
 			if (other.nombre != null)
@@ -145,19 +145,25 @@ public class Usuario {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", admin=" + admin + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email="
+				+ email + ", contrasena=" + contrasena + ", listaReservas=" + listaReservas + "]";
+	}
+
 	// Helper
 
 	public void addReserva(Reserva r) {
-		if( r != null) {
+		if (r != null) {
 			r.setUsuario(this);
-			this.getReservaList().add(r);
+			this.getListaReservas().add(r);
 		}
 	}
-	
+
 	public void removeReserva(Reserva r) {
-		if(r != null) {
+		if (r != null) {
 			r.setUsuario(null);
-			this.getReservaList().remove(r);
+			this.getListaReservas().remove(r);
 		}
 	}
 
