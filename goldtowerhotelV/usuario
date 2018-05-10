@@ -180,11 +180,11 @@ Please consider that the JS part isn't production ready at all, I just code it t
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-3">
-                <div class="btn btn-primary" id="usuarios">Gestionar usuarios</div>
+                <div class="btn btn-primary" id="usuarios">Ver mis datos</div>
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-3">
-                <div class="btn btn-primary" id="habitaciones">Gestionar habitaciones</div>
+                <div class="btn btn-primary" id="habitaciones">Ver mis reservas</div>
             </div>
         </div>
 
@@ -220,10 +220,10 @@ Please consider that the JS part isn't production ready at all, I just code it t
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="habitacion : ${habitacionList}">
-                                <td th:text="${usuario.id}">1</td>
-                                <td th:text="${usuario.tipoHab}">Mark</td>
-                                <!-- <td th:text="${usuario.reserva}">Otto</td>-->
+                            <tr th>
+                                <td th:text="${usuario.}"></td>
+                                <td th:text="${}"></td>
+                                <td th:text="${}"></td>
                             </tr>
                         </tbody>
                     </table>
