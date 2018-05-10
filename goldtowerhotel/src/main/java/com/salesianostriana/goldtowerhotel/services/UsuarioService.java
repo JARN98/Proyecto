@@ -3,37 +3,40 @@ package com.salesianostriana.goldtowerhotel.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.salesianostriana.goldhoteltower.repository.UsuarioRepository;
 import com.salesianostriana.goldtowerhotel.model.Usuario;
-import com.salesianostriana.goldtowerhotel.repository.UsuarioRepository;
 
 @Service
 public class UsuarioService {
-	
-	@Autowired
-	private UsuarioRepository repo;
 
-	public Iterable<Usuario> findAll() {
-		return repo.findAll();
+	@Autowired
+	UsuarioRepository repositorio;
+
+	public Usuario login(String nombre, String contrasena) {
+		return repositorio.findFirstByNombreAndContrasena(nombre, contrasena);
 	}
 
 	public Usuario findOne(Long id) {
-		return repo.findById(id).orElse(null);
+		return repositorio.findById(id).orElse(null);
 	}
 
-	public Usuario save(Usuario u) {
-		return repo.save(u);
+	public Iterable<Usuario> findAll() {
+		return repositorio.findAll();
+	}
+
+	public Usuario save(Usuario usuario) {
+		return repositorio.save(usuario);
 	}
 
 	public Usuario edit(Usuario u) {
-		return repo.save(u);
+		return repositorio.save(u);
 	}
 
 	public Usuario delete(Usuario u) {
-		Usuario deleteUser = repo.findById(u.getId()).orElse(null);
-		if (deleteUser != null)
-			repo.delete(u);
+		Usuario deleteUsu = repositorio.findById(u.getId()).orElse(null);
+		if (deleteUsu != null)
+			repositorio.delete(u);
 
-		return deleteUser;
+		return deleteUsu;
 	}
-
 }

@@ -29,6 +29,7 @@
 	<link rel="stylesheet" href="css/icomoon.css">
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
+	<link href="css/datepicker.css" rel="stylesheet">
 
 	<!-- Magnific Popup -->
 	<link rel="stylesheet" href="css/magnific-popup.css">
@@ -50,7 +51,6 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-
 </head>
 
 <body>
@@ -75,7 +75,7 @@
 								<li>
 									<a href="hotel.html">Hotel</a>
 								</li>
-								<li class="has-dropdown active">
+								<li class="has-dropdown">
 									<a href="Suites.html">Suites</a>
 									<ul class="dropdown">
 										<li>
@@ -89,7 +89,7 @@
 										</li>
 									</ul>
 								</li>
-								<li>
+								<li class="active">
 									<a href="reservas.html">Reservas</a>
 								</li>
 								<li>
@@ -115,13 +115,13 @@
 		<aside id="colorlib-hero" class="js-fullheight">
 			<div class="flexslider js-fullheight">
 				<ul class="slides">
-					<li style="background-image: url(images/gold-Suite.jpg);">
+					<li style="background-image: url(images/hall.jpg);">
 						<div class="overlay-gradient"></div>
 						<div class="container">
 							<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
 								<div class="slider-text-inner desc">
-									<h2 class="heading-section">Suite Oro</h2>
-									<p class="colorlib-lead">Diseñadas especialmente para amantes de la elegancia más pura.</p>
+									<h2 class="heading-section">Planifique su estancia</h2>
+									<p class="colorlib-lead">Las mejores Suites le esperan para otorgarle el mejor descanso y ambiente en la ciudad</p>
 								</div>
 							</div>
 						</div>
@@ -130,69 +130,42 @@
 			</div>
 		</aside>
 
-		<div id="colorlib-practice">
-			<section>
-				<div class="container custom-card">
-					<div class="col-lg-6 order-lg-2">
-						<div class="p-5">
-							<img class="img-fluid rounded-circle custom-card-img" src="./images/gold-suite-2.jpg" alt="">
-						</div>
+	<div class="container">	
+		<div class="col-md-12 animate-box">
+			<h2>Reserve su estancia con nosotros</h2>
+			<form action="#">
+				<div class="row form-group">
+					<div class="col-md-6">
+						<label for="fechaInicio">Fecha Inicio:</label>
+						<input type="text" class="span2" value="" name="dpd1" id="dpd1">
 					</div>
-					<div class="col-lg-6 order-lg-1">
-						<div class="p-5">
-							<h2 class="display-4">La suite</h2>
-							<p align="justify">La opulencia de las suite Oro hacen de éstas, las más solicitadas por nuestros clientes. 
-							Fiel al diseño autóctono del hotel. <br>Las suite Oro poseen abundante luz natural, con muebles antiguos restaurados, 
-							las suite Oro constan de una mesa con sillas, además sillones o sofá, perfectos para relajarse. El escritorio es un lugar ideal donde trabajar.</p>
-						</div>
+					<div class="col-md-6">
+						<label for="fechaFin">Fecha Fin:</label>
+						<input type="text" class="span2" value="" name="dpd2"  id="dpd2">
 					</div>
-				</div>
-			</section>
-
-			<section>
-				<div class="container custom-card ">
-					<div class="col-lg-6 order-lg-2">
-						<div class="p-5">
-							<h2 class="display-4">El ambiente</h2>
-							<p align="justify">
-							Las suite Oro cuentan, con vistas al patio o al jardín, son perfumadas por las fragancias que desprenden las flores de azahar del hotel. Todas las ventanas tienen 
-							doble vidrio para asegurar un sueño sereno. <br>Un copioso centro de refrescos en la habitación nos ofrece auténticos vinos españoles y aperitivos.
-							Los cuartos de baño están revestidos con azulejos de auténtica cerámica sevillana, complementados por elegantes suelos de mármol. 
-							Envuélvase en los albornoces y zapatillas de lujo y disfrute de los artículos de baño Byredo.</p>
-						</div>
-					</div>
-					<div class="col-lg-6 order-lg-1">
-						<div class="p-5">
-							<img class="img-fluid rounded-circle custom-card-img" src="./images/gold-suite-3.jpg" alt="">
+								
+					<div class="col-md-6">
+						<label for="tipoHabitacion">Tipo de suite:</label>
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Elija el tipo de suite
+						</button>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="#">Suite Oro</a>
+							<a class="dropdown-item" href="#">Suite Esmeralda</a>
+							<a class="dropdown-item" href="#">Suite Diamante</a>
 						</div>
 					</div>
 					
-					
-					
-				</div>
-			</section>
-			
-			<section>
-				<div class="container custom-card ">
-					<div class="col-lg-6 order-lg-2">
-						<div class="p-5">
-							<h2 class="display-4">Características</h2>
-							<ul class="grid__10 ul-feature grid">
-								<li class="li-feature grid__6"><span>Sala de estar independiente</span></li>
-								<li class="li-feature grid__6"><span>Suelos de Mármol y Azulejos</span></li>
-								<li class="li-feature grid__6"><span>Vistas a los jardines</span></li>
-								<li class="li-feature grid__6"><span>Vistas a la ciudad</span></li>
-								<li class="li-feature grid__6"><span>Artículos de tocador Byredo</span></li>
-								<li class="li-feature grid__6"><span>Servicio de habitaciones las 24 horas</span></li>
-								<li class="li-feature grid__6"><span>TV LCD LED</span></li>
-								<li class="li-feature grid__6"><span>Ducha o bañera</span></li>
-                            </ul>
+					<div class="col-md-12">
+						<div class="form-group">
+							<input type="submit" value="¡Consulte disponibilidad!" class="btn btn-primary">
 						</div>
 					</div>
 				</div>
-			</section>
-		
+			</form>
 		</div>
+	</div>
+
 
 		<footer id="colorlib-footer" role="contentinfo">
 			<div class="container">
@@ -297,7 +270,39 @@
 	<script src="js/magnific-popup-options.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+	
+	<script src="js/bootstrap-datepicker.js"></script>
 
+
+	<!-- Include Date Range Picker -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+				<script type="text/javascript">
+					$(document).ready(function(){
+					var date_input=$('input[name="dpd1"]'); //our date input has the name "date"
+					var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+					date_input.datepicker({
+						format: 'mm/dd/yyyy',
+						container: container,
+						todayHighlight: true,
+						autoclose: true,
+					})
+				})
+				</script>
+				
+				<script type="text/javascript">
+					$(document).ready(function(){
+					var date_input=$('input[name="dpd2"]'); //our date input has the name "date"
+					var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+					date_input.datepicker({
+						format: 'mm/dd/yyyy',
+						container: container,
+						todayHighlight: true,
+						autoclose: true,
+					})
+				})
+				</script>
 </body>
 
 </html>

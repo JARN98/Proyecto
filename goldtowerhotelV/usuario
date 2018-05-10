@@ -100,13 +100,13 @@ Please consider that the JS part isn't production ready at all, I just code it t
         });
     </script>
     <script>
-        $(document).ready(function () {
-            $('#usuarios').click(function () {
+        $(document).ready(function(){
+            $('#usuarios').click(function(){
                 $('#listaHabitaciones').hide();
                 $('#listaUsuarios').show();
             });
 
-            $('#habitaciones').click(function () {
+            $('#habitaciones').click(function(){
                 $('#listaUsuarios').hide();
                 $('#listaHabitaciones').show();
             })
