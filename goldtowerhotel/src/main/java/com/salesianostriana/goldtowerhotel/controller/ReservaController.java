@@ -19,4 +19,9 @@ public class ReservaController {
 		model.addAttribute("usuario", session.getAttribute("usuarioActual"));
 		return "fil/reservas";
 	}
+	
+	@GetMapping("/")
+	public String ShowHome() {
+		return "index";
+	}
 }

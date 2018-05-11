@@ -1,4 +1,4 @@
-package com.salesianostriana.goldtowerhotel.controller;
+package com.salesianostriana.pruebaproyecto.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,27 +10,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.salesianostriana.goldtowerhotel.formbean.LoginDeUsuario;
-import com.salesianostriana.goldtowerhotel.model.Usuario;
-import com.salesianostriana.goldtowerhotel.services.UsuarioService;
+import com.salesianostriana.pruebaproyecto.formbean.LoginDeUsuario;
+import com.salesianostriana.pruebaproyecto.model.Usuario;
+import com.salesianostriana.pruebaproyecto.services.UsuarioService;
 
 @Controller
-public class LogInController {
-	
+public class LoginController {
+
 	@Autowired
 	private UsuarioService usuarioService;
-	
+
 	@Autowired
 	private HttpSession session;
-	
+
 	@GetMapping("/login")
 	public String showLogin(Model model) {
 		model.addAttribute("loginUsuario", new LoginDeUsuario());
 		return "login";
 	}
-	
+
 	@PostMapping("/checkLogin")
-	public String doLogin(@ModelAttribute("loginDeUsuario") LoginDeUsuario loginDeUsuario, BindingResult bindingResult, Model model) {
+	public String doLogin(@ModelAttribute("loginDeUsuario") LoginDeUsuario loginDeUsuario, BindingResult bindingResult,
+			Model model) {
 
 		Usuario usuario = usuarioService.login(loginDeUsuario.getNombreUsuario(), loginDeUsuario.getContrasena());
 
@@ -43,10 +44,11 @@ public class LogInController {
 		}
 
 	}
-	
+
 	@GetMapping("/logout")
 	public String doLogout(Model model) {
 		session.setAttribute("usuarioActual", null);
 		return "redirect:/";
 	}
+
 }

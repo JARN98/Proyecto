@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -19,7 +20,7 @@ public class Usuario {
 	private String email;
 	private String contrasena;
 
-	@OneToMany
+	@OneToMany(fetch=FetchType.EAGER)
 	private Set<Reserva> reservaList = new HashSet<Reserva>();
 
 	public Set<Reserva> getReservaList() {
@@ -162,3 +163,4 @@ public class Usuario {
 	}
 
 }
+
