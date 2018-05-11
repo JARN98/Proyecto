@@ -48,7 +48,7 @@ public class SecurityConfiguration {
 			HttpSession session = request.getSession();
 
 			if (session.getAttribute("usuarioActual") == null) {
-				response.sendRedirect("/");
+				response.sendRedirect("/login");
 				return;
 			} else
 				chain.doFilter(req, resp);
