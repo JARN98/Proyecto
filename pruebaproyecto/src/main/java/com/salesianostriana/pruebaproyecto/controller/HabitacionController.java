@@ -26,7 +26,7 @@ public class HabitacionController {
 	}
 
 	@PostMapping("/registerHabitacion")
-	public String doHabitacion(@ModelAttribute("registroUsuario") Habitacion habitacion, Model model) {
+	public String doHabitacion(@ModelAttribute("crearHabitacion") Habitacion habitacion, Model model) {
 		
 		habitacionService.save(habitacion);
 		

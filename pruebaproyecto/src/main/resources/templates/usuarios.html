@@ -127,45 +127,45 @@ Please consider that the JS part isn't production ready at all, I just code it t
                     <div class="row">
                         <div class="col-md-2" style="background-image: url(images/logo-hotel.png); background-repeat: no-repeat">
                             <div id="colorlib-logo">
-                                <a href="index.html"></a>
+                                <a href="index"></a>
                             </div>
                         </div>
                         <div class="col-md-10 text-right menu-1">
                             <ul>
                                 <li>
-                                    <a href="index.html">Home</a>
+                                    <a href="index">Home</a>
                                 </li>
                                 <li>
-                                    <a href="hotel.html">Hotel</a>
+                                    <a href="hotel">Hotel</a>
                                 </li>
                                 <li class="has-dropdown">
-                                    <a href="Suites.html">Suites</a>
+                                    <a href="suite">Suites</a>
                                     <ul class="dropdown">
                                         <li>
-                                            <a href="oro.html">Suite Oro</a>
+                                            <a href="oro">Suite Oro</a>
                                         </li>
                                         <li>
-                                            <a href="esmeralda.html">Suite Esmeralda</a>
+                                            <a href="esmeralda">Suite Esmeralda</a>
                                         </li>
                                         <li>
-                                            <a href="diamante.html">Suite Diamante</a>
+                                            <a href="diamante">Suite Diamante</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="reservas.html">Reservas</a>
+                                    <a href="FilterUser/reservas">Reservas</a>
                                 </li>
                                 <li>
-                                    <a href="contact.html">Contacto</a>
+                                    <a href="contact">Contacto</a>
                                 </li>
                                 <li class="btn-cta">
-                                    <a href="login.html">
+                                    <a href="login">
                                         <span>Login</span>
                                     </a>
                                 </li>
                                 <!-- <li class="btn-cta"><a href="#"><span>Sign Up</span></a></li> -->
                                 <li>
-                                    <a href="Register.html">Registrarse</a>
+                                    <a href="Register">Registrarse</a>
                                 </li>
                             </ul>
 
@@ -228,128 +228,154 @@ Please consider that the JS part isn't production ready at all, I just code it t
                         </tbody>
                     </table>
                 </div>
+                <a href="#popup1" class="btn btn-primary btn-default">
+                    <span class="glyphicon glyphicon-plus-sign"></span> Añadir Habitacion</a>
             </div>
-        </div>
 
-
-
-
-
-        <div class="container" id="listaUsuarios" style="display: none;">
-            <div class="row">
-                <div class="panel panel-warning filterable">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Usuarios</h3>
-                        <div class="pull-right">
-                            <button class="btn btn-default btn-xs btn-filter">
-                                <span class="glyphicon glyphicon-filter"></span> Filter</button>
-                        </div>
-                    </div>
-                    <table class="table">
-                        <thead>
-                            <tr class="filters">
-                                <th>
-                                    <input type="text" class="form-control" placeholder="#" disabled>
-                                </th>
-                                <th>
-                                    <input type="text" class="form-control" placeholder="First Name" disabled>
-                                </th>
-                                <th>
-                                    <input type="text" class="form-control" placeholder="Last Name" disabled>
-                                </th>
-                                <th>
-                                    <input type="text" class="form-control" placeholder="Username" disabled>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="usuario : ${usuarioList}">
-                                <td th:text="${usuario.id}">1</td>
-                                <td th:text="${usuario.nombre}">Mark</td>
-                                <td th:text="${usuario.email}">Otto</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div id="popup1" class="overlay">
+                <div class="popup">
+                    <br />
+                    <h2>Añadir Habitación</h2>
+                    <form th:action="@{/registerHabitacion}" th:object="${crearHabitacion}" method="POST">
+                        <a class="close" href="#" style="color: red;">x</a>
+                        <br>
+                        <label class=" control-label" for="Precio">Precio por noche </label>
+                        <input th:field="*{precio}" id="Precio" name="Precio" placeholder="25" class="form-control input-md" type="text">
+                        <br/>
+                        <label class=" control-label" for="tipo">Tipo de Habitacion</label>
+                        <select th:field="*{tipoHab}" id="tipo" name="tipo" class="form-control">
+                            <option value="suiteOro">Suite Oro</option>
+                            <option value="suiteDiamante">Suite Diamante</option>
+                            <option value="suiteEsmeralda">Suite Esmeralda</option>
+                        </select>
+                        <br/>
+                        <input type="submit" class="btn btn-success" value="Añadir">
+                       
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
 
 
-        <footer id="colorlib-footer" role="contentinfo">
-            <div class="container">
-                <div class="row row-pb-md">
 
-                    <div class="col-md-3 col-md-push-1">
-                        <h4>Menú</h4>
-                        <ul class="colorlib-footer-links">
-                            <li>
-                                <a href="index.html">Home</a>
-                            </li>
-                            <li>
-                                <a href="hotel.html">Hotel</a>
-                            </li>
-                            <li>
-                                <a href="Suites.html">Suites</a>
-                            </li>
-                            <li>
-                                <a href="reservas.html">Reservas</a>
-                            </li>
-                        </ul>
+
+    <div class="container" id="listaUsuarios" style="display: none;">
+        <div class="row">
+            <div class="panel panel-warning filterable">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Usuarios</h3>
+                    <div class="pull-right">
+                        <button class="btn btn-default btn-xs btn-filter">
+                            <span class="glyphicon glyphicon-filter"></span> Filter</button>
                     </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr class="filters">
+                            <th>
+                                <input type="text" class="form-control" placeholder="#" disabled>
+                            </th>
+                            <th>
+                                <input type="text" class="form-control" placeholder="First Name" disabled>
+                            </th>
+                            <th>
+                                <input type="text" class="form-control" placeholder="Last Name" disabled>
+                            </th>
+                            <th>
+                                <input type="text" class="form-control" placeholder="Username" disabled>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="usuario : ${usuarioList}">
+                            <td th:text="${usuario.id}">1</td>
+                            <td th:text="${usuario.nombre}">Mark</td>
+                            <td th:text="${usuario.email}">Otto</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-                    <div class="col-md-3 col-md-push-1">
-                        <h4>Información de contacto</h4>
-                        <ul class="colorlib-footer-links">
-                            <li>Avenida Constitución, 23
-                                <br> Sevilla, 41000</li>
-                            <li>
-                                <a href="tel://1234567920">+ 1235 2355 98</a>
-                            </li>
-                            <li>
-                                <a href="mailto:info@goldtowerhotel.com">info@goldtowerhotel.com</a>
-                            </li>
-                        </ul>
-                    </div>
 
-                    <div class="col-md-3 col-md-push-1">
-                        <h4>Horario recepción</h4>
-                        <ul class="colorlib-footer-links">
-                            <li>Lu-Dom: 7:00 - 23:30</li>
-                        </ul>
-                    </div>
 
+    <footer id="colorlib-footer" role="contentinfo">
+        <div class="container">
+            <div class="row row-pb-md">
+
+                <div class="col-md-3 col-md-push-1">
+                    <h4>Menú</h4>
+                    <ul class="colorlib-footer-links">
+                        <li>
+                            <a href="index">Home</a>
+                        </li>
+                        <li>
+                            <a href="hotel">Hotel</a>
+                        </li>
+                        <li>
+                            <a href="suite">Suites</a>
+                        </li>
+                        <li>
+                            <a href="hotelFilterUser/reservas">Reservas</a>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="row copyright">
-                    <div class="col-md-12 text-center">
-                        <p>
-                            <small class="block">&copy; 2018 Gold Tower Hotel. Reservados todos los drerechos.</small>
-                        </p>
-                        <p>
-                            <ul class="colorlib-social-icons">
-                                <li>
-                                    <a href="#">
-                                        <i class="icon-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="icon-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="icon-linkedin"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </p>
-                    </div>
+                <div class="col-md-3 col-md-push-1">
+                    <h4>Información de contacto</h4>
+                    <ul class="colorlib-footer-links">
+                        <li>Avenida Constitución, 23
+                            <br> Sevilla, 41000</li>
+                        <li>
+                            <a href="tel://1234567920">+ 1235 2355 98</a>
+                        </li>
+                        <li>
+                            <a href="mailto:info@goldtowerhotel.com">info@goldtowerhotel.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 col-md-push-1">
+                    <h4>Horario recepción</h4>
+                    <ul class="colorlib-footer-links">
+                        <li>Lu-Dom: 7:00 - 23:30</li>
+                    </ul>
                 </div>
 
             </div>
-        </footer>
+
+            <div class="row copyright">
+                <div class="col-md-12 text-center">
+                    <p>
+                        <small class="block">&copy; 2018 Gold Tower Hotel. Reservados todos los drerechos.</small>
+                    </p>
+                    <p>
+                        <ul class="colorlib-social-icons">
+                            <li>
+                                <a href="#">
+                                    <i class="icon-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="icon-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="icon-linkedin"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
     </div>
 
     <div class="gototop js-top">
