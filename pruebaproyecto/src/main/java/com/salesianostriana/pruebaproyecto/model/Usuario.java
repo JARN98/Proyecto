@@ -37,6 +37,10 @@ public class Usuario {
 		this.email = email;
 		this.contrasena = contrasena;
 	}
+	
+	public Usuario() {
+		
+	}
 
 	public Long getId() {
 		return id;

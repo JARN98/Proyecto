@@ -6,4 +6,6 @@ import com.salesianostriana.pruebaproyecto.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	public Usuario findFirstByNombreAndContrasena(String nombre, String contrasena);
+	
+	public Usuario findFirtsByEmail(String email);
 }

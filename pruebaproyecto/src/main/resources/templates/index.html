@@ -76,7 +76,7 @@
 									<a href="hotel">Hotel</a>
 								</li>
 								<li class="has-dropdown">
-									<a href="suite">Suites</a>
+									<a href="suites">Suites</a>
 									<ul class="dropdown">
 										<li>
 											<a href="oro">Suite Oro</a>
@@ -90,7 +90,7 @@
 									</ul>
 								</li>
 								<li>
-									<a href="reservas">Reservas</a>
+									<a href="/FilterUser/reservas">reservas</a>
 								</li>
 								<li>
 									<a href="contact">Contacto</a>
@@ -103,6 +103,9 @@
 								<!-- <li class="btn-cta"><a href="#"><span>Sign Up</span></a></li> -->
 								<li>
 									<a href="Register">Registrarse</a>
+								</li>
+								<li th:if="@{usuarioRegistrado}">
+									<a href="usuarios">Pantalla de admin</a>
 								</li>
 							</ul>
 						</div>
@@ -124,7 +127,7 @@
 										<h1>GOLD TOWER HOTEL</h1>
 										<h2>La vida se vive de otra manera</h2>
 										<p>
-											<a class="btn btn-primary btn-lg" href="reservas">¡Reserve ya!</a>
+											<a class="btn btn-primary btn-lg" href="FilterUser/FilterUser/FilterUser/reservas">¡Reserve ya!</a>
 										</p>
 									</div>
 								</div>
@@ -139,7 +142,7 @@
 									<div class="slider-text-inner">
 										<h1>Las mejores Suites para un descanso de lujo</h1>
 										<p>
-											<a class="btn btn-primary btn-lg btn-learn" href="suite">Ver Suites</a>
+											<a class="btn btn-primary btn-lg btn-learn" href="suites">Ver Suites</a>
 										</p>
 									</div>
 								</div>
@@ -240,7 +243,7 @@
 					</div>
 					<div class="col-md-12 text-center animate-box">
 						<p>
-							<a class="btn btn-primary btn-lg btn-learn" href="suite">Ver Suites
+							<a class="btn btn-primary btn-lg btn-learn" href="suites">Ver Suites
 								<i class="icon-arrow-right"></i>
 							</a>
 						</p>
@@ -390,7 +393,7 @@
 								<a href="suite">Suites</a>
 							</li>
 							<li>
-								<a href="reservas">Reservas</a>
+								<a href="FilterUser/FilterUser/FilterUser/FilterUser/reservas">FilterUser/FilterUser/FilterUser/reservas</a>
 							</li>
 						</ul>
 					</div>

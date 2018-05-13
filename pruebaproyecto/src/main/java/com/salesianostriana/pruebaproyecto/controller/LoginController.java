@@ -34,6 +34,8 @@ public class LoginController {
 			Model model) {
 
 		Usuario usuario = usuarioService.login(loginDeUsuario.getNombreUsuario(), loginDeUsuario.getContrasena());
+		
+		
 
 		if (usuario != null) {
 			session.setAttribute("usuarioActual", usuario);

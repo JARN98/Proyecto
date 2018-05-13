@@ -137,7 +137,7 @@
 
 
 
-		<form class="form-horizontal">
+		<form class="form-horizontal" th:action="@{/checkRegister}" th:object="${registroUsuario}" method="POST">
 			<fieldset>
 
 
@@ -145,7 +145,7 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="Email">Email</label>
 					<div class="col-md-4">
-						<input id="Email" name="Email" placeholder="Email" class="form-control input-md" required="" type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+						<input th:field="*{email}" id="Email" name="Email" placeholder="Email" class="form-control input-md" required="" type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
 
 					</div>
 				</div>
@@ -154,7 +154,7 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="Nombre">Nombre</label>
 					<div class="col-md-4">
-						<input id="Nombre" name="Nombre" placeholder="Nombre" class="form-control input-md" required="" type="text">
+						<input th:field="*{nombre}" id="Nombre" name="Nombre" placeholder="Nombre" class="form-control input-md" required="" type="text">
 
 					</div>
 				</div>
@@ -163,7 +163,7 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="Apellidos">Apellidos</label>
 					<div class="col-md-4">
-						<input id="Apellidos" name="Apellidos" placeholder="Apellidos" class="form-control input-md" required="" type="text">
+						<input th:field="*{apellidos}" id="Apellidos" name="Apellidos" placeholder="Apellidos" class="form-control input-md" required="" type="text">
 
 					</div>
 				</div>
@@ -181,7 +181,7 @@
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="Contrasena">Contraseña</label>
 					<div class="col-md-4">
-						<input id="Contrasena" name="Contrasena" placeholder="Contraseña" class="form-control input-md" required="" type="password">
+						<input th:field="*{contrasena}" id="Contrasena" name="Contrasena" placeholder="Contraseña" class="form-control input-md" required="" type="password">
 
 					</div>
 				</div>
@@ -215,8 +215,9 @@
 				<div class="row">
 					<div class="col-md-4"></div>
 					<div class="col-md-4">
-						<div class="alert alert-danger" style="visibility: hidden;" id="alerta">Debe rellenar todos los campos</div>
+						<div class="alert alert-danger" style="display: none;" id="alerta">Debe rellenar todos los campos</div>
 						<div class="alert alert-danger" style="display: none;" id="alerta1">La contraseña debe contener más de 5 caracteres</div>
+						<div class="alert alert-danger" th:if="@{registerError}"></div>
 					</div>
 				</div>
 			</fieldset>

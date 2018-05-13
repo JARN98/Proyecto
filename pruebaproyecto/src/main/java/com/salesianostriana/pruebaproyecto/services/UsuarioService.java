@@ -11,6 +11,10 @@ public class UsuarioService {
 
 	@Autowired
 	UsuarioRepository repositorio;
+	
+	public Usuario registro(String email) {
+		return repositorio.findFirtsByEmail(email);
+	}
 
 	public Usuario login(String nombre, String contrasena) {
 		return repositorio.findFirstByNombreAndContrasena(nombre, contrasena);
