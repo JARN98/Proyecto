@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.salesianostriana.pruebaproyecto.model.Habitacion;
+import com.salesianostriana.pruebaproyecto.model.Reserva;
 import com.salesianostriana.pruebaproyecto.model.Usuario;
 import com.salesianostriana.pruebaproyecto.services.HabitacionService;
+import com.salesianostriana.pruebaproyecto.services.ReservaService;
 import com.salesianostriana.pruebaproyecto.services.UsuarioService;
 
 @Controller
@@ -23,6 +25,9 @@ public class IndexController {
 	
 	@Autowired
 	private UsuarioService usuarioService;
+	
+	@Autowired
+	private ReservaService reservaService;
 
 	@GetMapping({"/", "/index"})
 	public String showIndex(Model model) {
@@ -76,5 +81,13 @@ public class IndexController {
 		listaU = usuarioService.findAll();
 		model.addAttribute("listaUsuarios", listaU);
 		return "usuarios";
+	}
+	
+	@GetMapping("/datos")
+	public String showDatos(Model model) {
+		Iterable<Reserva> listaR = new HashSet<Reserva>();
+		listaR = reservaService.findAll();
+		model.addAttribute("listaReservas", listaR);
+		return "datos";
 	}
 }
