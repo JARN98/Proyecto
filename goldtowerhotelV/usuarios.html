@@ -139,7 +139,7 @@ Please consider that the JS part isn't production ready at all, I just code it t
                                     <a href="hotel">Hotel</a>
                                 </li>
                                 <li class="has-dropdown">
-                                    <a href="suite">Suites</a>
+                                    <a href="suites">Suites</a>
                                     <ul class="dropdown">
                                         <li>
                                             <a href="oro">Suite Oro</a>
@@ -220,11 +220,10 @@ Please consider that the JS part isn't production ready at all, I just code it t
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="habitacion : ${habitacionList}">
-                                <td th:text="${usuario.id}">1</td>
-                                <td th:text="${usuario.tipoHab}">Mark</td>
-                                <!-- <td th:text="${usuario.reserva}">Otto</td>-->
-                            </tr>
+                            <tr th:each="habitacion : ${listaHabitaciones}">
+                                <td th:text="${habitacion.id}">1</td>
+                                <td th:text="${habitacion.tipoHab}">Mark</td>
+                                <td th:text="${habitacion.precio}">Otto</td>
                         </tbody>
                     </table>
                 </div>
@@ -289,7 +288,7 @@ Please consider that the JS part isn't production ready at all, I just code it t
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="usuario : ${usuarioList}">
+                        <tr th:each="usuario : ${listaUsuarios}">
                             <td th:text="${usuario.id}">1</td>
                             <td th:text="${usuario.nombre}">Mark</td>
                             <td th:text="${usuario.email}">Otto</td>

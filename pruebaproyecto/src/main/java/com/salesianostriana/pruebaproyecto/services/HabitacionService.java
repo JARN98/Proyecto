@@ -22,4 +22,6 @@ public class HabitacionService {
 	public Habitacion save(Habitacion habitacion) {
 		return repositorio.save(habitacion);
 	}
+	
+	
 }

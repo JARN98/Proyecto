@@ -1,11 +1,11 @@
 package com.salesianostriana.pruebaproyecto.controller;
 
-import javax.servlet.http.HttpSession;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -18,20 +18,15 @@ public class HabitacionController {
 	@Autowired
 	private HabitacionService habitacionService;
 
-	
-	@GetMapping("usuarios")
-	public String showHabitacion(Model model) {
-		model.addAttribute("crearHabitacion", new Habitacion());
-		return "usuarios";
-	}
-
 	@PostMapping("/registerHabitacion")
 	public String doHabitacion(@ModelAttribute("crearHabitacion") Habitacion habitacion, Model model) {
-		
-		habitacionService.save(habitacion);
-		
-		return "usuarios";
 
+		habitacionService.save(habitacion);
+		Iterable<Habitacion> lista = new HashSet<Habitacion>();
+		lista = habitacionService.findAll();
+		model.addAttribute("listaHabitaciones", lista);
+
+		return "usuarios";
 	}
 
 }

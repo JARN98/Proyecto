@@ -1,17 +1,28 @@
 package com.salesianostriana.pruebaproyecto.controller;
 
-import javax.servlet.http.HttpSession;
+import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.salesianostriana.pruebaproyecto.model.Habitacion;
+import com.salesianostriana.pruebaproyecto.model.Usuario;
+import com.salesianostriana.pruebaproyecto.services.HabitacionService;
+import com.salesianostriana.pruebaproyecto.services.UsuarioService;
+
 @Controller
 public class IndexController {
 	
 	//@Autowired
 	//private HttpSession session;
+	
+	@Autowired
+	private HabitacionService habitacionService;
+	
+	@Autowired
+	private UsuarioService usuarioService;
 
 	@GetMapping({"/", "/index"})
 	public String showIndex(Model model) {
@@ -52,5 +63,18 @@ public class IndexController {
 	@GetMapping("/FilterUser/reservas")
 	public String showReserva() {
 		return "FilterUser/reservas";
+	}
+	
+	@GetMapping("/usuarios")
+	public String showHabitacion(Model model) {
+		model.addAttribute("crearHabitacion", new Habitacion());
+		Iterable<Habitacion> lista = new HashSet<Habitacion>();
+		lista = habitacionService.findAll();
+		model.addAttribute("listaHabitaciones", lista);
+		
+		Iterable<Usuario> listaU = new HashSet<Usuario>();
+		listaU = usuarioService.findAll();
+		model.addAttribute("listaUsuarios", listaU);
+		return "usuarios";
 	}
 }

@@ -267,3 +267,7 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/Jos
 	at org.h2.mvstore.FileStore.open(FileStore.java:173)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:350)
 	... 63 more
+2018-05-14 08:17:09 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "USUARIOS" no encontrada
+Table "USUARIOS" not found; SQL statement:
+SELECT * FROM USUARIOS [42102-197]
