@@ -112,6 +112,15 @@ Please consider that the JS part isn't production ready at all, I just code it t
             })
         });
     </script>
+    <script>
+        //SIIIIIIIIUUUUUUUU
+        $(document).ready(function () {
+            $('#boton').click(function(){
+                $('#aEste').val($('#esteValor').text());
+            });
+           // $('#aEste').value = $('#esteValor').value;
+        });
+    </script>
 
 
 </head>
@@ -290,11 +299,11 @@ Please consider that the JS part isn't production ready at all, I just code it t
                     </thead>
                     <tbody>
                         <tr th:each="usuario : ${listaUsuarios}">
-                            <td th:text="${usuario.id}">1</td>
+                            <td th:text="${usuario.id}" id="esteValor">1</td>
                             <td th:text="${usuario.nombre}">Mark</td>
                             <td th:text="${usuario.email}">Otto</td>
                             <td>
-                                <a href="#popup2" class="btn btn-primary btn-default">
+                                <a href="#popup2" class="btn btn-primary btn-default" id="boton">
                                     <span class="glyphicon glyphicon-plus-sign"></span>Editar</a>
                                 <div style="position: fixed;" id="popup2" class="overlay">
                                     <div class="popup">
@@ -302,8 +311,10 @@ Please consider that the JS part isn't production ready at all, I just code it t
                                         <h2>Editar datos</h2>
                                         <form th:action="@{/editUserAdmin}" th:object="${usuarioAEditar}" method="POST">
                                             <a class="close" href="#" style="color: red;">x</a>
-                                            <input th:field="*{id}" th:value="${usuario.id}" type="text"> 
+                                            <input id="aEste" th:field="*{id}" type="text" style="display: none;">
                                             <!-- Text input-->
+
+                                            <input style="display: none;" th:field="*{id}" id="aEste">
                                             <label class="control-label" for="Email">Email</label>
                                             <input th:field="*{email}" id="Email" name="Email" placeholder="Email" class="form-control input-md" required="" type="text"
                                                 pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
