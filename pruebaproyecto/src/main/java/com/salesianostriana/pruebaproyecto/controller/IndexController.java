@@ -80,14 +80,9 @@ public class IndexController {
 		Iterable<Usuario> listaU = new HashSet<Usuario>();
 		listaU = usuarioService.findAll();
 		model.addAttribute("listaUsuarios", listaU);
+		model.addAttribute("u", new Usuario());
+		model.addAttribute("usuarioAEditar", new Usuario());
 		return "usuarios";
 	}
 	
-	@GetMapping("/datos")
-	public String showDatos(Model model) {
-		Iterable<Reserva> listaR = new HashSet<Reserva>();
-		listaR = reservaService.findAll();
-		model.addAttribute("listaReservas", listaR);
-		return "datos";
-	}
 }

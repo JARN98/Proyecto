@@ -21,6 +21,7 @@ public class PruebaproyectoApplication {
 			Usuario nuevoUsuario = new Usuario();
 			nuevoUsuario.setNombre("jose");
 			nuevoUsuario.setContrasena("1234");
+			nuevoUsuario.setAdmin(true);
 			service.save(nuevoUsuario);
 		};
 	}

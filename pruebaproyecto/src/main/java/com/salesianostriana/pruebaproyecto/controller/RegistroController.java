@@ -41,6 +41,7 @@ public class RegistroController {
 			usuarioService.save(usuario);
 
 			session.setAttribute("usuarioActual", usuario);
+			
 			return "redirect:/";
 		} else {
 			model.addAttribute("registerError", "El email ya ha sido registrado");

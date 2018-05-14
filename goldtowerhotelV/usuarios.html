@@ -224,6 +224,7 @@ Please consider that the JS part isn't production ready at all, I just code it t
                                 <td th:text="${habitacion.id}">1</td>
                                 <td th:text="${habitacion.tipoHab}">Mark</td>
                                 <td th:text="${habitacion.precio}">Otto</td>
+
                         </tbody>
                     </table>
                 </div>
@@ -249,7 +250,7 @@ Please consider that the JS part isn't production ready at all, I just code it t
                         </select>
                         <br/>
                         <input type="submit" class="btn btn-success" value="Añadir">
-                       
+
                     </form>
                 </div>
             </div>
@@ -292,6 +293,41 @@ Please consider that the JS part isn't production ready at all, I just code it t
                             <td th:text="${usuario.id}">1</td>
                             <td th:text="${usuario.nombre}">Mark</td>
                             <td th:text="${usuario.email}">Otto</td>
+                            <td>
+                                <a href="#popup2" class="btn btn-primary btn-default">
+                                    <span class="glyphicon glyphicon-plus-sign"></span>Editar</a>
+                                <div style="position: fixed;" id="popup2" class="overlay">
+                                    <div class="popup">
+                                        <br />
+                                        <h2>Editar datos</h2>
+                                        <form th:action="@{/editUserAdmin}" th:object="${usuarioAEditar}" method="POST">
+                                            <a class="close" href="#" style="color: red;">x</a>
+                                            <input th:field="*{id}" th:value="${usuario.id}" type="text" style="display: none;"> 
+                                            <!-- Text input-->
+                                            <label class="control-label" for="Email">Email</label>
+                                            <input th:field="*{email}" id="Email" name="Email" placeholder="Email" class="form-control input-md" required="" type="text"
+                                                pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+
+
+                                            <label class=" control-label" for="Nombre">Nombre</label>
+                                            <input th:field="*{nombre}" id="Nombre" name="Nombre" placeholder="Nombre" class="form-control input-md" required="" type="text">
+
+
+                                            <label class=" control-label" for="Apellidos">Apellidos</label>
+                                            <input th:field="*{apellidos}" id="Apellidos" name="Apellidos" placeholder="Apellidos" class="form-control input-md" required=""
+                                                type="text">
+
+
+                                            <label class=" control-label" for="Contrasena">Contraseña</label>
+                                            <input th:field="*{contrasena}" id="Contrasena" name="Contrasena" placeholder="Contraseña" class="form-control input-md"
+                                                required="" type="password">
+                                            <br/>
+                                            <input type="submit" class="btn btn-success" value="Editar">
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -318,7 +354,7 @@ Please consider that the JS part isn't production ready at all, I just code it t
                             <a href="suite">Suites</a>
                         </li>
                         <li>
-                            <a href="hotelFilterUser/reservas">Reservas</a>
+                            <a href="FilterUser/reservas">Reservas</a>
                         </li>
                     </ul>
                 </div>
