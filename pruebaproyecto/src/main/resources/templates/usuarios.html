@@ -102,23 +102,21 @@ Please consider that the JS part isn't production ready at all, I just code it t
     <script>
         $(document).ready(function () {
             $('#usuarios').click(function () {
+                alert(window.location);
                 $('#listaHabitaciones').hide();
                 $('#listaUsuarios').show();
             });
 
+            if(window.location == "http://localhost:9000/usuarios#listaHabitaciones"){
+                $('#listaHabitaciones').hide();
+                $('#listaUsuarios').show();
+            }
+
             $('#habitaciones').click(function () {
+                alert(window.location);
                 $('#listaUsuarios').hide();
                 $('#listaHabitaciones').show();
             })
-        });
-    </script>
-    <script>
-        //SIIIIIIIIUUUUUUUU
-        $(document).ready(function () {
-            $('#boton').click(function(){
-                $('#aEste').val($('#esteValor').text());
-            });
-           // $('#aEste').value = $('#esteValor').value;
         });
     </script>
 
@@ -193,7 +191,9 @@ Please consider that the JS part isn't production ready at all, I just code it t
             </div>
             <div class="col-md-2"></div>
             <div class="col-md-3">
-                <div class="btn btn-primary" id="habitaciones">Gestionar habitaciones</div>
+                <a href="#listaHabitaciones">
+                    <div class="btn btn-primary" id="habitaciones">Gestionar habitaciones</div>
+                </a>
             </div>
         </div>
 

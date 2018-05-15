@@ -48,6 +48,7 @@ public class EditRemoveController {
 	
 	@PostMapping("/editUserAdmin")
 	public String doEditAdmin(@ModelAttribute("usuarioAEditar") Usuario u) {
+		
 		usuarioService.edit(u);
 		return "redirect:/usuarios";
 	}
