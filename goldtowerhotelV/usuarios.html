@@ -102,13 +102,22 @@ Please consider that the JS part isn't production ready at all, I just code it t
     <script>
         $(document).ready(function () {
             $('#usuarios').click(function () {
+                alert(window.location);
                 $('#listaHabitaciones').hide();
                 $('#listaUsuarios').show();
             });
 
+<<<<<<< HEAD
 
+=======
+            if(window.location == "http://localhost:9000/usuarios#listaHabitaciones"){
+                $('#listaHabitaciones').hide();
+                $('#listaUsuarios').show();
+            }
+>>>>>>> 2abdaffce98d6112ba9b62cc01542095b1b3428b
 
             $('#habitaciones').click(function () {
+                alert(window.location);
                 $('#listaUsuarios').hide();
                 $('#listaHabitaciones').show();
             })

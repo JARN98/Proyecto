@@ -65,6 +65,7 @@ public class EditRemoveController {
 	}
 
 	@PostMapping("/editUserAdmin")
+<<<<<<< HEAD
 	public String doEditAdmin(@ModelAttribute Usuario usuario) {
 		usuarioService.edit(usuario);
 		return "redirect:/usuarios";
@@ -100,6 +101,11 @@ public class EditRemoveController {
 		Usuario u = usuarioService.findOne(id);
 		usuarioService.delete(u);
 		
+=======
+	public String doEditAdmin(@ModelAttribute("usuarioAEditar") Usuario u) {
+		
+		usuarioService.edit(u);
+>>>>>>> 2abdaffce98d6112ba9b62cc01542095b1b3428b
 		return "redirect:/usuarios";
 	}
 }

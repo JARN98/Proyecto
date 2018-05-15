@@ -7,12 +7,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 public class Reserva {
 	@GeneratedValue
 	@Id
 	private Long id;
+	@DateTimeFormat
 	private LocalDateTime fechaInicio;
+	@DateTimeFormat
 	private LocalDateTime fechaFin;
 	private double precio;
 
