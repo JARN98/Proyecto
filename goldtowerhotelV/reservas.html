@@ -129,42 +129,42 @@
 				</ul>
 			</div>
 		</aside>
-
-	<div class="container">	
-		<div class="col-md-12 animate-box">
-			<h2>Reserve su estancia con nosotros</h2>
-			<form action="#">
-				<div class="row form-group">
-					<div class="col-md-6">
-						<label for="fechaInicio">Fecha Inicio:</label>
-						<input type="text" class="span2" value="" name="dpd1" id="dpd1">
-					</div>
-					<div class="col-md-6">
-						<label for="fechaFin">Fecha Fin:</label>
-						<input type="text" class="span2" value="" name="dpd2"  id="dpd2">
-					</div>
-								
-					<div class="col-md-6">
-						<label for="tipoHabitacion">Tipo de suite:</label>
-						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Elija el tipo de suite
-						</button>
-						<div class="dropdown-menu">
-							<a class="dropdown-item" href="#">Suite Oro</a>
-							<a class="dropdown-item" href="#">Suite Esmeralda</a>
-							<a class="dropdown-item" href="#">Suite Diamante</a>
+		<br/>
+		<br/>
+		<br/>
+		<div class="container">
+			<form>
+				<fieldset>
+					<div class="row">
+						<div class="col-md-6">
+							<label for="fechaInicio">Fecha Inicio:</label>
+							<input type="text" class="span2" value="" name="dpd1" id="dpd1">
+						</div>
+						<div class="col-md-6">
+							<label for="fechaFin">Fecha Fin:</label>
+							<input type="text" class="span2" value="" name="dpd2" id="dpd2">
 						</div>
 					</div>
-					
-					<div class="col-md-12">
-						<div class="form-group">
-							<input type="submit" value="¡Consulte disponibilidad!" class="btn btn-primary">
+					<br/>
+					<div class="row">
+						<div class="col-md-5">
+							<label class=" control-label" for="tipo">Tipo de Suite: </label>
+							<select id="tipo" name="tipo" class="form-control">
+								<option value="suiteOro">Suite Oro</option>
+								<option value="suiteDiamante">Suite Diamante</option>
+								<option value="suiteEsmeralda">Suite Esmeralda</option>
+							</select>
 						</div>
 					</div>
-				</div>
+					<br/>
+					<input type="submit" class="btn btn-success" value="Añadir">
+				</fieldset>
 			</form>
 		</div>
-	</div>
+		<br/>
+		<br/>
+		<br/>
+
 
 
 		<footer id="colorlib-footer" role="contentinfo">
@@ -270,39 +270,40 @@
 	<script src="/js/magnific-popup-options.js"></script>
 	<!-- Main -->
 	<script src="/js/main.js"></script>
-	
+
 	<script src="/js/bootstrap-datepicker.js"></script>
 
 
 	<!-- Include Date Range Picker -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
+	/>
 
-				<script type="text/javascript">
-					$(document).ready(function(){
-					var date_input=$('input[name="dpd1"]'); //our date input has the name "date"
-					var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-					date_input.datepicker({
-						format: 'mm/dd/yyyy',
-						container: container,
-						todayHighlight: true,
-						autoclose: true,
-					})
-				})
-				</script>
-				
-				<script type="text/javascript">
-					$(document).ready(function(){
-					var date_input=$('input[name="dpd2"]'); //our date input has the name "date"
-					var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-					date_input.datepicker({
-						format: 'mm/dd/yyyy',
-						container: container,
-						todayHighlight: true,
-						autoclose: true,
-					})
-				})
-				</script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var date_input = $('input[name="dpd1"]'); //our date input has the name "date"
+			var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+			date_input.datepicker({
+				format: 'mm/dd/yyyy',
+				container: container,
+				todayHighlight: true,
+				autoclose: true,
+			})
+		})
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var date_input = $('input[name="dpd2"]'); //our date input has the name "date"
+			var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+			date_input.datepicker({
+				format: 'mm/dd/yyyy',
+				container: container,
+				todayHighlight: true,
+				autoclose: true,
+			})
+		})
+	</script>
 </body>
 
 </html>

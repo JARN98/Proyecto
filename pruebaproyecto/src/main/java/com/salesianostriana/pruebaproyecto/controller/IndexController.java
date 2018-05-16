@@ -2,16 +2,16 @@ package com.salesianostriana.pruebaproyecto.controller;
 
 import java.util.HashSet;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.salesianostriana.pruebaproyecto.model.Habitacion;
-import com.salesianostriana.pruebaproyecto.model.Reserva;
 import com.salesianostriana.pruebaproyecto.model.Usuario;
 import com.salesianostriana.pruebaproyecto.services.HabitacionService;
-import com.salesianostriana.pruebaproyecto.services.ReservaService;
 import com.salesianostriana.pruebaproyecto.services.UsuarioService;
 
 @Controller
@@ -27,11 +27,13 @@ public class IndexController {
 	private UsuarioService usuarioService;
 	
 	@Autowired
-	private ReservaService reservaService;
+	private HttpSession session;
+	
 
 	@GetMapping({"/", "/index"})
 	public String showIndex(Model model) {
-		//model.addAttribute("usuarioRegistrado", "Pantalla de Usuario");
+		Usuario usuario = (Usuario) session.getAttribute("usuarioActual");
+		model.addAttribute("usuarioRegistrado", usuario);
 		return "index";
 	}
 
@@ -65,10 +67,6 @@ public class IndexController {
 		return "hotel";
 	}
 	
-	@GetMapping("/FilterUser/reservas")
-	public String showReserva() {
-		return "FilterUser/reservas";
-	}
 	
 	@GetMapping("/usuarios")
 	public String showHabitacion(Model model) {
@@ -84,5 +82,6 @@ public class IndexController {
 		model.addAttribute("usuarioAEditar", new Usuario());
 		return "usuarios";
 	}
+	
 	
 }

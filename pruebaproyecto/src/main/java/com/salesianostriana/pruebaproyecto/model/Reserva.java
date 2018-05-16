@@ -19,6 +19,10 @@ public class Reserva {
 	@DateTimeFormat
 	private LocalDateTime fechaFin;
 	private double precio;
+	
+	public Reserva() {
+		
+	}
 
 	public Reserva(LocalDateTime fechaInicio, LocalDateTime fechaFin, double precio) {
 		this.fechaInicio = fechaInicio;

@@ -29,7 +29,7 @@ public class EditRemoveController {
 
 	@Autowired
 	private ReservaService reservaService;
-	
+
 	@Autowired
 	private HabitacionService habitacionService;
 
@@ -43,12 +43,12 @@ public class EditRemoveController {
 	}
 
 	@GetMapping("/editarUsuario/{id}")
-	public String showFormEditU (@PathVariable("id") Long id, Model model) {
+	public String showFormEditU(@PathVariable("id") Long id, Model model) {
 		Usuario u = usuarioService.findOne(id);
-		
-		if(u == null) {
+
+		if (u == null) {
 			return "redirect:/";
-		}else {
+		} else {
 			model.addAttribute("usuario", u);
 			return "editarUsuario";
 		}
@@ -65,47 +65,41 @@ public class EditRemoveController {
 	}
 
 	@PostMapping("/editUserAdmin")
-<<<<<<< HEAD
 	public String doEditAdmin(@ModelAttribute Usuario usuario) {
 		usuarioService.edit(usuario);
 		return "redirect:/usuarios";
 	}
-	
+
 	@GetMapping("/editarHabitacion/{id}")
 	public String showFormEditH(@PathVariable("id") Long id, Model model) {
 		Habitacion h = habitacionService.findOne(id);
-		
-		if(h == null) {
+
+		if (h == null) {
 			return "redirect:/";
-		}else {
+		} else {
 			model.addAttribute("habitacion", h);
 			return "editarHabitacion";
 		}
 	}
-	
+
 	@PostMapping("/editRoomAdmin")
 	public String doEditAdminH(@ModelAttribute Habitacion habitacion) {
 		habitacionService.edit(habitacion);
 		return "redirect:/usuarios";
 	}
-	
+
 	@GetMapping("/eliminarHabitacion/{id}")
 	public String deleteRoom(@PathVariable("id") Long id, Model model) {
 		Habitacion h = habitacionService.findOne(id);
 		habitacionService.delete(h);
 		return "redirect:/usuarios";
 	}
-	
+
 	@GetMapping("/eliminarUsuario/{id}")
 	public String deleteUser(@PathVariable("id") Long id, Model model) {
 		Usuario u = usuarioService.findOne(id);
 		usuarioService.delete(u);
-		
-=======
-	public String doEditAdmin(@ModelAttribute("usuarioAEditar") Usuario u) {
-		
-		usuarioService.edit(u);
->>>>>>> 2abdaffce98d6112ba9b62cc01542095b1b3428b
 		return "redirect:/usuarios";
+
 	}
 }
