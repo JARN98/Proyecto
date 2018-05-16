@@ -29,6 +29,7 @@ public class Usuario {
 	public void setListaReservas(Set<Reserva> listaReservas) {
 		this.listaReservas = listaReservas;
 	}
+	
 
 	public Usuario(boolean admin, String nombre, String apellidos, String email, String contrasena) {
 		this.admin = admin;
