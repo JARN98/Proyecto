@@ -41,6 +41,7 @@ public class RegistroController {
 			usuarioService.save(usuario);
 
 			session.setAttribute("usuarioActual", usuario);
+			model.addAttribute("usuarioActual", usuario);
 			
 			return "redirect:/";
 		} else {

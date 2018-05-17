@@ -210,16 +210,16 @@ Please consider that the JS part isn't production ready at all, I just code it t
                         <thead>
                             <tr class="filters">
                                 <th>
-                                    <input type="text" class="form-control" placeholder="#" disabled>
+                                    <input type="text" class="form-control" placeholder="id" disabled>
                                 </th>
                                 <th>
-                                    <input type="text" class="form-control" placeholder="First Name" disabled>
+                                    <input type="text" class="form-control" placeholder="Tipo de Suite" disabled>
                                 </th>
                                 <th>
-                                    <input type="text" class="form-control" placeholder="Last Name" disabled>
+                                    <input type="text" class="form-control" placeholder="Precio por noche" disabled>
                                 </th>
                                 <th>
-                                    <input type="text" class="form-control" placeholder="Username" disabled>
+                                    <input type="text" class="form-control" placeholder="Opciones" disabled>
                                 </th>
                             </tr>
                         </thead>
@@ -231,9 +231,6 @@ Please consider that the JS part isn't production ready at all, I just code it t
                                 <td>
                                     <a href="#" th:href="@{/editarHabitacion/{id}(id=${habitacion.id})}">
                                         <div class="btn btn-success">Editar</div>
-                                    </a>
-                                </td>
-                                <td>
                                     <a href="#" th:href="@{/eliminarHabitacion/{id}(id=${habitacion.id})}">
                                         <div class="btn btn-danger">Eliminar</div>
                                     </a>
@@ -258,9 +255,9 @@ Please consider that the JS part isn't production ready at all, I just code it t
                         <br/>
                         <label class=" control-label" for="tipo">Tipo de Habitacion</label>
                         <select th:field="*{tipoHab}" id="tipo" name="tipo" class="form-control">
-                            <option value="suiteOro">Suite Oro</option>
-                            <option value="suiteDiamante">Suite Diamante</option>
-                            <option value="suiteEsmeralda">Suite Esmeralda</option>
+                            <option value="Suite Oro">Suite Oro</option>
+                            <option value="Suite Diamante">Suite Diamante</option>
+                            <option value="Suite Esmeralda">Suite Esmeralda</option>
                         </select>
                         <br/>
                         <input type="submit" class="btn btn-success" value="Añadir">
@@ -289,16 +286,22 @@ Please consider that the JS part isn't production ready at all, I just code it t
                     <thead>
                         <tr class="filters">
                             <th>
-                                <input type="text" class="form-control" placeholder="#" disabled>
+                                <input type="text" class="form-control" placeholder="id" disabled>
                             </th>
                             <th>
-                                <input type="text" class="form-control" placeholder="First Name" disabled>
+                                <input type="text" class="form-control" placeholder="Nombre" disabled>
                             </th>
                             <th>
-                                <input type="text" class="form-control" placeholder="Last Name" disabled>
+                                <input type="text" class="form-control" placeholder="Apellidos" disabled>
                             </th>
                             <th>
-                                <input type="text" class="form-control" placeholder="Username" disabled>
+                                <input type="text" class="form-control" placeholder="Email" disabled>
+                            </th>
+                            <th>
+                                <input type="text" class="form-control" placeholder="Contraseña" disabled>
+                            </th>
+                            <th>
+                                <input type="text" class="form-control" placeholder="Opciones" disabled>
                             </th>
                         </tr>
                     </thead>
@@ -306,7 +309,10 @@ Please consider that the JS part isn't production ready at all, I just code it t
                         <tr th:each="usuario : ${listaUsuarios}">
                             <td th:text="${usuario.id}" id="esteValor">1</td>
                             <td th:text="${usuario.nombre}">Mark</td>
+                            <td th:text="${usuario.apellidos}"></td>
                             <td th:text="${usuario.email}">Otto</td>
+                            <td th:text ="${usuario.contrasena}"></td>
+
                             <td>
                                 <a href="#" th:href="@{/editarUsuario/{id}(id=${usuario.id})}">
                                     <div class="btn btn-success">Editar</div>

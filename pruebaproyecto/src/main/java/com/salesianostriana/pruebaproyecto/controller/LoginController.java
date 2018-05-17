@@ -39,6 +39,7 @@ public class LoginController {
 
 		if (usuario != null) {
 			session.setAttribute("usuarioActual", usuario);
+			model.addAttribute("usuarioActual", usuario);
 			return "redirect:/";
 		} else {
 			model.addAttribute("loginError", "El usuario o contraseña no es válido");

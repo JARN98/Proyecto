@@ -19,16 +19,18 @@ public class HabitacionController {
 	private HabitacionService habitacionService;
 
 	@PostMapping("/registerHabitacion")
-	public String doHabitacion(@ModelAttribute("crearHabitacion") Habitacion habitacion, Model model) {
+	public String doHabitacion(@ModelAttribute("crearHabitacion") Habitacion habitacion, Model model,
+			@ModelAttribute("listaHabitaciones") HashSet<Habitacion> listaHabitaciones) {
 
 		habitacionService.save(habitacion);
-		Iterable<Habitacion> lista = new HashSet<Habitacion>();
-		lista = habitacionService.findAll();
-		model.addAttribute("listaHabitaciones", lista);
+		listaHabitaciones.add(habitacion);
+		// Iterable<Habitacion> lista = new HashSet<Habitacion>();
+		// lista = habitacionService.findAll();
+		// model.addAttribute("listaHabitaciones", lista);
 
 		return "redirect:/usuarios#listaHabitaciones";
 	}
-	
+
 	@GetMapping("usuarios/#listaHabitacion")
 	public String showListH() {
 		return "usuarios#listaHabitacion";

@@ -3,10 +3,12 @@ package com.salesianostriana.pruebaproyecto.model;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.FetchMode;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -30,7 +32,7 @@ public class Reserva {
 		this.precio = precio;
 	}
 
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Usuario usuario;
 
 	public Usuario getUsuario() {
@@ -41,7 +43,7 @@ public class Reserva {
 		this.usuario = usuario;
 	}
 
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Habitacion habitacion;
 
 	public Habitacion getHabitacion() {
