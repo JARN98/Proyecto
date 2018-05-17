@@ -32,7 +32,7 @@ public class Reserva {
 		this.precio = precio;
 	}
 
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne
 	private Usuario usuario;
 
 	public Usuario getUsuario() {
@@ -43,7 +43,7 @@ public class Reserva {
 		this.usuario = usuario;
 	}
 
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne
 	private Habitacion habitacion;
 
 	public Habitacion getHabitacion() {

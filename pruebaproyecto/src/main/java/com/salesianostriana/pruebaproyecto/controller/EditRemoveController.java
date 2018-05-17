@@ -1,6 +1,6 @@
 package com.salesianostriana.pruebaproyecto.controller;
 
-import java.util.HashSet;
+import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
@@ -34,9 +34,8 @@ public class EditRemoveController {
 	private HabitacionService habitacionService;
 
 	@GetMapping("/datos")
-	public String showDatos(Model model) {
-		Iterable<Reserva> listaR = new HashSet<Reserva>();
-		listaR = reservaService.findAll();
+	public String showDatos(Model model, @ModelAttribute("usuarioActual") Usuario usuario) {
+		Set<Reserva> listaR = usuario.getListaReservas();
 		model.addAttribute("listaReservas", listaR);
 		model.addAttribute("u", new Usuario());
 		return "datos";

@@ -133,7 +133,7 @@
 		<br/>
 		<br/>
 		<div class="container">
-			<form>
+			<form method="POST"  th:action="@{/habitacionesReserva}" th:object="${hPuedenReservarse}">
 				<fieldset>
 					<div class="row">
 						<div class="col-md-6">
@@ -149,10 +149,10 @@
 					<div class="row">
 						<div class="col-md-5">
 							<label class=" control-label" for="tipo">Tipo de Suite: </label>
-							<select id="tipo" name="tipo" class="form-control">
-								<option value="suiteOro">Suite Oro</option>
-								<option value="suiteDiamante">Suite Diamante</option>
-								<option value="suiteEsmeralda">Suite Esmeralda</option>
+							<select id="tipo" name="tipo" class="form-control" >
+								<option value="Suite Oro">Suite Oro</option>
+								<option value="Suite Diamante">Suite Diamante</option>
+								<option value="Suite Esmeralda">Suite Esmeralda</option>
 							</select>
 						</div>
 					</div>
@@ -281,10 +281,10 @@
 
 	<script type="text/javascript">
 		$(document).ready(function () {
-			var date_input = $('input[name="dpd1"]'); //our date input has the name "date"
+			var date_input = $('#dpd1'); //our date input has the name "date"
 			var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
 			date_input.datepicker({
-				format: 'mm/dd/yyyy',
+				format: 'mm-dd-yyyy',
 				container: container,
 				todayHighlight: true,
 				autoclose: true,
@@ -294,10 +294,10 @@
 
 	<script type="text/javascript">
 		$(document).ready(function () {
-			var date_input = $('input[name="dpd2"]'); //our date input has the name "date"
+			var date_input = $('#dpd2'); //our date input has the name "date"
 			var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
 			date_input.datepicker({
-				format: 'mm/dd/yyyy',
+				format: 'mm-dd-yyyy',
 				container: container,
 				todayHighlight: true,
 				autoclose: true,

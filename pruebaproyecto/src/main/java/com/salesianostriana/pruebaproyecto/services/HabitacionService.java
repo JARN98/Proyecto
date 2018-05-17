@@ -10,12 +10,13 @@ import com.salesianostriana.pruebaproyecto.repository.HabitacionRepository;
 
 @Service
 public class HabitacionService {
+	
 	@Autowired
 	HabitacionRepository repositorio;
 	
-	public Iterable<Habitacion> findListaHabitaciones(LocalDateTime fechaInicio, LocalDateTime fechaFin){
-		return repositorio.findReservaFechaInicioAfterIsNullAndReservaFechaFinBeforeIsNull(fechaInicio, fechaFin);
-	}
+//	public Iterable<Habitacion> findListaHabitaciones(){
+//		return repositorio.findHabitacionesNoReservadas();
+//	}
 
 	public Habitacion findOne(Long id) {
 		return repositorio.findById(id).orElse(null);

@@ -271,3 +271,903 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/Jos
 org.h2.jdbc.JdbcSQLException: Tabla "USUARIOS" no encontrada
 Table "USUARIOS" not found; SQL statement:
 SELECT * FROM USUARIOS [42102-197]
+2018-05-17 18:50:53 jdbc[25]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  LEFT JOIN HABITACION_LISTARESERVAS  ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)  FULL JOIN[*] ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN"
+Syntax error in SQL statement "SELECT * FROM HABITACION  LEFT JOIN HABITACION_LISTARESERVAS  ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)  FULL JOIN[*] ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN"; SQL statement:
+SELECT * FROM HABITACION  LEFT JOIN HABITACION_LISTARESERVAS  ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)  FULL JOIN ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN [42000-197]
+2018-05-17 18:51:07 jdbc[25]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  LEFT JOIN HABITACION_LISTARESERVAS  ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)  FULL JOIN[*] ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN BETWEEN FECHAINICIO AND FECHAFIN"
+Syntax error in SQL statement "SELECT * FROM HABITACION  LEFT JOIN HABITACION_LISTARESERVAS  ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)  FULL JOIN[*] ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN BETWEEN FECHAINICIO AND FECHAFIN"; SQL statement:
+SELECT * FROM HABITACION  LEFT JOIN HABITACION_LISTARESERVAS  ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)  FULL JOIN ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN BETWEEN FECHAINICIO AND FECHAFIN [42000-197]
+2018-05-17 18:51:50 jdbc[25]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  LEFT JOIN HABITACION_LISTARESERVAS  ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)  LEFT JOIN ON[*] (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "identifier"
+Syntax error in SQL statement "SELECT * FROM HABITACION  LEFT JOIN HABITACION_LISTARESERVAS  ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)  LEFT JOIN ON[*] (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN BETWEEN FECHAINICIO AND FECHAFIN"; expected "identifier"; SQL statement:
+SELECT * FROM HABITACION  LEFT JOIN HABITACION_LISTARESERVAS  ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)  LEFT JOIN ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 18:54:50 jdbc[25]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN ON[*] (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "identifier"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN ON[*] (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN BETWEEN FECHAINICIO AND FECHAFIN"; expected "identifier"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 18:55:27 jdbc[25]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN ON[*] (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)"; se esperaba "identifier"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN ON[*] (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)"; expected "identifier"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) [42001-197]
+2018-05-17 19:09:17 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "INSERT INTO HABITACION VALUES(3, 40, SUITE ORO[*]) "; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "INSERT INTO HABITACION VALUES(3, 40, SUITE ORO[*]) "; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO HABITACION VALUES(3, 40, Suite Oro) [42001-197]
+2018-05-17 19:09:17 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT[*] INTO HABITACION_LISTARESERVAS VALUES  (3, 4)
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN"
+Syntax error in SQL statement "INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT[*] INTO HABITACION_LISTARESERVAS VALUES  (3, 4)
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN"; SQL statement:
+INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT INTO HABITACION_LISTARESERVAS VALUES  (3, 4)
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN [42000-197]
+2018-05-17 19:09:28 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Columna "Suite Oro" no encontrada
+Column "Suite Oro" not found; SQL statement:
+INSERT INTO HABITACION VALUES(3, 40, "Suite Oro") [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Insert.prepare(Insert.java:314)
+	at org.h2.command.Parser.prepareCommand(Parser.java:283)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1077)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1386)
+	at org.h2.server.web.WebApp.query(WebApp.java:1060)
+	at org.h2.server.web.WebApp.query(WebApp.java:1036)
+	at org.h2.server.web.WebApp.process(WebApp.java:223)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:124)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:161)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2018-05-17 19:09:28 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT[*] INTO HABITACION_LISTARESERVAS VALUES  (3, 4)
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN"
+Syntax error in SQL statement "INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT[*] INTO HABITACION_LISTARESERVAS VALUES  (3, 4)
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN"; SQL statement:
+INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT INTO HABITACION_LISTARESERVAS VALUES  (3, 4)
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN [42000-197]
+2018-05-17 19:09:42 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Columna "SuiteOro" no encontrada
+Column "SuiteOro" not found; SQL statement:
+INSERT INTO HABITACION VALUES(3, 40, "SuiteOro") [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Insert.prepare(Insert.java:314)
+	at org.h2.command.Parser.prepareCommand(Parser.java:283)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1077)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1386)
+	at org.h2.server.web.WebApp.query(WebApp.java:1060)
+	at org.h2.server.web.WebApp.query(WebApp.java:1036)
+	at org.h2.server.web.WebApp.process(WebApp.java:223)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:124)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:161)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2018-05-17 19:09:42 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT[*] INTO HABITACION_LISTARESERVAS VALUES  (3, 4)
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN"
+Syntax error in SQL statement "INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT[*] INTO HABITACION_LISTARESERVAS VALUES  (3, 4)
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN"; SQL statement:
+INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT INTO HABITACION_LISTARESERVAS VALUES  (3, 4)
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN [42000-197]
+2018-05-17 19:10:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Columna "TipoHab" no encontrada
+Column "TipoHab" not found; SQL statement:
+INSERT INTO HABITACION VALUES(3, 40, "TipoHab") [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Insert.prepare(Insert.java:314)
+	at org.h2.command.Parser.prepareCommand(Parser.java:283)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1077)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1386)
+	at org.h2.server.web.WebApp.query(WebApp.java:1060)
+	at org.h2.server.web.WebApp.query(WebApp.java:1036)
+	at org.h2.server.web.WebApp.process(WebApp.java:223)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:124)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:161)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2018-05-17 19:10:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT[*] INTO HABITACION_LISTARESERVAS VALUES  (3, 4)
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN"
+Syntax error in SQL statement "INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT[*] INTO HABITACION_LISTARESERVAS VALUES  (3, 4)
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN"; SQL statement:
+INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT INTO HABITACION_LISTARESERVAS VALUES  (3, 4)
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN [42000-197]
+2018-05-17 19:10:11 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Columna "TIPOHAB" no encontrada
+Column "TIPOHAB" not found; SQL statement:
+INSERT INTO HABITACION VALUES(3, 40, "TIPOHAB") [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Insert.prepare(Insert.java:314)
+	at org.h2.command.Parser.prepareCommand(Parser.java:283)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1077)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1386)
+	at org.h2.server.web.WebApp.query(WebApp.java:1060)
+	at org.h2.server.web.WebApp.query(WebApp.java:1036)
+	at org.h2.server.web.WebApp.process(WebApp.java:223)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:124)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:161)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2018-05-17 19:10:11 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT[*] INTO HABITACION_LISTARESERVAS VALUES  (3, 4)
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN"
+Syntax error in SQL statement "INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT[*] INTO HABITACION_LISTARESERVAS VALUES  (3, 4)
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN"; SQL statement:
+INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT INTO HABITACION_LISTARESERVAS VALUES  (3, 4)
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID)   WHERE FECHAINICIO NOT BETWEEN FECHAINICIO AND FECHAFIN OR FECHAFIN NOT BETWEEN FECHAINICIO AND FECHAFIN [42000-197]
+2018-05-17 19:10:50 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Columna "TIPOHAB" no encontrada
+Column "TIPOHAB" not found; SQL statement:
+INSERT INTO HABITACION VALUES(3, 40, "TIPOHAB") [42122-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:150)
+	at org.h2.command.dml.Insert.prepare(Insert.java:314)
+	at org.h2.command.Parser.prepareCommand(Parser.java:283)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1077)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1386)
+	at org.h2.server.web.WebApp.query(WebApp.java:1060)
+	at org.h2.server.web.WebApp.query(WebApp.java:1036)
+	at org.h2.server.web.WebApp.process(WebApp.java:223)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:124)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:161)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+2018-05-17 19:12:47 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT[*] INTO HABITACION_LISTARESERVAS VALUES  (3, 4)"
+Syntax error in SQL statement "INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT[*] INTO HABITACION_LISTARESERVAS VALUES  (3, 4)"; SQL statement:
+INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT INTO HABITACION_LISTARESERVAS VALUES  (3, 4) [42000-197]
+2018-05-17 19:12:58 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT[*] INTO HABITACION_LISTARESERVAS VALUES  (3, 4)"
+Syntax error in SQL statement "INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT[*] INTO HABITACION_LISTARESERVAS VALUES  (3, 4)"; SQL statement:
+INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1)
+INSERT INTO HABITACION_LISTARESERVAS VALUES  (3, 4) [42000-197]
+2018-05-17 19:13:17 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Imposible interpretar la constante "TIMESTAMP" "20/05/2018"
+Cannot parse "TIMESTAMP" constant "20/05/2018"; SQL statement:
+INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1) -- (4, '20/05/2018', '17/05/2018', 120, 3, 1) [22007-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:147)
+	at org.h2.value.Value.convertTo(Value.java:1071)
+	at org.h2.table.Column.convert(Column.java:177)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:166)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1077)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1386)
+	at org.h2.server.web.WebApp.query(WebApp.java:1060)
+	at org.h2.server.web.WebApp.query(WebApp.java:1036)
+	at org.h2.server.web.WebApp.process(WebApp.java:223)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:124)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:161)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 20/05/2018
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:345)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:460)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:145)
+	... 54 more
+2018-05-17 19:14:14 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Imposible interpretar la constante "TIMESTAMP" "03/05/2018"
+Cannot parse "TIMESTAMP" constant "03/05/2018"; SQL statement:
+INSERT INTO RESERVA VALUES (4, '03/05/2018', '06/05/2018', 120, 3, 1) -- (4, '03/05/2018', '06/05/2018', 120, 3, 1) [22007-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:147)
+	at org.h2.value.Value.convertTo(Value.java:1071)
+	at org.h2.table.Column.convert(Column.java:177)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:166)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1077)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1386)
+	at org.h2.server.web.WebApp.query(WebApp.java:1060)
+	at org.h2.server.web.WebApp.query(WebApp.java:1036)
+	at org.h2.server.web.WebApp.process(WebApp.java:223)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:124)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:161)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 03/05/2018
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:345)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:460)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:145)
+	... 54 more
+2018-05-17 19:14:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Imposible interpretar la constante "TIMESTAMP" "03-05-2018"
+Cannot parse "TIMESTAMP" constant "03-05-2018"; SQL statement:
+INSERT INTO RESERVA VALUES (4, '03-05-2018', '06-05-2018', 120, 3, 1) -- (4, '03-05-2018', '06-05-2018', 120, 3, 1) [22007-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:147)
+	at org.h2.value.Value.convertTo(Value.java:1071)
+	at org.h2.table.Column.convert(Column.java:177)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:166)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1077)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1386)
+	at org.h2.server.web.WebApp.query(WebApp.java:1060)
+	at org.h2.server.web.WebApp.query(WebApp.java:1036)
+	at org.h2.server.web.WebApp.process(WebApp.java:223)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:124)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:161)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 3-5-2018
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:351)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:460)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:145)
+	... 54 more
+2018-05-17 19:35:24 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID WHERE[*] NOT(FECHAINICIO <= FECHAFIN OR FECHAINICIO >= FECHAINICIO) AND NOT (FECHAFIN >= FECHAINICIO OR FECHAFIN <= FECHAFIN))"; se esperaba "(, ., [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID WHERE[*] NOT(FECHAINICIO <= FECHAFIN OR FECHAINICIO >= FECHAINICIO) AND NOT (FECHAFIN >= FECHAINICIO OR FECHAFIN <= FECHAFIN))"; expected "(, ., [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID WHERE NOT(FECHAINICIO <= FECHAFIN OR FECHAINICIO >= FECHAINICIO) AND NOT (FECHAFIN >= FECHAINICIO OR FECHAFIN <= FECHAFIN)) [42001-197]
+2018-05-17 19:36:49 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID WHERE[*] NOT('2018-07-01' <= FECHAFIN OR '2018-07-01' >= FECHAINICIO) AND NOT ('2018-07-04' >= FECHAINICIO OR '2018-07-04' <= FECHAFIN))"; se esperaba "(, ., [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID WHERE[*] NOT('2018-07-01' <= FECHAFIN OR '2018-07-01' >= FECHAINICIO) AND NOT ('2018-07-04' >= FECHAINICIO OR '2018-07-04' <= FECHAFIN))"; expected "(, ., [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID WHERE NOT('2018-07-01' <= FECHAFIN OR '2018-07-01' >= FECHAINICIO) AND NOT ('2018-07-04' >= FECHAINICIO OR '2018-07-04' <= FECHAFIN)) [42001-197]
+2018-05-17 19:37:31 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID WHERE[*] '2018-07-01' <= FECHAFIN OR '2018-07-01' >= FECHAINICIO AND  '2018-07-04' >= FECHAINICIO OR '2018-07-04' <= FECHAFIN"; se esperaba "(, ., [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID WHERE[*] '2018-07-01' <= FECHAFIN OR '2018-07-01' >= FECHAINICIO AND  '2018-07-04' >= FECHAINICIO OR '2018-07-04' <= FECHAFIN"; expected "(, ., [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID WHERE '2018-07-01' <= FECHAFIN OR '2018-07-01' >= FECHAINICIO AND  '2018-07-04' >= FECHAINICIO OR '2018-07-04' <= FECHAFIN [42001-197]
+2018-05-17 19:37:54 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID WHERE[*] '2018-07-01' <= FECHAFIN OR '2018-07-01' >= FECHAINICIO AND  '2018-07-04' >= FECHAINICIO OR '2018-07-04' <= FECHAFIN"; se esperaba "(, ., [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID WHERE[*] '2018-07-01' <= FECHAFIN OR '2018-07-01' >= FECHAINICIO AND  '2018-07-04' >= FECHAINICIO OR '2018-07-04' <= FECHAFIN"; expected "(, ., [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID WHERE '2018-07-01' <= FECHAFIN OR '2018-07-01' >= FECHAINICIO AND  '2018-07-04' >= FECHAINICIO OR '2018-07-04' <= FECHAFIN [42001-197]
+2018-05-17 19:38:51 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID WHERE[*] '2018-07-01' BETWEEN FECHAINICIO AND FECHAFIN OR '2018-07-04' BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "(, ., [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID WHERE[*] '2018-07-01' BETWEEN FECHAINICIO AND FECHAFIN OR '2018-07-04' BETWEEN FECHAINICIO AND FECHAFIN"; expected "(, ., [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID WHERE '2018-07-01' BETWEEN FECHAINICIO AND FECHAFIN OR '2018-07-04' BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 19:42:13 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Imposible interpretar la constante "TIMESTAMP" "20/05/2018"
+Cannot parse "TIMESTAMP" constant "20/05/2018"; SQL statement:
+INSERT INTO RESERVA VALUES (4, '20/05/2018', '17/05/2018', 120, 3, 1) -- (4, '20/05/2018', '17/05/2018', 120, 3, 1) [22007-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:147)
+	at org.h2.value.Value.convertTo(Value.java:1071)
+	at org.h2.table.Column.convert(Column.java:177)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:166)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:233)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1077)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1386)
+	at org.h2.server.web.WebApp.query(WebApp.java:1060)
+	at org.h2.server.web.WebApp.query(WebApp.java:1036)
+	at org.h2.server.web.WebApp.process(WebApp.java:223)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:124)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:161)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 20/05/2018
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:345)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:460)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:145)
+	... 54 more
+2018-05-17 19:43:16 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID[*]"; se esperaba "(, ., [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID[*]"; expected "(, ., [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID [42001-197]
+2018-05-17 19:52:08 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Imposible interpretar la constante "TIMESTAMP" "2018-07-0"
+Cannot parse "TIMESTAMP" constant "2018-07-0"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE '2018-05-16' NOT BETWEEN FECHAINICIO AND FECHAFIN AND '2018-07-0' NOT BETWEEN FECHAINICIO AND FECHAFIN [22007-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:168)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:147)
+	at org.h2.value.Value.convertTo(Value.java:1071)
+	at org.h2.expression.Comparison.optimize(Comparison.java:204)
+	at org.h2.expression.ConditionAndOr.optimize(ConditionAndOr.java:130)
+	at org.h2.expression.ConditionNot.optimize(ConditionNot.java:48)
+	at org.h2.expression.ConditionAndOr.optimize(ConditionAndOr.java:131)
+	at org.h2.expression.ConditionAndOr.optimize(ConditionAndOr.java:130)
+	at org.h2.command.dml.Select.prepare(Select.java:861)
+	at org.h2.command.Parser.prepareCommand(Parser.java:283)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1077)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1386)
+	at org.h2.server.web.WebApp.query(WebApp.java:1060)
+	at org.h2.server.web.WebApp.query(WebApp.java:1036)
+	at org.h2.server.web.WebApp.process(WebApp.java:223)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:170)
+	at org.h2.server.web.WebServlet.doGet(WebServlet.java:124)
+	at org.h2.server.web.WebServlet.doPost(WebServlet.java:161)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:496)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1468)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalArgumentException: 2018-7-0
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:351)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:460)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:145)
+	... 59 more
+2018-05-17 19:52:08 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 19:52:16 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 19:53:48 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE 'YYYY-MM-DD' ([*]BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND 'YYYY-MM-DD' (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE 'YYYY-MM-DD' ([*]BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND 'YYYY-MM-DD' (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE 'YYYY-MM-DD' (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND 'YYYY-MM-DD' (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42000-197]
+2018-05-17 19:58:36 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 19:58:36 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  FECHAINICIO NOTBETWEEN[*] '2018-05-16' AND  '2018-07-21' AND FECHAFIN NOT BETWEEN  '2018-05-16' AND  '2018-07-21'"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  FECHAINICIO NOTBETWEEN[*] '2018-05-16' AND  '2018-07-21' AND FECHAFIN NOT BETWEEN  '2018-05-16' AND  '2018-07-21'"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  FECHAINICIO NOTBETWEEN '2018-05-16' AND  '2018-07-21' AND FECHAFIN NOT BETWEEN  '2018-05-16' AND  '2018-07-21' [42000-197]
+2018-05-17 19:58:41 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 19:59:05 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 19:59:06 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 19:59:07 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 19:59:27 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 19:59:53 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:00:06 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:01:05 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:01:05 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Conversión de datos fallida, convirtiendo "2018-05-17 00:00:00"
+Data conversion error converting "2018-05-17 00:00:00"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (FECHAINICIO OR FECHAFIN) BETWEEN '2018-05-10' AND  '2018-07-17' [22018-197]
+2018-05-17 20:01:38 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:01:38 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Conversión de datos fallida, convirtiendo "2018-05-17 00:00:00"
+Data conversion error converting "2018-05-17 00:00:00"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  FECHAINICIO OR FECHAFIN BETWEEN '2018-05-10' AND  '2018-07-17' [22018-197]
+2018-05-17 20:01:50 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:02:01 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:02:11 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:02:12 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:02:49 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:02:59 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:03:37 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:03:39 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:03:39 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:03:40 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:03:40 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:03:40 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:03:40 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:03:40 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:03:40 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:09:52 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:11:56 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:12:11 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:12:25 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:12:47 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
+2018-05-17 20:12:56 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; se esperaba "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16'[*] AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN"; expected "., (, [, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+SELECT * FROM HABITACION  JOIN HABITACION_LISTARESERVAS ON (HABITACION.ID = HABITACION_LISTARESERVAS.HABITACION_ID)   JOIN RESERVA ON (HABITACION_LISTARESERVAS.LISTARESERVAS_ID = RESERVA.ID) WHERE  (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN AND (BETWEEN '2018-05-16' AND  '2018-07-21') NOT BETWEEN FECHAINICIO AND FECHAFIN [42001-197]
