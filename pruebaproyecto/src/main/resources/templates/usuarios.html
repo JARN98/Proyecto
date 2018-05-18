@@ -101,6 +101,18 @@ Please consider that the JS part isn't production ready at all, I just code it t
     </script>
     <script>
         $(document).ready(function () {
+
+            var url = document.baseURI;
+
+            if( url == "http://localhost:9000/usuarios#listaHabitaciones"){
+                $('#listaUsuarios').hide();
+                $('#listaHabitaciones').show();
+            }
+
+            if( url == "http://localhost:9000/usuarios#listaUsuarios"){
+                $('#listaHabitaciones').hide();
+                $('#listaUsuarios').show();
+            }
             $('#usuarios').click(function () {
                 $('#listaHabitaciones').hide();
                 $('#listaUsuarios').show();
