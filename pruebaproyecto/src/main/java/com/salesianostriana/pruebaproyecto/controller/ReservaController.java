@@ -54,43 +54,47 @@ public class ReservaController {
 	}
 	
 	
-	public double calcularPrecio(Model model, @ModelAttribute("nuevaReserva") ReservaDeHabitacion reserva, double precio) {
-		
-		
-		LocalDateTime diaInicio = reserva.getFechaInicio();
-		
-		LocalDateTime diaFin = reserva.getFechaFin();
-		
-		Long dias = ChronoUnit.DAYS.between(diaInicio, diaFin);
-	
-		String temporadaAlta = "06-01";
-		String temporadaBaja = "08-01";
-		
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd");
-		
-		LocalDateTime fechaInicioTA = LocalDateTime.parse(temporadaAlta, formatter);
-		LocalDateTime fechaInicioTB = LocalDateTime.parse(temporadaBaja, formatter);
-		
-		precio = precio * dias;
-		
-		if(diaInicio.isAfter(fechaInicioTA) && diaFin.isBefore(fechaInicioTB)) {
-			precio = precio * 1.4;
-		}
-		
-		return precio;	
-			
-		
-	}
+//	public double calcularPrecio(Model model, @ModelAttribute("nuevaReserva") ReservaDeHabitacion reserva, double precio) {
+//		
+//		
+//		LocalDateTime diaInicio = reserva.getFechaInicio();
+//		
+//		LocalDateTime diaFin = reserva.getFechaFin();
+//		
+//		Long dias = ChronoUnit.DAYS.between(diaInicio, diaFin);
+//	
+//		String temporadaAlta = "06-01";
+//		String temporadaBaja = "08-01";
+//		
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd");
+//		
+//		LocalDateTime fechaInicioTA = LocalDateTime.parse(temporadaAlta, formatter);
+//		LocalDateTime fechaInicioTB = LocalDateTime.parse(temporadaBaja, formatter);
+//		
+//		precio = precio * dias;
+//		
+//		if(diaInicio.isAfter(fechaInicioTA) && diaFin.isBefore(fechaInicioTB)) {
+//			precio = precio * 1.4;
+//		}
+//		
+//		return precio;	
+//			
+//		
+//	}
 	
 	@GetMapping("anadirReserva/{id}")
 	public String showHabReservadas(@PathVariable("id") Long id, Model model, @ModelAttribute("nuevaReserva") ReservaDeHabitacion r, @ModelAttribute("usuarioActual") Usuario usuario) {
 		Habitacion h = habitacionService.findOne(id);
-		double precio = calcularPrecio(model, r, h.getPrecio());
+		//double precio = calcularPrecio(model, r, h.getPrecio());
+		double precio = 200;
 		h.setPrecio(precio);
-		Reserva reserva = new Reserva(r.getFechaInicio(), r.getFechaFin(), precio);
-		reservaService.save(reserva);
-		h.addReserva(reserva);
-		usuario.addReserva(reserva);
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//		LocalDateTime fechaInicio = LocalDateTime.parse("2018-05-12", formatter);
+//		LocalDateTime fechaFin = LocalDateTime.parse("2018-05-20", formatter);
+//		Reserva reserva = new Reserva(fechaInicio, fechaFin, precio);
+//		reservaService.save(reserva);
+//		h.addReserva(reserva);
+//		usuario.addReserva(reserva);
 		
 		
 		

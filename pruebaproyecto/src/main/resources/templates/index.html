@@ -95,17 +95,25 @@
 								<li>
 									<a href="contact">Contacto</a>
 								</li>
-								<li class="btn-cta">
+								<li th:if="${noUsuario}" class="btn-cta">
 									<a href="login">
 										<span>Login</span>
 									</a>
 								</li>
 								<!-- <li class="btn-cta"><a href="#"><span>Sign Up</span></a></li> -->
-								<li>
-									<a href="Register">Registrarse</a>
+								<li th:if="${noUsuario}">
+									<a href="/Register">Registrarse</a>
 								</li>
-								<li>
-									<a href="usuarios">Pantalla Admin</a>
+								<li th:if="${usuario}">
+									<a href="/datos">Mis Datos</a>
+								</li>
+								<li th:if="${panelAdmin}">
+									<a href="/usuarios">Pantalla Admin</a>
+								</li>
+								<li th:if="${usuario}" class="btn-cta">
+									<a href="/logout">
+										<span>LogOut</span>
+									</a>
 								</li>
 							</ul>
 						</div>
@@ -175,9 +183,9 @@
 							<i class="icon-cog"></i>
 						</span>
 						<h2>¿Necesitas un descanso?</h2>
-						<p align="justify">Situado en pleno centro de Sevilla, nuestro hotel te ofrece la mejor selección de suites de lujo para una estacncia inolvidable,
-						disfrutar de la mejor cocina internacional en nuestro restaurante de tres estrellas Michelín o darse un baño en la piscina con vistas
-						al centro y la Giralda.</p>
+						<p align="justify">Situado en pleno centro de Sevilla, nuestro hotel te ofrece la mejor selección de suites de lujo para una estacncia
+							inolvidable, disfrutar de la mejor cocina internacional en nuestro restaurante de tres estrellas Michelín o darse
+							un baño en la piscina con vistas al centro y la Giralda.</p>
 					</div>
 					<div class="third-col third-col-color">
 						<span class="icon">
@@ -205,7 +213,7 @@
 					<div class="col-md-4 text-center animate-box">
 						<div class="services">
 							<span class="icon">
-								<image src="images/oro.png"/>
+								<image src="images/oro.png" />
 							</span>
 							<div class="desc">
 								<h3>
@@ -218,7 +226,7 @@
 					<div class="col-md-4 text-center animate-box">
 						<div class="services">
 							<span class="icon">
-								<image src="images/esmeralda.png"/>
+								<image src="images/esmeralda.png" />
 							</span>
 							<div class="desc">
 								<h3>
@@ -231,7 +239,7 @@
 					<div class="col-md-4 text-center animate-box">
 						<div class="services">
 							<span class="icon">
-								<image src="images/diamante.png"/>
+								<image src="images/diamante.png" />
 							</span>
 							<div class="desc">
 								<h3>
@@ -289,10 +297,10 @@
 											<a href="#" class="twitter">Booking</a>
 										</span>
 										<blockquote>
-											<p align="justify">&ldquo;Al llegar nos atendió el director del Hotel y nos planificó la visita a la ciudad. Recomendándonos monumentos y restaurantes. 
-											La atención de Carlos y la humildad con la que atendió a nuestras necesidades, nos dejó simplemente boquiabiertos.
-											Es todo un LUJO poder coincidir con personas como él. 
-											Desde luego, un Director de LUJO para un Hotel de LUJO</p>
+											<p align="justify">&ldquo;Al llegar nos atendió el director del Hotel y nos planificó la visita a la ciudad. Recomendándonos monumentos
+												y restaurantes. La atención de Carlos y la humildad con la que atendió a nuestras necesidades, nos dejó simplemente
+												boquiabiertos. Es todo un LUJO poder coincidir con personas como él. Desde luego, un Director de LUJO para un
+												Hotel de LUJO</p>
 										</blockquote>
 									</div>
 								</div>
@@ -305,7 +313,8 @@
 											<a href="#" class="twitter">Facebook</a>
 										</span>
 										<blockquote>
-											<p align="justify">Todo, el hotel, la localización, la amabilidad del personal. Que al llegar nos recibiesen e informasen de los lugares a ver y donde comer (las recomendaciones de Fernando fueron geniales, todo un acierto)</p>
+											<p align="justify">Todo, el hotel, la localización, la amabilidad del personal. Que al llegar nos recibiesen e informasen de los
+												lugares a ver y donde comer (las recomendaciones de Fernando fueron geniales, todo un acierto)</p>
 										</blockquote>
 									</div>
 								</div>
@@ -318,7 +327,9 @@
 											<a href="#" class="twitter">Booking</a>
 										</span>
 										<blockquote>
-											<p align="justify">La ubicación inmejorable. El desayuno espectacular. El Sr. Director muy amable y eficiente, al menos su rapidez hizo posible nuestro descanso nocturno la segunda noche de estancia aunque ya habíamos perdido la primera, algo que cuesta entender en un hotel de 5 estrellas con el gasto que ello supone.</p>
+											<p align="justify">La ubicación inmejorable. El desayuno espectacular. El Sr. Director muy amable y eficiente, al menos su rapidez
+												hizo posible nuestro descanso nocturno la segunda noche de estancia aunque ya habíamos perdido la primera, algo
+												que cuesta entender en un hotel de 5 estrellas con el gasto que ello supone.</p>
 										</blockquote>
 									</div>
 								</div>

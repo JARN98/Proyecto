@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.salesianostriana.pruebaproyecto.formbean.RegistroDeUsuario;
 import com.salesianostriana.pruebaproyecto.model.Usuario;
 import com.salesianostriana.pruebaproyecto.services.UsuarioService;
+import com.salesianostriana.pruebaproyecto.controller.LoginController;
 
 @Controller
 public class RegistroController {
@@ -32,16 +33,17 @@ public class RegistroController {
 	@PostMapping("/checkRegister")
 	public String doRegister(@ModelAttribute("registroUsuario") RegistroDeUsuario registroDeUsuario,
 			BindingResult bindingResult, Model model) {
-		Usuario usuario = usuarioService.registro(registroDeUsuario.getEmail());
+		Usuario u = usuarioService.registro(registroDeUsuario.getEmail());
 
-		if (usuario == null) {
+		if (u == null) {
 			
-			usuario = new Usuario(false, registroDeUsuario.getNombre(), registroDeUsuario.getApellidos(), registroDeUsuario.getEmail(), registroDeUsuario.getContrasena());
+			u = new Usuario(false, registroDeUsuario.getNombre(), registroDeUsuario.getApellidos(), registroDeUsuario.getEmail(), registroDeUsuario.getContrasena());
 			
-			usuarioService.save(usuario);
+			usuarioService.save(u);
 
-			session.setAttribute("usuarioActual", usuario);
-			model.addAttribute("usuarioActual", usuario);
+			session.setAttribute("usuarioActual", u);
+			model.addAttribute("usuarioActual", u);
+			LoginController.usuario = u;
 			
 			return "redirect:/";
 		} else {

@@ -22,6 +22,8 @@ public class LoginController {
 
 	@Autowired
 	private HttpSession session;
+	
+	public static Usuario usuario;
 
 	@GetMapping("/login")
 	public String showLogin(Model model) {
@@ -33,13 +35,14 @@ public class LoginController {
 	public String doLogin(@ModelAttribute("loginDeUsuario") LoginDeUsuario loginDeUsuario, BindingResult bindingResult,
 			Model model) {
 
-		Usuario usuario = usuarioService.login(loginDeUsuario.getNombreUsuario(), loginDeUsuario.getContrasena());
+		Usuario u = usuarioService.login(loginDeUsuario.getNombreUsuario(), loginDeUsuario.getContrasena());
 		
 		
 
-		if (usuario != null) {
-			session.setAttribute("usuarioActual", usuario);
-			model.addAttribute("usuarioActual", usuario);
+		if (u != null) {
+			session.setAttribute("usuarioActual", u );
+			model.addAttribute("usuarioActual", u);
+			usuario = u;
 			return "redirect:/";
 		} else {
 			model.addAttribute("loginError", "El usuario o contraseña no es válido");
@@ -51,6 +54,7 @@ public class LoginController {
 	@GetMapping("/logout")
 	public String doLogout(Model model) {
 		session.setAttribute("usuarioActual", null);
+		usuario = null;
 		return "redirect:/";
 	}
 

@@ -8,31 +8,42 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.salesianostriana.pruebaproyecto.model.Habitacion;
 import com.salesianostriana.pruebaproyecto.model.Usuario;
 import com.salesianostriana.pruebaproyecto.services.HabitacionService;
 import com.salesianostriana.pruebaproyecto.services.UsuarioService;
+import com.salesianostriana.pruebaproyecto.controller.LoginController;
 
 @Controller
 public class IndexController {
-	
-	//@Autowired
-	//private HttpSession session;
-	
+
+	// @Autowired
+	// private HttpSession session;
+
 	@Autowired
 	private HabitacionService habitacionService;
-	
+
 	@Autowired
 	private UsuarioService usuarioService;
-	
+
 	@Autowired
 	private HttpSession session;
-	
 
-	@GetMapping({"/", "/index"})
-	public String showIndex(Model model) {
-		Usuario usuario = (Usuario) session.getAttribute("usuarioActual");
+	@GetMapping({ "/", "/index" })
+	public String showIndex(Model model, @ModelAttribute("usuarioActual") Usuario usuario) {
+		// Usuario u = (Usuario) session.getAttribute("usuarioActual");
+		if(LoginController.usuario == null) {
+			model.addAttribute("noUsuario", true);
+		}
+		if (LoginController.usuario != null) {
+			model.addAttribute("usuario", true);
+			if (LoginController.usuario.isAdmin()) {
+				model.addAttribute("panelAdmin", true);
+			}
+		}
+
 		model.addAttribute("usuarioRegistrado", usuario);
 		return "index";
 	}
@@ -61,20 +72,19 @@ public class IndexController {
 	public String showSuite3() {
 		return "oro";
 	}
-	
+
 	@GetMapping("/hotel")
 	public String showHotel() {
 		return "hotel";
 	}
-	
-	
+
 	@GetMapping("/usuarios")
 	public String showHabitacion(Model model) {
 		model.addAttribute("crearHabitacion", new Habitacion());
 		Iterable<Habitacion> lista = new HashSet<Habitacion>();
 		lista = habitacionService.findAll();
 		model.addAttribute("listaHabitaciones", lista);
-		
+
 		Iterable<Usuario> listaU = new HashSet<Usuario>();
 		listaU = usuarioService.findAll();
 		model.addAttribute("listaUsuarios", listaU);
@@ -82,6 +92,5 @@ public class IndexController {
 		model.addAttribute("usuarioAEditar", new Usuario());
 		return "usuarios";
 	}
-	
-	
+
 }

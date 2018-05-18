@@ -7,12 +7,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class ReservaDeHabitacion {
 
 	@DateTimeFormat
-	private LocalDateTime fechaInicio;
+	private String fechaInicio;
 	@DateTimeFormat
-	private LocalDateTime fechaFin;
+	private String fechaFin;
 	private String tipoHab;
 
-	public ReservaDeHabitacion(LocalDateTime fechaInicio, LocalDateTime fechaFin, String tipoHab) {
+	public ReservaDeHabitacion(String fechaInicio, String fechaFin, String tipoHab) {
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 		this.tipoHab = tipoHab;
@@ -22,19 +22,19 @@ public class ReservaDeHabitacion {
 
 	}
 
-	public LocalDateTime getFechaInicio() {
+	public String getFechaInicio() {
 		return fechaInicio;
 	}
 
-	public void setFechaInicio(LocalDateTime fechaInicio) {
+	public void setFechaInicio(String fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
 
-	public LocalDateTime getFechaFin() {
+	public String getFechaFin() {
 		return fechaFin;
 	}
 
-	public void setFechaFin(LocalDateTime fechaFin) {
+	public void setFechaFin(String fechaFin) {
 		this.fechaFin = fechaFin;
 	}
 

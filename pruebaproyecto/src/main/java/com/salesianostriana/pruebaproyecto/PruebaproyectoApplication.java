@@ -19,10 +19,15 @@ public class PruebaproyectoApplication {
 	public CommandLineRunner insertInitialData(UsuarioService service) {
 		return args -> {
 			Usuario nuevoUsuario = new Usuario();
-			nuevoUsuario.setNombre("jose");
-			nuevoUsuario.setContrasena("1234");
+			nuevoUsuario.setNombre("admin");
+			nuevoUsuario.setContrasena("admin");
 			nuevoUsuario.setAdmin(true);
 			service.save(nuevoUsuario);
+			
+			Usuario usuario = new Usuario();
+			usuario.setNombre("usuario");
+			usuario.setContrasena("1234");
+			service.save(usuario);
 		};
 	}
 }
