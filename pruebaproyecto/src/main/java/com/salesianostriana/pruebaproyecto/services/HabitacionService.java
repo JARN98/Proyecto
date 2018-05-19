@@ -1,7 +1,5 @@
 package com.salesianostriana.pruebaproyecto.services;
 
-import java.time.LocalDateTime;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +13,7 @@ public class HabitacionService {
 	HabitacionRepository repositorio;
 	
 //	public Iterable<Habitacion> findListaHabitaciones(){
-//		return repositorio.findHabitacionesNoReservadas();
+//		return repositorio.findHabitacionesNoReservadas(fechaInicio,fechaFin, tipoHab);
 //	}
 
 	public Habitacion findOne(Long id) {

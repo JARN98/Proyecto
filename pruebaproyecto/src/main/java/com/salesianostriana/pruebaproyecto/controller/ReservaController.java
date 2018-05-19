@@ -68,17 +68,11 @@ public class ReservaController {
 
 		Long dias = ChronoUnit.DAYS.between(diaInicio, diaFin);
 
-		String temporadaAlta = "2018-06-01";
-		String temporadaBaja = "2018-08-01";
-
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-		LocalDate fechaInicioTA = LocalDate.parse(temporadaAlta, formatter);
-		LocalDate fechaInicioTB = LocalDate.parse(temporadaBaja, formatter);
-
 		precio = precio * dias;
-
-		if (diaInicio.isAfter(fechaInicioTA) && diaFin.isBefore(fechaInicioTB)) {
+		
+		int mesInicioTA = 6;
+		int mesFinTA = 7;
+		if (diaInicio.getMonthValue() >= mesInicioTA && diaFin.getMonthValue() <= mesFinTA) {
 			precio = precio * 1.4;
 		}
 
@@ -87,7 +81,7 @@ public class ReservaController {
 	}
 
 	@GetMapping("anadirReserva/{id}")
-	public String showHabReservadas(@PathVariable("id") Long id, Model model,
+	public String showHabReservadas(@PathVariable("id") Long id, Model model, @ModelAttribute("usuarioActual") Usuario usuario,
 			@ModelAttribute("nuevaReserva") ReservaDeHabitacion r) {
 		Habitacion h = habitacionService.findOne(id);
 		System.out.println(h);
@@ -95,13 +89,16 @@ public class ReservaController {
 		DateTimeFormatter formateoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate fechaInicio = LocalDate.parse(reservaDeHabitacion.getFechaInicio(), formateoFecha);
 		LocalDate fechaFin = LocalDate.parse(reservaDeHabitacion.getFechaFin(), formateoFecha);
-		
+
 		Reserva reserva = new Reserva(fechaInicio, fechaFin, calcularPrecio(model, h.getPrecio()));
 		
+		reserva.setHabitacion(h);
+		reserva.setUsuario(LoginController.usuario);
+
 		reservaService.save(reserva);
-		
-//		h.addReserva(reserva);
-//		LoginController.usuario.addReserva(reserva);
+
+		 h.addReserva(reserva);
+		 usuario.addReserva(reserva);
 
 		return "redirect:/FilterUser/reservas";
 	}
