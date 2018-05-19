@@ -1,6 +1,6 @@
 package com.salesianostriana.pruebaproyecto.controller;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
@@ -23,82 +23,87 @@ import com.salesianostriana.pruebaproyecto.services.ReservaService;
 
 @Controller
 public class ReservaController {
-	
+
 	@Autowired
 	private ReservaService reservaService;
-	
+
 	@Autowired
 	private HabitacionService habitacionService;
-	
+
 	@Autowired
 	private HttpSession session;
-	
+
+	public ReservaDeHabitacion reservaDeHabitacion;
+
 	@GetMapping("/FilterUser/reservas")
 	public String showReserva(Model model) {
 		model.addAttribute("nuevaReserva", new ReservaDeHabitacion());
 		return "FilterUser/reservas";
 	}
-	
+
 	@PostMapping("/habitacionesReserva")
 	public String showHab(Model model, @ModelAttribute("nuevaReserva") ReservaDeHabitacion r) {
-		Iterable<Habitacion> habitacionesQueSePuedenReservar =  habitacionService.findAll();
-		
-		if(habitacionesQueSePuedenReservar != null ) {
+		Iterable<Habitacion> habitacionesQueSePuedenReservar = habitacionService.findAll();
+
+		reservaDeHabitacion = new ReservaDeHabitacion(r.getFechaInicio(), r.getFechaFin(), r.getTipoHab());
+
+		if (habitacionesQueSePuedenReservar != null) {
 			model.addAttribute("hPuedenReservarse", habitacionesQueSePuedenReservar);
 			return "FilterUser/habitacionesReserva";
-		}else {
-			model.addAttribute("ErrorNohayHab", "Lo siento, en esas fechas no tenemos ninguna de las suites seleccionada disponibles");
+		} else {
+			model.addAttribute("ErrorNohayHab",
+					"Lo siento, en esas fechas no tenemos ninguna de las suites seleccionada disponibles");
 			return "FilterUser/habitacionesReserva";
 		}
-		
+
 	}
-	
-	
-//	public double calcularPrecio(Model model, @ModelAttribute("nuevaReserva") ReservaDeHabitacion reserva, double precio) {
-//		
-//		
-//		LocalDateTime diaInicio = reserva.getFechaInicio();
-//		
-//		LocalDateTime diaFin = reserva.getFechaFin();
-//		
-//		Long dias = ChronoUnit.DAYS.between(diaInicio, diaFin);
-//	
-//		String temporadaAlta = "06-01";
-//		String temporadaBaja = "08-01";
-//		
-//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd");
-//		
-//		LocalDateTime fechaInicioTA = LocalDateTime.parse(temporadaAlta, formatter);
-//		LocalDateTime fechaInicioTB = LocalDateTime.parse(temporadaBaja, formatter);
-//		
-//		precio = precio * dias;
-//		
-//		if(diaInicio.isAfter(fechaInicioTA) && diaFin.isBefore(fechaInicioTB)) {
-//			precio = precio * 1.4;
-//		}
-//		
-//		return precio;	
-//			
-//		
-//	}
-	
+
+	public double calcularPrecio(Model model, double precio) {
+
+		DateTimeFormatter formateoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+		LocalDate diaInicio = LocalDate.parse(reservaDeHabitacion.getFechaInicio(), formateoFecha);
+
+		LocalDate diaFin = LocalDate.parse(reservaDeHabitacion.getFechaFin(), formateoFecha);
+
+		Long dias = ChronoUnit.DAYS.between(diaInicio, diaFin);
+
+		String temporadaAlta = "2018-06-01";
+		String temporadaBaja = "2018-08-01";
+
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+		LocalDate fechaInicioTA = LocalDate.parse(temporadaAlta, formatter);
+		LocalDate fechaInicioTB = LocalDate.parse(temporadaBaja, formatter);
+
+		precio = precio * dias;
+
+		if (diaInicio.isAfter(fechaInicioTA) && diaFin.isBefore(fechaInicioTB)) {
+			precio = precio * 1.4;
+		}
+
+		return precio;
+
+	}
+
 	@GetMapping("anadirReserva/{id}")
-	public String showHabReservadas(@PathVariable("id") Long id, Model model, @ModelAttribute("nuevaReserva") ReservaDeHabitacion r, @ModelAttribute("usuarioActual") Usuario usuario) {
+	public String showHabReservadas(@PathVariable("id") Long id, Model model,
+			@ModelAttribute("nuevaReserva") ReservaDeHabitacion r) {
 		Habitacion h = habitacionService.findOne(id);
-		//double precio = calcularPrecio(model, r, h.getPrecio());
-		double precio = 200;
-		h.setPrecio(precio);
-//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//		LocalDateTime fechaInicio = LocalDateTime.parse("2018-05-12", formatter);
-//		LocalDateTime fechaFin = LocalDateTime.parse("2018-05-20", formatter);
-//		Reserva reserva = new Reserva(fechaInicio, fechaFin, precio);
-//		reservaService.save(reserva);
+		System.out.println(h);
+
+		DateTimeFormatter formateoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate fechaInicio = LocalDate.parse(reservaDeHabitacion.getFechaInicio(), formateoFecha);
+		LocalDate fechaFin = LocalDate.parse(reservaDeHabitacion.getFechaFin(), formateoFecha);
+		
+		Reserva reserva = new Reserva(fechaInicio, fechaFin, calcularPrecio(model, h.getPrecio()));
+		
+		reservaService.save(reserva);
+		
 //		h.addReserva(reserva);
-//		usuario.addReserva(reserva);
-		
-		
-		
+//		LoginController.usuario.addReserva(reserva);
+
 		return "redirect:/FilterUser/reservas";
 	}
-	
+
 }

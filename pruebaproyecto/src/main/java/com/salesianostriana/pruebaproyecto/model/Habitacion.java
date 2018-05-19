@@ -62,24 +62,16 @@ public class Habitacion {
 		this.precio = precio;
 	}
 
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((listaReservas == null) ? 0 : listaReservas.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(precio);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((tipoHab == null) ? 0 : tipoHab.hashCode());
 		return result;
-	}
-
-	@Override
-	public String toString() {
-		return "Habitacion [id=" + id + ", tipoHab=" + tipoHab + ", precio=" + precio + ", listaReservas="
-				+ listaReservas + "]";
 	}
 
 	@Override
@@ -96,11 +88,6 @@ public class Habitacion {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (listaReservas == null) {
-			if (other.listaReservas != null)
-				return false;
-		} else if (!listaReservas.equals(other.listaReservas))
-			return false;
 		if (Double.doubleToLongBits(precio) != Double.doubleToLongBits(other.precio))
 			return false;
 		if (tipoHab == null) {
@@ -111,7 +98,13 @@ public class Habitacion {
 		return true;
 	}
 
-	// Helper
+	@Override
+	public String toString() {
+		return "Habitacion [id=" + id + ", tipoHab=" + tipoHab + ", precio=" + precio + "]";
+	}
+	
+	//Helper
+
 	public void addReserva(Reserva r) {
 		if (r != null) {
 			r.setHabitacion(this);

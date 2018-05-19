@@ -120,7 +120,7 @@
             <div class="popup">
                 <br />
                 <h2>Editar datos</h2>
-                <form th:action="@{/editUserAdmin}" th:object="${usuario}" method="POST">
+                <form th:action="@{/habitacionesReserva}" th:object="${nuevaReserva}" method="POST">
                     <input id="id" name="id" type="hidden" th:field="*{id}" />
                     <!-- Text input-->
                     <label class="control-label" for="Email">Email</label>

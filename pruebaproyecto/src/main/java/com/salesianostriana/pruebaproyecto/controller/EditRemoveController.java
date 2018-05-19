@@ -66,7 +66,7 @@ public class EditRemoveController {
 	@PostMapping("/editUserAdmin")
 	public String doEditAdmin(@ModelAttribute Usuario usuario) {
 		usuarioService.edit(usuario);
-		return "redirect:/usuarios";
+		return "redirect:/usuarios#listaUsuarios";
 	}
 
 	@GetMapping("/editarHabitacion/{id}")
@@ -84,21 +84,21 @@ public class EditRemoveController {
 	@PostMapping("/editRoomAdmin")
 	public String doEditAdminH(@ModelAttribute Habitacion habitacion) {
 		habitacionService.edit(habitacion);
-		return "redirect:/usuarios";
+		return "redirect:/usuarios#listaHabitaciones";
 	}
 
 	@GetMapping("/eliminarHabitacion/{id}")
 	public String deleteRoom(@PathVariable("id") Long id, Model model) {
 		Habitacion h = habitacionService.findOne(id);
 		habitacionService.delete(h);
-		return "redirect:/usuarios";
+		return "redirect:/usuarios#listaHabitaciones";
 	}
 
 	@GetMapping("/eliminarUsuario/{id}")
 	public String deleteUser(@PathVariable("id") Long id, Model model) {
 		Usuario u = usuarioService.findOne(id);
 		usuarioService.delete(u);
-		return "redirect:/usuarios";
+		return "redirect:/usuarios#listaUsuarios";
 
 	}
 }

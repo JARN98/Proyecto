@@ -1,14 +1,13 @@
 package com.salesianostriana.pruebaproyecto.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import org.hibernate.FetchMode;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -17,16 +16,16 @@ public class Reserva {
 	@Id
 	private Long id;
 	@DateTimeFormat
-	private LocalDateTime fechaInicio;
+	private LocalDate fechaInicio;
 	@DateTimeFormat
-	private LocalDateTime fechaFin;
+	private LocalDate fechaFin;
 	private double precio;
-	
+
 	public Reserva() {
-		
+
 	}
 
-	public Reserva(LocalDateTime fechaInicio, LocalDateTime fechaFin, double precio) {
+	public Reserva(LocalDate fechaInicio, LocalDate fechaFin, double precio) {
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 		this.precio = precio;
@@ -62,19 +61,19 @@ public class Reserva {
 		this.id = id;
 	}
 
-	public LocalDateTime getFechaInicio() {
+	public LocalDate getFechaInicio() {
 		return fechaInicio;
 	}
 
-	public void setFechaInicio(LocalDateTime fechaInicio) {
+	public void setFechaInicio(LocalDate fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
 
-	public LocalDateTime getFechaFin() {
+	public LocalDate getFechaFin() {
 		return fechaFin;
 	}
 
-	public void setFechaFin(LocalDateTime fechaFin) {
+	public void setFechaFin(LocalDate fechaFin) {
 		this.fechaFin = fechaFin;
 	}
 
@@ -92,12 +91,10 @@ public class Reserva {
 		int result = 1;
 		result = prime * result + ((fechaFin == null) ? 0 : fechaFin.hashCode());
 		result = prime * result + ((fechaInicio == null) ? 0 : fechaInicio.hashCode());
-		result = prime * result + ((habitacion == null) ? 0 : habitacion.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(precio);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
 		return result;
 	}
 
@@ -120,11 +117,6 @@ public class Reserva {
 				return false;
 		} else if (!fechaInicio.equals(other.fechaInicio))
 			return false;
-		if (habitacion == null) {
-			if (other.habitacion != null)
-				return false;
-		} else if (!habitacion.equals(other.habitacion))
-			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -132,18 +124,13 @@ public class Reserva {
 			return false;
 		if (Double.doubleToLongBits(precio) != Double.doubleToLongBits(other.precio))
 			return false;
-		if (usuario == null) {
-			if (other.usuario != null)
-				return false;
-		} else if (!usuario.equals(other.usuario))
-			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
 		return "Reserva [id=" + id + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", precio=" + precio
-				+ ", usuario=" + usuario + ", habitacion=" + habitacion + "]";
+				+ "]";
 	}
 
 }
