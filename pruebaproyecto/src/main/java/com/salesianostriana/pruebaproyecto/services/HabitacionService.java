@@ -11,10 +11,6 @@ public class HabitacionService {
 	
 	@Autowired
 	HabitacionRepository repositorio;
-	
-//	public Iterable<Habitacion> findListaHabitaciones(){
-//		return repositorio.findHabitacionesNoReservadas(fechaInicio,fechaFin, tipoHab);
-//	}
 
 	public Habitacion findOne(Long id) {
 		return repositorio.findById(id).orElse(null);

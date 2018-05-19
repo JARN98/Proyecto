@@ -23,6 +23,5 @@ public interface HabitacionRepository extends JpaRepository<Habitacion, Long> {
 //	@Query("SELECT h FROM HABITACION h JOIN HABITACION_LISTARESERVAS x ON (h.ID = x.HABITACION_ID) JOIN RESERVA r ON (x.LISTARESERVAS_ID = r.ID)")
 //	Iterable<Habitacion> findHabitacionesNoReservadas();
 	
-	@Query("SELECT h FROM HABITACION h JOIN RESERVA r ON (h.ID = r.HABITACION_ID) WHERE ?1 NOT BETWEEN FECHAINICIO AND FECHAFIN AND ?2 NOT BETWEEN FECHAINICIO AND FECHAFIN AND TIPOHAB LIKE ?3;")
-	Iterable<Habitacion> findHabitacionesNoReservadas(LocalDate fechaInicio, LocalDate fechaFin, String tipoHab);
+
 }

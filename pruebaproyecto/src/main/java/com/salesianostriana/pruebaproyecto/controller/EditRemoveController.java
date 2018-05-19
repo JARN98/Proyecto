@@ -16,7 +16,6 @@ import com.salesianostriana.pruebaproyecto.model.Habitacion;
 import com.salesianostriana.pruebaproyecto.model.Reserva;
 import com.salesianostriana.pruebaproyecto.model.Usuario;
 import com.salesianostriana.pruebaproyecto.services.HabitacionService;
-import com.salesianostriana.pruebaproyecto.services.ReservaService;
 import com.salesianostriana.pruebaproyecto.services.UsuarioService;
 
 @Controller
@@ -26,9 +25,6 @@ public class EditRemoveController {
 
 	@Autowired
 	private HttpSession session;
-
-	@Autowired
-	private ReservaService reservaService;
 
 	@Autowired
 	private HabitacionService habitacionService;
