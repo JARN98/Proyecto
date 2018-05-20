@@ -116,47 +116,54 @@
 
 
 
-        <div >
-            <div class="popup">
-                <br />
-                <h2>Editar datos</h2>
-                <form th:action="@{/habitacionesReserva}" th:object="${nuevaReserva}" method="POST">
-                    <input id="id" name="id" type="hidden" th:field="*{id}" />
-                    <!-- Text input-->
-                    <label class="control-label" for="Email">Email</label>
-                    <input th:value="${usuario.email}" th:field="*{email}" id="email" name="email" placeholder="Email" class="form-control input-md" required="" type="text"
-                        pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+		<div>
+			<div class="popup">
+				<br />
+				<h2>Editar datos</h2>
+				<form th:action="@{/habitacionesReserva}" th:object="${nuevaReserva}" method="POST">
+					<script>
+						$(document).ready(function(){
+							$("#nombre").innerHTML="th:value='${usuario.nombre}'";
+						});
+						
+					</script>
+					<input id="id" name="id" type="hidden" th:field="*{id}" />
+					<!-- Text input-->
+					<label class="control-label" for="Email">Email</label>
+					<input th:field="*{email}" id="email" name="email" placeholder="Email" class="form-control input-md" th:value="${usuario.email}"
+					 required="" type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
 
 
-                    <label class=" control-label" for="Nombre">Nombre</label>
-                    <input th:value="${usuario.nombre}" th:field="*{nombre}" id="nombre" name="nombre" placeholder="Nombre" class="form-control input-md" required="" type="text">
+					<label class=" control-label" for="Nombre">Nombre</label>
+					<input th:field="*{nombre}" id="nombre" name="nombre" placeholder="Nombre" class="form-control input-md" th:value="${usuario.nombre}"
+					 required="" type="text">
 
 
-                    <label class=" control-label" for="Apellidos">Apellidos</label>
-                    <input th:value="${usuario.apellidos}" th:field="*{apellidos}" id="apellidos" name="apellidos" placeholder="Apellidos" class="form-control input-md" required=""
-                        type="text">
+					<label class=" control-label" for="Apellidos">Apellidos</label>
+					<input th:field="*{apellidos}" id="apellidos" name="apellidos" placeholder="Apellidos" class="form-control input-md" required=""
+					 th:value="${usuario.apellidos}" type="text">
 
 
-                    <label class=" control-label" for="Contrasena">Contraseña</label>
-                    <input th:value="${usuario.contrasena}" th:field="*{contrasena}" id="contrasena" name="contrasena" placeholder="Contraseña" class="form-control input-md"
-                        required="" type="password">
-                    <br/>
-                    <input type="submit" class="btn btn-success" value="Editar">
+					<label class=" control-label" for="Contrasena">Contraseña</label>
+					<input th:field="*{contrasena}" id="contrasena" name="contrasena" placeholder="Contraseña" class="form-control input-md"
+					 required="" type="password" th:value="${usuario.contrasena}">
+					<br/>
+					<input type="submit" class="btn btn-success" value="Editar">
 
-                </form>
-            </div>
-        </div>
-
-
-
-
+				</form>
+			</div>
+		</div>
 
 
 
 
 
 
-        <footer id="colorlib-footer" role="contentinfo">
+
+
+
+
+		<footer id="colorlib-footer" role="contentinfo">
 			<div class="container">
 				<div class="row row-pb-md">
 

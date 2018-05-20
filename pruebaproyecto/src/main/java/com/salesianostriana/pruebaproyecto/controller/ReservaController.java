@@ -31,8 +31,8 @@ public class ReservaController {
 	@Autowired
 	private HabitacionService habitacionService;
 	
-	@Autowired
-	private ConsultaService consultaService;
+//	@Autowired
+//	private ConsultaService consultaService;
 
 	@Autowired
 	private HttpSession session;
