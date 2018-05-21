@@ -29,9 +29,6 @@ public class ReservaController {
 
 	@Autowired
 	private HabitacionService habitacionService;
-	
-//	@Autowired
-//	private ConsultaService consultaService;
 
 	@Autowired
 	private HttpSession session;
@@ -49,69 +46,61 @@ public class ReservaController {
 		DateTimeFormatter formateoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate fechaInicio = LocalDate.parse(r.getFechaInicio(), formateoFecha);
 		LocalDate fechaFin = LocalDate.parse(r.getFechaFin(), formateoFecha);
-		System.out.println(fechaInicio);
-		System.out.println(fechaFin);
-		System.out.println(r.getTipoHab());
-		
-		Iterable<Habitacion>  habitacionesQueSePuedenReservar = habitacionService.findHabitacionesNoReservadas(fechaInicio, fechaFin, r.getTipoHab());
-//		Iterable<Habitacion> habitacionesQueSePuedenReservar = habitacionService.findAll();
+
+		Iterable<Habitacion> habitacionesQueSePuedenReservar = habitacionService
+				.findHabitacionesNoReservadas(fechaInicio, fechaFin, r.getTipoHab());
 
 		reservaDeHabitacion = new ReservaDeHabitacion(r.getFechaInicio(), r.getFechaFin(), r.getTipoHab());
 
-		if (habitacionesQueSePuedenReservar != null) {
-			model.addAttribute("hPuedenReservarse", habitacionesQueSePuedenReservar);
-			return "FilterUser/habitacionesReserva";
-		} else {
+
+		
+		if (fechaInicio.isAfter(fechaFin)) {
+			model.addAttribute("ErrorFecha1", "No puede poner una fecha de fin anterior a la de inicio");
+			return "/FilterUser/reservas";
+		} else if (fechaInicio.isBefore(LocalDate.now())) {
+			model.addAttribute("ErrorFecha2", "No puede poner una fecha anterior a la de hoy");
+			return "/FilterUser/reservas";
+		}else if(habitacionesQueSePuedenReservar == null) {
 			model.addAttribute("ErrorNohayHab",
 					"Lo siento, en esas fechas no tenemos ninguna de las suites seleccionada disponibles");
+			return "/FilterUser/reservas";
+		}else {
+			model.addAttribute("hPuedenReservarse", habitacionesQueSePuedenReservar);
 			return "FilterUser/habitacionesReserva";
 		}
-
-	}
-
-	public double calcularPrecio(Model model, double precio) {
-
-		DateTimeFormatter formateoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-
-		LocalDate diaInicio = LocalDate.parse(reservaDeHabitacion.getFechaInicio(), formateoFecha);
-
-		LocalDate diaFin = LocalDate.parse(reservaDeHabitacion.getFechaFin(), formateoFecha);
-
-		Long dias = ChronoUnit.DAYS.between(diaInicio, diaFin);
-
-		precio = precio * dias;
-		
-		int mesInicioTA = 6;
-		int mesFinTA = 7;
-		if (diaInicio.getMonthValue() >= mesInicioTA && diaFin.getMonthValue() <= mesFinTA) {
-			precio = precio * 1.4;
-		}
-
-		return precio;
 
 	}
 
 	@GetMapping("anadirReserva/{id}")
-	public String showHabReservadas(@PathVariable("id") Long id, Model model, @ModelAttribute("usuarioActual") Usuario usuario,
-			@ModelAttribute("nuevaReserva") ReservaDeHabitacion r) {
+	public String showHabReservadas(@PathVariable("id") Long id, Model model,
+			@ModelAttribute("usuarioActual") Usuario usuario, @ModelAttribute("nuevaReserva") ReservaDeHabitacion r) {
 		Habitacion h = habitacionService.findOne(id);
-		System.out.println(h);
 
 		DateTimeFormatter formateoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate fechaInicio = LocalDate.parse(reservaDeHabitacion.getFechaInicio(), formateoFecha);
 		LocalDate fechaFin = LocalDate.parse(reservaDeHabitacion.getFechaFin(), formateoFecha);
 
-		Reserva reserva = new Reserva(fechaInicio, fechaFin, calcularPrecio(model, h.getPrecio()));
-		
-		reserva.setHabitacion(h);
-		reserva.setUsuario(LoginController.usuario);
+		Reserva reserva = new Reserva(fechaInicio, fechaFin, reservaService.calcularPrecio(model, h.getPrecio(),
+				reservaDeHabitacion.getFechaInicio(), reservaDeHabitacion.getFechaFin()));
 
-		reservaService.save(reserva);
+		if (fechaInicio.isAfter(fechaFin)) {
+			model.addAttribute("ErrorFecha1", "No puede poner una fecha de fin anterior a la de inicio");
+			return "redirect:/habitacionesReserva";
+		} else if (fechaInicio.isBefore(LocalDate.now())) {
+			model.addAttribute("ErrorFecha2", "No puede poner una fecha anterior a la de hoy");
+			return "redirect:/habitacionesReserva";
+		} else {
+			reserva.setHabitacion(h);
+			reserva.setUsuario(LoginController.usuario);
 
-		 h.addReserva(reserva);
-		 usuario.addReserva(reserva);
+			reservaService.save(reserva);
 
-		return "redirect:/FilterUser/reservas";
+			h.addReserva(reserva);
+			usuario.addReserva(reserva);
+
+			return "redirect:/FilterUser/reservas";
+		}
+
 	}
 
 }

@@ -1,20 +1,27 @@
 package com.salesianostriana.pruebaproyecto.services;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.salesianostriana.pruebaproyecto.model.Habitacion;
 import com.salesianostriana.pruebaproyecto.repository.HabitacionRepository;
 
 @Service
 public class HabitacionService {
-	
+
 	@Autowired
 	HabitacionRepository repositorio;
 	
-	public Iterable<Habitacion> findHabitacionesNoReservadas(LocalDate inicio, LocalDate fin, String tipoHab){
+	public Iterable<Habitacion> findHabitacionesReservadasPorMiUsuario(Long usuario_id){
+		return repositorio.findHabitacionesReservadasPorMiUsuario(usuario_id);
+	}
+
+	public Iterable<Habitacion> findHabitacionesNoReservadas(LocalDate inicio, LocalDate fin, String tipoHab) {
 		return repositorio.findHabitacionesNoReservadas(inicio, fin, tipoHab);
 	}
 
@@ -29,7 +36,7 @@ public class HabitacionService {
 	public Habitacion save(Habitacion habitacion) {
 		return repositorio.save(habitacion);
 	}
-	
+
 	public Habitacion edit(Habitacion h) {
 		return repositorio.save(h);
 	}
@@ -43,4 +50,7 @@ public class HabitacionService {
 	}
 	
 	
+	
+
+
 }

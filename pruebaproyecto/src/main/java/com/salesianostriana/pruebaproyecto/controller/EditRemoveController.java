@@ -1,6 +1,5 @@
 package com.salesianostriana.pruebaproyecto.controller;
 
-import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.pruebaproyecto.model.Habitacion;
-import com.salesianostriana.pruebaproyecto.model.Reserva;
 import com.salesianostriana.pruebaproyecto.model.Usuario;
 import com.salesianostriana.pruebaproyecto.services.HabitacionService;
 import com.salesianostriana.pruebaproyecto.services.UsuarioService;
@@ -31,7 +29,7 @@ public class EditRemoveController {
 
 	@GetMapping("/datos")
 	public String showDatos(Model model, @ModelAttribute("usuarioActual") Usuario usuario) {
-		Set<Reserva> listaR = usuario.getListaReservas();
+		Iterable<Habitacion> listaR = habitacionService.findHabitacionesReservadasPorMiUsuario(LoginController.usuario.getId());
 		model.addAttribute("listaReservas", listaR);
 		model.addAttribute("u", new Usuario());
 		return "datos";
@@ -97,4 +95,5 @@ public class EditRemoveController {
 		return "redirect:/usuarios#listaUsuarios";
 
 	}
+	
 }

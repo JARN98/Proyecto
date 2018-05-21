@@ -169,6 +169,11 @@
 				</div>
 			</fieldset>
 		</form>
+		<div class="container-fluid">
+			<p th:if="${ErrorFecha1}" class="alert alert-danger">No puede poner una fecha de fin anterior a la de inicio</p>
+			<p th:if="${ErrorFecha2}" class="alert alert-danger">No puede poner una fecha anterior a la de hoy</p>
+			<p th:if="${ErrorNohayHab}" class="alert alert-danger">Lo siento, en esas fechas no tenemos ninguna de las suites seleccionada disponibles</p>
+		</div>
 
 		<br/>
 		<br/>
