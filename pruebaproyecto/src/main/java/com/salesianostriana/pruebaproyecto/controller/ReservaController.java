@@ -47,24 +47,26 @@ public class ReservaController {
 		LocalDate fechaInicio = LocalDate.parse(r.getFechaInicio(), formateoFecha);
 		LocalDate fechaFin = LocalDate.parse(r.getFechaFin(), formateoFecha);
 
+		System.out.println(fechaInicio);
+		System.out.println(fechaFin);
+		System.out.println(r.getTipoHab());
+
 		Iterable<Habitacion> habitacionesQueSePuedenReservar = habitacionService
 				.findHabitacionesNoReservadas(fechaInicio, fechaFin, r.getTipoHab());
 
 		reservaDeHabitacion = new ReservaDeHabitacion(r.getFechaInicio(), r.getFechaFin(), r.getTipoHab());
 
-
-		
 		if (fechaInicio.isAfter(fechaFin)) {
 			model.addAttribute("ErrorFecha1", "No puede poner una fecha de fin anterior a la de inicio");
 			return "/FilterUser/reservas";
 		} else if (fechaInicio.isBefore(LocalDate.now())) {
 			model.addAttribute("ErrorFecha2", "No puede poner una fecha anterior a la de hoy");
 			return "/FilterUser/reservas";
-		}else if(habitacionesQueSePuedenReservar == null) {
+		} else if (habitacionesQueSePuedenReservar == null) {
 			model.addAttribute("ErrorNohayHab",
 					"Lo siento, en esas fechas no tenemos ninguna de las suites seleccionada disponibles");
 			return "/FilterUser/reservas";
-		}else {
+		} else {
 			model.addAttribute("hPuedenReservarse", habitacionesQueSePuedenReservar);
 			return "FilterUser/habitacionesReserva";
 		}
@@ -83,23 +85,15 @@ public class ReservaController {
 		Reserva reserva = new Reserva(fechaInicio, fechaFin, reservaService.calcularPrecio(model, h.getPrecio(),
 				reservaDeHabitacion.getFechaInicio(), reservaDeHabitacion.getFechaFin()));
 
-		if (fechaInicio.isAfter(fechaFin)) {
-			model.addAttribute("ErrorFecha1", "No puede poner una fecha de fin anterior a la de inicio");
-			return "redirect:/habitacionesReserva";
-		} else if (fechaInicio.isBefore(LocalDate.now())) {
-			model.addAttribute("ErrorFecha2", "No puede poner una fecha anterior a la de hoy");
-			return "redirect:/habitacionesReserva";
-		} else {
-			reserva.setHabitacion(h);
-			reserva.setUsuario(LoginController.usuario);
+		reserva.setHabitacion(h);
+		reserva.setUsuario(LoginController.usuario);
 
-			reservaService.save(reserva);
+		reservaService.save(reserva);
 
-			h.addReserva(reserva);
-			usuario.addReserva(reserva);
+		h.addReserva(reserva);
+		usuario.addReserva(reserva);
 
-			return "redirect:/FilterUser/reservas";
-		}
+		return "redirect:/FilterUser/reservas";
 
 	}
 
