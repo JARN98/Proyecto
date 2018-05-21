@@ -13,7 +13,7 @@ public class UsuarioService {
 	UsuarioRepository repositorio;
 	
 	public Usuario registro(String email) {
-		return repositorio.findFirtsByEmail(email);
+		return repositorio.findFirstByEmail(email);
 	}
 
 	public Usuario login(String nombre, String contrasena) {

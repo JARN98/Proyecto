@@ -18,7 +18,6 @@ import com.salesianostriana.pruebaproyecto.formbean.ReservaDeHabitacion;
 import com.salesianostriana.pruebaproyecto.model.Habitacion;
 import com.salesianostriana.pruebaproyecto.model.Reserva;
 import com.salesianostriana.pruebaproyecto.model.Usuario;
-import com.salesianostriana.pruebaproyecto.services.ConsultaService;
 import com.salesianostriana.pruebaproyecto.services.HabitacionService;
 import com.salesianostriana.pruebaproyecto.services.ReservaService;
 
@@ -47,12 +46,15 @@ public class ReservaController {
 
 	@PostMapping("/habitacionesReserva")
 	public String showHab(Model model, @ModelAttribute("nuevaReserva") ReservaDeHabitacion r) {
-//		DateTimeFormatter formateoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//		LocalDate fechaInicio = LocalDate.parse(reservaDeHabitacion.getFechaInicio(), formateoFecha);
-//		LocalDate fechaFin = LocalDate.parse(reservaDeHabitacion.getFechaFin(), formateoFecha);
+		DateTimeFormatter formateoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate fechaInicio = LocalDate.parse(r.getFechaInicio(), formateoFecha);
+		LocalDate fechaFin = LocalDate.parse(r.getFechaFin(), formateoFecha);
+		System.out.println(fechaInicio);
+		System.out.println(fechaFin);
+		System.out.println(r.getTipoHab());
 		
-		//Iterable<Habitacion> habitacionesQueSePuedenReservar = consultaService.findListaHabitaciones(fechaInicio, fechaFin, reservaDeHabitacion.getTipoHab());
-		Iterable<Habitacion> habitacionesQueSePuedenReservar = habitacionService.findAll();
+		Iterable<Habitacion>  habitacionesQueSePuedenReservar = habitacionService.findHabitacionesNoReservadas(fechaInicio, fechaFin, r.getTipoHab());
+//		Iterable<Habitacion> habitacionesQueSePuedenReservar = habitacionService.findAll();
 
 		reservaDeHabitacion = new ReservaDeHabitacion(r.getFechaInicio(), r.getFechaFin(), r.getTipoHab());
 

@@ -1,5 +1,7 @@
 package com.salesianostriana.pruebaproyecto.services;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,10 @@ public class HabitacionService {
 	
 	@Autowired
 	HabitacionRepository repositorio;
+	
+	public Iterable<Habitacion> findHabitacionesNoReservadas(LocalDate inicio, LocalDate fin, String tipoHab){
+		return repositorio.findHabitacionesNoReservadas(inicio, fin, tipoHab);
+	}
 
 	public Habitacion findOne(Long id) {
 		return repositorio.findById(id).orElse(null);

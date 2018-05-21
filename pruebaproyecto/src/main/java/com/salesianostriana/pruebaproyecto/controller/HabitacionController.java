@@ -10,13 +10,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.pruebaproyecto.model.Habitacion;
+import com.salesianostriana.pruebaproyecto.model.Reserva;
 import com.salesianostriana.pruebaproyecto.services.HabitacionService;
+import com.salesianostriana.pruebaproyecto.services.ReservaService;
 
 @Controller
 public class HabitacionController {
 
 	@Autowired
 	private HabitacionService habitacionService;
+	
+	@Autowired
+	private ReservaService reservaService;
 
 	@PostMapping("/registerHabitacion")
 	public String doHabitacion(@ModelAttribute("crearHabitacion") Habitacion habitacion, Model model,
