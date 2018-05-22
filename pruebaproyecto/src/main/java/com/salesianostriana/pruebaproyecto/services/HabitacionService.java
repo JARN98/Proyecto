@@ -1,14 +1,14 @@
 package com.salesianostriana.pruebaproyecto.services;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import com.salesianostriana.pruebaproyecto.model.Habitacion;
+import com.salesianostriana.pruebaproyecto.model.Usuario;
 import com.salesianostriana.pruebaproyecto.repository.HabitacionRepository;
 
 @Service
@@ -47,6 +47,10 @@ public class HabitacionService {
 			repositorio.delete(h);
 
 		return deleteHab;
+	}
+	
+	public Page<Habitacion> findAllPageable(Pageable pageable) {
+		return repositorio.findAll(pageable);
 	}
 	
 	

@@ -1,6 +1,8 @@
 package com.salesianostriana.pruebaproyecto.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.pruebaproyecto.model.Usuario;
@@ -11,7 +13,7 @@ public class UsuarioService {
 
 	@Autowired
 	UsuarioRepository repositorio;
-	
+
 	public Usuario registro(String email) {
 		return repositorio.findFirstByEmail(email);
 	}
@@ -42,5 +44,9 @@ public class UsuarioService {
 			repositorio.delete(u);
 
 		return deleteUsu;
+	}
+
+	public Page<Usuario> findAllPageable(Pageable pageable) {
+		return repositorio.findAll(pageable);
 	}
 }
