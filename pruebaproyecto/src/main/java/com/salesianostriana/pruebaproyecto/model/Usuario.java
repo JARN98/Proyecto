@@ -19,7 +19,7 @@ public class Usuario {
 	private String email;
 	private String contrasena;
 
-	@OneToMany
+	@OneToMany(mappedBy="usuario")
 	Set<Reserva> listaReservas = new HashSet<Reserva>();
 
 	public Set<Reserva> getListaReservas() {

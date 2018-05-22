@@ -18,7 +18,7 @@ public class Habitacion {
 	private String tipoHab;
 	private double precio;
 
-	@OneToMany
+	@OneToMany(mappedBy="habitacion")
 	Set<Reserva> listaReservas = new HashSet<Reserva>();
 
 	public Set<Reserva> getListaReservas() {

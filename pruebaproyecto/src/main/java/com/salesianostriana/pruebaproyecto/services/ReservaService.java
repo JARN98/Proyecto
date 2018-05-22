@@ -15,6 +15,10 @@ import com.salesianostriana.pruebaproyecto.repository.ReservaRepository;
 public class ReservaService {
 	@Autowired
 	ReservaRepository repo;
+	
+	public Iterable<Reserva> listaDeReservasDelUsuario(Long id){
+		return repo.findHabitacionesReservadasPorMiUsuario(id);
+	}
 
 	public Reserva findOne(Long id) {
 		return repo.findById(id).orElse(null);

@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.pruebaproyecto.model.Habitacion;
+import com.salesianostriana.pruebaproyecto.model.Reserva;
 import com.salesianostriana.pruebaproyecto.model.Usuario;
 import com.salesianostriana.pruebaproyecto.services.HabitacionService;
+import com.salesianostriana.pruebaproyecto.services.ReservaService;
 import com.salesianostriana.pruebaproyecto.services.UsuarioService;
 
 @Controller
@@ -26,10 +28,14 @@ public class EditRemoveController {
 
 	@Autowired
 	private HabitacionService habitacionService;
+	
+	@Autowired
+	private ReservaService reservaService;
 
 	@GetMapping("/datos")
 	public String showDatos(Model model, @ModelAttribute("usuarioActual") Usuario usuario) {
-		Iterable<Habitacion> listaR = habitacionService.findHabitacionesReservadasPorMiUsuario(LoginController.usuario.getId());
+//		Iterable<Habitacion> listaR = habitacionService.findHabitacionesReservadasPorMiUsuario(LoginController.usuario.getId());
+		Iterable<Reserva> listaR = reservaService.listaDeReservasDelUsuario(LoginController.usuario.getId());
 		model.addAttribute("listaReservas", listaR);
 		model.addAttribute("u", new Usuario());
 		return "datos";

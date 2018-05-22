@@ -218,10 +218,10 @@ Please consider that the JS part isn't production ready at all, I just code it t
                         </thead>
                         <tbody>
                             <tr th:each="reserva : ${listaReservas}">
-                                <td th:text="${reserva.tipoHab}">1</td>
-                                <td th:text="${reserva.id}">Mark</td>
-                                <td th:text="${reserva.id}">Mark</td>
-                                <td th:text="${reserva.precio}">Otto</td>
+                                <td th:text="${reserva.habitacion.tipoHab}">1</td>
+                                <td th:text="${reserva.precioFinal}">sdokf</td>
+                                <td th:text="${reserva.fechaInicio}">Mark</td>
+                                <td th:text="${reserva.fechaFin}">Otto</td>
                             </tr>
                         </tbody>
                     </table>

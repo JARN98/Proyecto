@@ -19,16 +19,16 @@ public class Reserva {
 	private LocalDate fechaInicio;
 	@DateTimeFormat
 	private LocalDate fechaFin;
-	private double precio;
+	private double precioFinal;
 
 	public Reserva() {
 
 	}
 
-	public Reserva(LocalDate fechaInicio, LocalDate fechaFin, double precio) {
+	public Reserva(LocalDate fechaInicio, LocalDate fechaFin, double precioFinal) {
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
-		this.precio = precio;
+		this.precioFinal = precioFinal;
 	}
 
 	@ManyToOne
@@ -77,12 +77,12 @@ public class Reserva {
 		this.fechaFin = fechaFin;
 	}
 
-	public double getPrecio() {
-		return precio;
+	public double getPrecioFinal() {
+		return precioFinal;
 	}
 
-	public void setPrecio(double precio) {
-		this.precio = precio;
+	public void setPrecioFinal(double precioFinal) {
+		this.precioFinal = precioFinal;
 	}
 
 	@Override
@@ -93,7 +93,7 @@ public class Reserva {
 		result = prime * result + ((fechaInicio == null) ? 0 : fechaInicio.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		long temp;
-		temp = Double.doubleToLongBits(precio);
+		temp = Double.doubleToLongBits(precioFinal);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
@@ -122,15 +122,15 @@ public class Reserva {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (Double.doubleToLongBits(precio) != Double.doubleToLongBits(other.precio))
+		if (Double.doubleToLongBits(precioFinal) != Double.doubleToLongBits(other.precioFinal))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Reserva [id=" + id + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", precio=" + precio
-				+ "]";
+		return "Reserva [id=" + id + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", precioFinal="
+				+ precioFinal + ", usuario=" + usuario + ", habitacion=" + habitacion + "]";
 	}
 
 }
