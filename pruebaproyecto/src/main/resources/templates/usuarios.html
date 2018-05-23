@@ -191,20 +191,6 @@
 				});
 		}
 	</script>
-	<script>
-		$(document).ready(function () {
-			var url = document.baseURI;
-			var expresion = /#listaOrdenada/gm;
-			var hallado = url.match(expresion);
-
-			if (hallado == "#listaOrdenada") {
-				$('#listaHabitaciones').hide();
-				$('#listaUsuarios').hide();
-				$('#listaOrdenada').show();
-			}
-
-		});
-	</script>
 
 
 </head>
@@ -419,7 +405,7 @@
 			<!-- Text input-->
 			<div class="form-group">
 				<div class="col-md-4">
-					<input id="buscar" name="buscar" placeholder="Buscar por email" class="form-control input-md" type="text">
+					<input id="buscar" th:field="*{email}" name="buscar" placeholder="Buscar por email" class="form-control input-md" type="text">
 
 				</div>
 			</div>

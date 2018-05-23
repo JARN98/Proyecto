@@ -35,6 +35,8 @@ public class IndexController {
 
 	@Autowired
 	private HttpSession session;
+	
+	private Usuario user;
 
 	private static final int BUTTONS_TO_SHOW = 5;
 	private static final int INITIAL_PAGE = 0;
@@ -174,13 +176,10 @@ public class IndexController {
 		Iterable<Habitacion> lista = new HashSet<Habitacion>();
 		lista = habitacionService.findAll();
 		model.addAttribute("listaHabitaciones", lista);
+		Usuario us = new Usuario();
+		model.addAttribute("usuarioOrdenado", us);
+		user = us;
 		
-		Iterable<Usuario> listaUOrd = new HashSet<Usuario>();
-		model.addAttribute("usuarioOrdenado", new Usuario());
-		Usuario userOrd = (Usuario) session.getAttribute("usuarioOrdenado");
-		System.out.println(userOrd);
-		listaUOrd = usuarioService.buscarPorEmail(userOrd.getEmail());
-		model.addAttribute("listaOrdenada", listaUOrd);
 		
 
 		Iterable<Usuario> listaU = new HashSet<Usuario>();
@@ -192,7 +191,16 @@ public class IndexController {
 	}
 	
 	@PostMapping("/ordenarLista")
-	public String ordenar() {
+	public String ordenar(@ModelAttribute("usuarioOrdenado") Usuario usuario, Model model) {
+		System.out.println(user);
+		Iterable<Usuario> listaUOrd = new HashSet<Usuario>();
+		listaUOrd = usuarioService.buscarPorEmail(user.getEmail());
+		model.addAttribute("listaOrdenada", listaUOrd);
+		return "redirect:/listaUsuariosOrdenada";
+	}
+	
+	@GetMapping("/listaUsuariosOrdenada")
+	public String showListaOrdenada(@ModelAttribute("listaOrdenada") Iterable<Usuario> listaOrd) {
 		return "usuarios#listaOrdenada";
 	}
 
