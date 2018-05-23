@@ -127,44 +127,55 @@
 										});
 					});
 </script>
+
 <script>
-	$(document).ready(
-			function() {
+	//Esto es investigación, durante bastante...
+	$(document).ready(function() {
+		var url = document.baseURI;
+		var expresion = /#listaHabitaciones/gm;
+		var hallado = url.match(expresion);
 
-				var url = document.baseURI;
+		if (hallado == "#listaHabitaciones") {
+			$('#listaUsuarios').hide();
+			$('#listaHabitaciones').show();
+		}
 
-				if (url == "http://localhost:9000/usuarios#listaHabitaciones") {
-					$('#listaUsuarios').hide();
-					$('#listaHabitaciones').show();
-				}
+	});
+</script>
 
-				if (url == "http://localhost:9000/usuarios#listaUsuarios") {
-					$('#listaHabitaciones').hide();
-					$('#listaUsuarios').show();
-				}
-				$('#usuarios').click(function() {
-					$('#listaHabitaciones').hide();
-					$('#listaUsuarios').show();
-				});
+<script>
+	$(document).ready(function() {
+		var url = document.baseURI;
+		var expresion = /#listaUsuarios/gm;
+		var hallado = url.match(expresion);
 
-				$('#habitaciones').click(function() {
-					$('#listaUsuarios').hide();
-					$('#listaHabitaciones').show();
-				})
+		if (hallado == "#listaUsuarios") {
+			$('#listaHabitaciones').hide();
+			$('#listaUsuarios').show();
+		}
 
-				var valorDePagina = $('#pageSizeSelect').value;
-				console.log(valorDepagina);
+	});
+</script>
 
-				if (url == "http://localhost:9000/usuarios?pageSize="
-						+ valorDePagina + "&page=1" + "#listaHabitaciones") {
-					$('#listaUsuarios').hide();
-					$('#listaHabitaciones').show();
-				}
-			});
+<script>
+	$(document).ready(function() {
+
+		$('#usuarios').click(function() {
+			$('#listaHabitaciones').hide();
+			$('#listaUsuarios').show();
+		});
+
+		$('#habitaciones').click(function() {
+			$('#listaUsuarios').hide();
+			$('#listaHabitaciones').show();
+		})
+
+	});
 </script>
 <script>
 	$(document).ready(function() {
 		changePageAndSize();
+
 	});
 
 	// Permite recargar la página cada vez que cambia el tamaño de página
@@ -173,6 +184,13 @@
 				function(evt) {
 					window.location.replace("/usuarios?pageSize=" + this.value
 							+ "&page=1" + "#listaHabitaciones");
+
+				});
+		$('#pageSizeSelect1').change(
+				function(evt) {
+					window.location.replace("/usuarios?pageSize=" + this.value
+							+ "&page=1" + "#listaUsuarios");
+
 				});
 	}
 </script>
@@ -316,7 +334,7 @@
 				</div>
 				<div th:if="${persons.totalPages != 1}"
 					class="form-group col-md-11 pagination-centered">
-					<ul class="pagination">
+					<ul class="pagination" id="esto">
 						<!-- Si el número de página es cero, deshabilitamos el enlace -->
 						<li th:class="${persons.number == 0} ? disabled">
 							<!-- Este enlace nos debe llevar a la primera página, con el tamaño de página actual -->
@@ -404,6 +422,50 @@
 						</tr>
 					</tbody>
 				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-1">
+				<select class="form-control pagination" id="pageSizeSelect1">
+					<option th:each="pageSize : ${pageSizes}" th:text="${pageSize}"
+						th:value="${pageSize}"
+						th:selected="${pageSize} == ${selectedPageSize}"></option>
+				</select>
+			</div>
+			<div th:if="${users.totalPages != 1}"
+				class="form-group col-md-11 pagination-centered">
+				<ul class="pagination" id="esto">
+					<!-- Si el número de página es cero, deshabilitamos el enlace -->
+					<li th:class="${users.number == 0} ? disabled">
+						<!-- Este enlace nos debe llevar a la primera página, con el tamaño de página actual -->
+						<a class="pageLink"
+						th:href="@{/usuarios#listaUsuarios/(pageSize=${selectedPageSize}, page=1)}">&laquo;</a>
+					</li>
+					<!-- Si el número de página es cero, deshabilitamos el enlace -->
+					<li th:class="${users.number == 0} ? disabled">
+						<!-- Este enlace nos debe llevar a la página anterior, con el tamaño de página actual -->
+						<a class="pageLink"
+						th:href="@{/usuarios#listaUsuarios/(pageSize=${selectedPageSize}, page=${persons.number})}">&larr;</a>
+					</li>
+					<!-- Este bucle genera los enlaces para las demás páginas -->
+					<li
+						th:class="${users.number == (page - 1)} ? 'active pointer-disabled'"
+						th:each="page : ${#numbers.sequence(pager.startPage, pager.endPage)}">
+						<a class="pageLink"
+						th:href="@{/usuarios#listaUsuarios/(pageSize=${selectedPageSize}, page=${page})}"
+						th:text="${page}"></a>
+					</li>
+					<!-- Enlace a la siguiente página; si estamos en la última queda desabilitado  -->
+					<li th:class="${users.number + 1 == users.totalPages} ? disabled">
+						<a class="pageLink"
+						th:href="@{/usuarios#listaUsuarios/(pageSize=${selectedPageSize}, page=${persons.number + 2})}">&rarr;</a>
+					</li>
+					<!-- Enlace a la última página; si estamos en la última queda desabilitado  -->
+					<li th:class="${users.number + 1 == users.totalPages} ? disabled">
+						<a class="pageLink"
+						th:href="@{/usuarios#listaUsuarios/(pageSize=${selectedPageSize}, page=${persons.totalPages})}">&raquo;</a>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>

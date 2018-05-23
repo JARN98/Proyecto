@@ -90,22 +90,16 @@ public class IndexController {
 	@GetMapping("/usuarios")
 	public String showHabitacion(@RequestParam("pageSize") Optional<Integer> pageSize,
 			@RequestParam("page") Optional<Integer> page, Model model) {
-    	// Evalúa el tamaño de página. Si el parámetro es "nulo", devuelve
-    	// el tamaño de página inicial.
         int evalPageSize = pageSize.orElse(INITIAL_PAGE_SIZE);
         
-        // Calcula qué página se va a mostrar. Si el parámetro es "nulo" o menor
-        // que 0, se devuelve el valor inicial. De otro modo, se devuelve el valor
-        // del parámetro decrementado en 1.
+
         int evalPage = (page.orElse(0) < 1) ? INITIAL_PAGE : page.get() - 1;
 
-        // Obtenemos la página definida por evalPage y evalPageSize de objetos de nuestro modelo
         Page<Habitacion> persons = habitacionService.findAllPageable(PageRequest.of(evalPage, evalPageSize));
-        // Creamos el objeto Pager (paginador) indicando los valores correspondientes.
-        // Este sirve para que la plantilla sepa cuantas páginas hay en total, cuantos botones
-        // debe mostrar y cuál es el número de objetos a dibujar.
         Pager pager = new Pager(persons.getTotalPages(), persons.getNumber(), BUTTONS_TO_SHOW);
+        Page<Usuario> users = usuarioService.findAllPageable(PageRequest.of(evalPage, evalPageSize));
         
+        model.addAttribute("users", users);
         model.addAttribute("persons", persons);
         model.addAttribute("selectedPageSize", evalPageSize);
         model.addAttribute("pageSizes", PAGE_SIZES);
