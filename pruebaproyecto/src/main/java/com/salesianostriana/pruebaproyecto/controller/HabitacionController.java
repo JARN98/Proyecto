@@ -27,8 +27,6 @@ public class HabitacionController {
 	@Autowired
 	private ReservaService reservaService;
 
-
-
 	@PostMapping("/registerHabitacion")
 	public String doHabitacion(@ModelAttribute("crearHabitacion") Habitacion habitacion, Model model,
 			@ModelAttribute("listaHabitaciones") HashSet<Habitacion> listaHabitaciones) {
@@ -43,7 +41,16 @@ public class HabitacionController {
 	}
 
 	@GetMapping("usuarios/#listaHabitacion")
-	public String showListH() {
+	public String showListH(Model model) {
+		if (LoginController.usuario == null) {
+			model.addAttribute("noUsuario", true);
+		}
+		if (LoginController.usuario != null) {
+			model.addAttribute("usuario", true);
+			if (LoginController.usuario.isAdmin()) {
+				model.addAttribute("panelAdmin", true);
+			}
+		}
 		return "usuarios#listaHabitacion";
 	}
 

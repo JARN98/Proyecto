@@ -95,14 +95,26 @@
 								<li>
 									<a href="/contact">Contacto</a>
 								</li>
-								<li class="btn-cta">
-									<a href="/login">
+								<li th:if="${noUsuario}" class="btn-cta">
+									<a href="login">
 										<span>Login</span>
 									</a>
 								</li>
 								<!-- <li class="btn-cta"><a href="#"><span>Sign Up</span></a></li> -->
-								<li>
+								<li th:if="${noUsuario}">
 									<a href="/Register">Registrarse</a>
+								</li>
+								<li th:if="${usuario}">
+									<a href="/datos">Mis Datos</a>
+								</li>
+								<li th:if="${panelAdmin}">
+									<a href="/usuarios">Pantalla Admin
+									</a>
+								</li>
+								<li th:if="${usuario}" class="btn-cta">
+									<a href="/logout">
+										<span>LogOut</span>
+									</a>
 								</li>
 							</ul>
 						</div>
@@ -129,16 +141,17 @@
 				</ul>
 			</div>
 		</aside>
-		<br/>
-		<br/>
-		<br/>
+		<br />
+		<br />
+		<br />
 		<form class="form-horizontal" th:action="@{/habitacionesReserva}" th:object="${nuevaReserva}" method="POST">
 			<fieldset>
 
 
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-md-4 control-label" for="fechaInicio">Fecha Inicio:</label>
+					<label class="col-md-4 control-label" for="fechaInicio">Fecha Inicio:
+					</label>
 					<div class="col-md-4">
 						<input th:field="*{fechaInicio}" id="dpd1" class="form-control input-md" required="" type="text">
 
@@ -156,15 +169,18 @@
 
 				<!-- Text input-->
 				<div class="form-group">
-					<label class=" control-label" for="tipo">Tipo de Habitacion</label>
-					<select th:field="*{tipoHab}" id="tipo" name="tipo" class="form-control">
-						<option value="Suite Oro">Suite Oro</option>
-						<option value="Suite Diamante">Suite Diamante</option>
-						<option value="Suite Esmeralda">Suite Esmeralda</option>
-					</select>
+					<label class="col-md-4 control-label" for="tipo">Tipo de Habitacion</label>
+					<div class="col-md-4">
+						<select th:field="*{tipoHab}" id="tipo" name="tipo" class="col-md-4 form-control">
+							<option value="Suite Oro">Suite Oro</option>
+							<option value="Suite Diamante">Suite Diamante</option>
+							<option value="Suite Esmeralda">Suite Esmeralda</option>
+						</select>
+					</div>
 				</div>
 
-				<div>
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
 					<input type="submit" class="btn btn-success" value="Consultar Disponibilidad">
 				</div>
 			</fieldset>
@@ -172,12 +188,13 @@
 		<div class="container-fluid">
 			<p th:if="${ErrorFecha1}" class="alert alert-danger">No puede poner una fecha de fin anterior a la de inicio</p>
 			<p th:if="${ErrorFecha2}" class="alert alert-danger">No puede poner una fecha anterior a la de hoy</p>
-			<p th:if="${ErrorNohayHab}" class="alert alert-danger">Lo siento, en esas fechas no tenemos ninguna de las suites seleccionada disponibles</p>
+			<p th:if="${ErrorNohayHab}" class="alert alert-danger">Lo siento, en esas fechas no tenemos ninguna de las suites seleccionada disponibles
+			</p>
 		</div>
 
-		<br/>
-		<br/>
-		<br/>
+		<br />
+		<br />
+		<br />
 
 
 
@@ -207,7 +224,8 @@
 						<h4>Información de contacto</h4>
 						<ul class="colorlib-footer-links">
 							<li>Avenida Constitución, 23
-								<br> Sevilla, 41000</li>
+								<br> Sevilla, 41000
+							</li>
 							<li>
 								<a href="tel://1234567920">+ 1235 2355 98</a>
 							</li>
@@ -294,29 +312,33 @@
 	/>
 
 	<script type="text/javascript">
-		$(document).ready(function () {
-			var date_input = $('#dpd1'); //our date input has the name "date"
-			var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
-			date_input.datepicker({
-				format: 'yyyy-mm-dd',
-				container: container,
-				todayHighlight: true,
-				autoclose: true,
+		$(document).ready(
+			function () {
+				var date_input = $('#dpd1'); //our date input has the name "date"
+				var container = $('.bootstrap-iso form').length > 0 ? $(
+					'.bootstrap-iso form').parent() : "body";
+				date_input.datepicker({
+					format: 'yyyy-mm-dd',
+					container: container,
+					todayHighlight: true,
+					autoclose: true,
+				})
 			})
-		})
 	</script>
 
 	<script type="text/javascript">
-		$(document).ready(function () {
-			var date_input = $('#dpd2'); //our date input has the name "date"
-			var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
-			date_input.datepicker({
-				format: 'yyyy-mm-dd',
-				container: container,
-				todayHighlight: true,
-				autoclose: true,
+		$(document).ready(
+			function () {
+				var date_input = $('#dpd2'); //our date input has the name "date"
+				var container = $('.bootstrap-iso form').length > 0 ? $(
+					'.bootstrap-iso form').parent() : "body";
+				date_input.datepicker({
+					format: 'yyyy-mm-dd',
+					container: container,
+					todayHighlight: true,
+					autoclose: true,
+				})
 			})
-		})
 	</script>
 </body>
 

@@ -2,52 +2,54 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Gold Tower Hotel</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta name="author" content="" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Gold Tower Hotel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="author" content="" />
 
-	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:url" content="" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:description" content="" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+<!-- Facebook and Twitter integration -->
+<meta property="og:title" content="" />
+<meta property="og:image" content="" />
+<meta property="og:url" content="" />
+<meta property="og:site_name" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:title" content="" />
+<meta name="twitter:image" content="" />
+<meta name="twitter:url" content="" />
+<meta name="twitter:card" content="" />
 
-	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700"
+	rel="stylesheet">
 
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+<!-- Animate.css -->
+<link rel="stylesheet" href="css/animate.css">
+<!-- Icomoon Icon Fonts-->
+<link rel="stylesheet" href="css/icomoon.css">
+<!-- Bootstrap  -->
+<link rel="stylesheet" href="css/bootstrap.css">
 
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="css/magnific-popup.css">
+<!-- Magnific Popup -->
+<link rel="stylesheet" href="css/magnific-popup.css">
 
-	<!-- Owl Carousel  -->
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
-	<!-- Flaticons  -->
-	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+<!-- Owl Carousel  -->
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<!-- Flexslider  -->
+<link rel="stylesheet" href="css/flexslider.css">
+<!-- Flaticons  -->
+<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+<!-- Theme style  -->
+<link rel="stylesheet" href="css/style.css">
 
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
+<!-- Modernizr JS -->
+<script src="js/modernizr-2.6.2.min.js"></script>
+<!-- FOR IE9 below -->
+<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
@@ -62,48 +64,36 @@
 			<div class="top-menu">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-2" style="background-image: url(images/logo-hotel.png); background-repeat: no-repeat">
+						<div class="col-md-2"
+							style="background-image: url(images/logo-hotel.png); background-repeat: no-repeat">
 							<div id="colorlib-logo">
 								<a href="index"></a>
 							</div>
 						</div>
 						<div class="col-md-10 text-right menu-1">
 							<ul>
-								<li>
-									<a href="index">Home</a>
-								</li>
-								<li>
-									<a href="hotel">Hotel</a>
-								</li>
-								<li class="has-dropdown active">
-									<a href="suites">Suites</a>
+								<li><a href="index">Home</a></li>
+								<li><a href="hotel">Hotel</a></li>
+								<li class="has-dropdown active"><a href="suites">Suites</a>
 									<ul class="dropdown">
-										<li>
-											<a href="oro">Suite Oro</a>
-										</li>
-										<li>
-											<a href="esmeralda">Suite Esmeralda</a>
-										</li>
-										<li>
-											<a href="diamante">Suite Diamante</a>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<a href="FilterUser/reservas">Reservas</a>
-								</li>
-								<li>
-									<a href="contact">Contacto</a>
-								</li>
-								<li class="btn-cta">
-									<a href="login">
+										<li><a href="oro">Suite Oro</a></li>
+										<li><a href="esmeralda">Suite Esmeralda</a></li>
+										<li><a href="diamante">Suite Diamante</a></li>
+									</ul></li>
+								<li><a href="FilterUser/reservas">Reservas</a></li>
+								<li><a href="contact">Contacto</a></li>
+								<li th:if="${noUsuario}" class="btn-cta"><a href="login">
 										<span>Login</span>
-									</a>
-								</li>
+								</a></li>
 								<!-- <li class="btn-cta"><a href="#"><span>Sign Up</span></a></li> -->
-								<li>
-									<a href="Register">Registrarse</a>
+								<li th:if="${noUsuario}"><a href="/Register">Registrarse</a>
 								</li>
+								<li th:if="${usuario}"><a href="/datos">Mis Datos</a></li>
+								<li th:if="${panelAdmin}"><a href="/usuarios">Pantalla
+										Admin</a></li>
+								<li th:if="${usuario}" class="btn-cta"><a href="/logout">
+										<span>LogOut</span>
+								</a></li>
 							</ul>
 						</div>
 					</div>
@@ -118,10 +108,12 @@
 					<li style="background-image: url(images/gold-Suite.jpg);">
 						<div class="overlay-gradient"></div>
 						<div class="container">
-							<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
+							<div
+								class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
 								<div class="slider-text-inner desc">
 									<h2 class="heading-section">Suite Oro</h2>
-									<p class="colorlib-lead">Diseñadas especialmente para amantes de la elegancia más pura.</p>
+									<p class="colorlib-lead">Diseñadas especialmente para
+										amantes de la elegancia más pura.</p>
 								</div>
 							</div>
 						</div>
@@ -135,15 +127,21 @@
 				<div class="container custom-card">
 					<div class="col-lg-6 order-lg-2">
 						<div class="p-5">
-							<img class="img-fluid rounded-circle custom-card-img" src="./images/gold-suite-2.jpg" alt="">
+							<img class="img-fluid rounded-circle custom-card-img"
+								src="./images/gold-suite-2.jpg" alt="">
 						</div>
 					</div>
 					<div class="col-lg-6 order-lg-1">
 						<div class="p-5">
 							<h2 class="display-4">La suite</h2>
-							<p align="justify">La opulencia de las suite Oro hacen de éstas, las más solicitadas por nuestros clientes. 
-							Fiel al diseño autóctono del hotel. <br>Las suite Oro poseen abundante luz natural, con muebles antiguos restaurados, 
-							las suite Oro constan de una mesa con sillas, además sillones o sofá, perfectos para relajarse. El escritorio es un lugar ideal donde trabajar.</p>
+							<p align="justify">
+								La opulencia de las suite Oro hacen de éstas, las más
+								solicitadas por nuestros clientes. Fiel al diseño autóctono del
+								hotel. <br>Las suite Oro poseen abundante luz natural, con
+								muebles antiguos restaurados, las suite Oro constan de una mesa
+								con sillas, además sillones o sofá, perfectos para relajarse. El
+								escritorio es un lugar ideal donde trabajar.
+							</p>
 						</div>
 					</div>
 				</div>
@@ -155,43 +153,56 @@
 						<div class="p-5">
 							<h2 class="display-4">El ambiente</h2>
 							<p align="justify">
-							Las suite Oro cuentan, con vistas al patio o al jardín, son perfumadas por las fragancias que desprenden las flores de azahar del hotel. Todas las ventanas tienen 
-							doble vidrio para asegurar un sueño sereno. <br>Un copioso centro de refrescos en la habitación nos ofrece auténticos vinos españoles y aperitivos.
-							Los cuartos de baño están revestidos con azulejos de auténtica cerámica sevillana, complementados por elegantes suelos de mármol. 
-							Envuélvase en los albornoces y zapatillas de lujo y disfrute de los artículos de baño Byredo.</p>
+								Las suite Oro cuentan, con vistas al patio o al jardín, son
+								perfumadas por las fragancias que desprenden las flores de
+								azahar del hotel. Todas las ventanas tienen doble vidrio para
+								asegurar un sueño sereno. <br>Un copioso centro de
+								refrescos en la habitación nos ofrece auténticos vinos españoles
+								y aperitivos. Los cuartos de baño están revestidos con azulejos
+								de auténtica cerámica sevillana, complementados por elegantes
+								suelos de mármol. Envuélvase en los albornoces y zapatillas de
+								lujo y disfrute de los artículos de baño Byredo.
+							</p>
 						</div>
 					</div>
 					<div class="col-lg-6 order-lg-1">
 						<div class="p-5">
-							<img class="img-fluid rounded-circle custom-card-img" src="./images/gold-suite-3.jpg" alt="">
+							<img class="img-fluid rounded-circle custom-card-img"
+								src="./images/gold-suite-3.jpg" alt="">
 						</div>
 					</div>
-					
-					
-					
+
+
+
 				</div>
 			</section>
-			
+
 			<section>
 				<div class="container custom-card ">
 					<div class="col-lg-6 order-lg-2">
 						<div class="p-5">
 							<h2 class="display-4">Características</h2>
 							<ul class="grid__10 ul-feature grid">
-								<li class="li-feature grid__6"><span>Sala de estar independiente</span></li>
-								<li class="li-feature grid__6"><span>Suelos de Mármol y Azulejos</span></li>
-								<li class="li-feature grid__6"><span>Vistas a los jardines</span></li>
-								<li class="li-feature grid__6"><span>Vistas a la ciudad</span></li>
-								<li class="li-feature grid__6"><span>Artículos de tocador Byredo</span></li>
-								<li class="li-feature grid__6"><span>Servicio de habitaciones las 24 horas</span></li>
+								<li class="li-feature grid__6"><span>Sala de estar
+										independiente</span></li>
+								<li class="li-feature grid__6"><span>Suelos de
+										Mármol y Azulejos</span></li>
+								<li class="li-feature grid__6"><span>Vistas a los
+										jardines</span></li>
+								<li class="li-feature grid__6"><span>Vistas a la
+										ciudad</span></li>
+								<li class="li-feature grid__6"><span>Artículos de
+										tocador Byredo</span></li>
+								<li class="li-feature grid__6"><span>Servicio de
+										habitaciones las 24 horas</span></li>
 								<li class="li-feature grid__6"><span>TV LCD LED</span></li>
 								<li class="li-feature grid__6"><span>Ducha o bañera</span></li>
-                            </ul>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</section>
-		
+
 		</div>
 
 		<footer id="colorlib-footer" role="contentinfo">
@@ -201,31 +212,20 @@
 					<div class="col-md-3 col-md-push-1">
 						<h4>Menú</h4>
 						<ul class="colorlib-footer-links">
-							<li>
-								<a href="index">Home</a>
-							</li>
-							<li>
-								<a href="hotel">Hotel</a>
-							</li>
-							<li>
-								<a href="suites">Suites</a>
-							</li>
-							<li>
-								<a href="FilterUser/reservas">Reservas</a>
-							</li>
+							<li><a href="index">Home</a></li>
+							<li><a href="hotel">Hotel</a></li>
+							<li><a href="suites">Suites</a></li>
+							<li><a href="FilterUser/reservas">Reservas</a></li>
 						</ul>
 					</div>
 
 					<div class="col-md-3 col-md-push-1">
 						<h4>Información de contacto</h4>
 						<ul class="colorlib-footer-links">
-							<li>Avenida Constitución, 23
-								<br> Sevilla, 41000</li>
-							<li>
-								<a href="tel://1234567920">+ 1235 2355 98</a>
+							<li>Avenida Constitución, 23 <br> Sevilla, 41000
 							</li>
-							<li>
-								<a href="mailto:info@goldtowerhotel.com">info@goldtowerhotel.com</a>
+							<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
+							<li><a href="mailto:info@goldtowerhotel.com">info@goldtowerhotel.com</a>
 							</li>
 						</ul>
 					</div>
@@ -242,26 +242,18 @@
 				<div class="row copyright">
 					<div class="col-md-12 text-center">
 						<p>
-							<small class="block">&copy; 2018 Gold Tower Hotel. Reservados todos los drerechos.</small>
+							<small class="block">&copy; 2018 Gold Tower Hotel.
+								Reservados todos los drerechos.</small>
 						</p>
 						<p>
-							<ul class="colorlib-social-icons">
-								<li>
-									<a href="#">
-										<i class="icon-twitter"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="icon-facebook"></i>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<i class="icon-linkedin"></i>
-									</a>
-								</li>
-							</ul>
+						<ul class="colorlib-social-icons">
+							<li><a href="#"> <i class="icon-twitter"></i>
+							</a></li>
+							<li><a href="#"> <i class="icon-facebook"></i>
+							</a></li>
+							<li><a href="#"> <i class="icon-linkedin"></i>
+							</a></li>
+						</ul>
 						</p>
 					</div>
 				</div>
@@ -271,8 +263,7 @@
 	</div>
 
 	<div class="gototop js-top">
-		<a href="#" class="js-gotop">
-			<i class="icon-arrow-up"></i>
+		<a href="#" class="js-gotop"> <i class="icon-arrow-up"></i>
 		</a>
 	</div>
 

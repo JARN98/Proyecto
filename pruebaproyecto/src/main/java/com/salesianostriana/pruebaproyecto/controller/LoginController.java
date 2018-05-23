@@ -22,11 +22,20 @@ public class LoginController {
 
 	@Autowired
 	private HttpSession session;
-	
+
 	public static Usuario usuario;
 
 	@GetMapping("/login")
 	public String showLogin(Model model) {
+		if (LoginController.usuario == null) {
+			model.addAttribute("noUsuario", true);
+		}
+		if (LoginController.usuario != null) {
+			model.addAttribute("usuario", true);
+			if (LoginController.usuario.isAdmin()) {
+				model.addAttribute("panelAdmin", true);
+			}
+		}
 		model.addAttribute("loginUsuario", new LoginDeUsuario());
 		return "login";
 	}
@@ -36,11 +45,9 @@ public class LoginController {
 			Model model) {
 
 		Usuario u = usuarioService.login(loginDeUsuario.getNombreUsuario(), loginDeUsuario.getContrasena());
-		
-		
 
 		if (u != null) {
-			session.setAttribute("usuarioActual", u );
+			session.setAttribute("usuarioActual", u);
 			model.addAttribute("usuarioActual", u);
 			usuario = u;
 			return "redirect:/";

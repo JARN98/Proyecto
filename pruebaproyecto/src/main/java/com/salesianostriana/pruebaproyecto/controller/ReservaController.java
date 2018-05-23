@@ -37,12 +37,31 @@ public class ReservaController {
 
 	@GetMapping("/FilterUser/reservas")
 	public String showReserva(Model model) {
+		if (LoginController.usuario == null) {
+			model.addAttribute("noUsuario", true);
+		}
+		if (LoginController.usuario != null) {
+			model.addAttribute("usuario", true);
+			if (LoginController.usuario.isAdmin()) {
+				model.addAttribute("panelAdmin", true);
+			}
+		}
 		model.addAttribute("nuevaReserva", new ReservaDeHabitacion());
 		return "FilterUser/reservas";
 	}
 
 	@PostMapping("/habitacionesReserva")
 	public String showHab(Model model, @ModelAttribute("nuevaReserva") ReservaDeHabitacion r) {
+
+		if (LoginController.usuario == null) {
+			model.addAttribute("noUsuario", true);
+		}
+		if (LoginController.usuario != null) {
+			model.addAttribute("usuario", true);
+			if (LoginController.usuario.isAdmin()) {
+				model.addAttribute("panelAdmin", true);
+			}
+		}
 		DateTimeFormatter formateoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate fechaInicio = LocalDate.parse(r.getFechaInicio(), formateoFecha);
 		LocalDate fechaFin = LocalDate.parse(r.getFechaFin(), formateoFecha);

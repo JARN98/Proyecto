@@ -26,6 +26,15 @@ public class RegistroController {
 
 	@GetMapping("/Register")
 	public String showRegister(Model model) {
+		if (LoginController.usuario == null) {
+			model.addAttribute("noUsuario", true);
+		}
+		if (LoginController.usuario != null) {
+			model.addAttribute("usuario", true);
+			if (LoginController.usuario.isAdmin()) {
+				model.addAttribute("panelAdmin", true);
+			}
+		}
 		model.addAttribute("registroUsuario", new RegistroDeUsuario());
 		return "Register";
 	}
@@ -36,15 +45,16 @@ public class RegistroController {
 		Usuario u = usuarioService.registro(registroDeUsuario.getEmail());
 
 		if (u == null) {
-			
-			u = new Usuario(false, registroDeUsuario.getNombre(), registroDeUsuario.getApellidos(), registroDeUsuario.getEmail(), registroDeUsuario.getContrasena());
-			
+
+			u = new Usuario(false, registroDeUsuario.getNombre(), registroDeUsuario.getApellidos(),
+					registroDeUsuario.getEmail(), registroDeUsuario.getContrasena());
+
 			usuarioService.save(u);
 
 			session.setAttribute("usuarioActual", u);
 			model.addAttribute("usuarioActual", u);
 			LoginController.usuario = u;
-			
+
 			return "redirect:/";
 		} else {
 			model.addAttribute("registerError", "El email ya ha sido registrado");

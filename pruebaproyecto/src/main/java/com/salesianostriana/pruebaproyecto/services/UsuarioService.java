@@ -49,4 +49,8 @@ public class UsuarioService {
 	public Page<Usuario> findAllPageable(Pageable pageable) {
 		return repositorio.findAll(pageable);
 	}
+	
+	public Iterable<Usuario> buscarPorEmail(String email){
+		return repositorio.buscarPorEmail(email);
+	}
 }

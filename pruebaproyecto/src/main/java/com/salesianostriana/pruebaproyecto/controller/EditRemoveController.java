@@ -1,6 +1,5 @@
 package com.salesianostriana.pruebaproyecto.controller;
 
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,13 +27,21 @@ public class EditRemoveController {
 
 	@Autowired
 	private HabitacionService habitacionService;
-	
+
 	@Autowired
 	private ReservaService reservaService;
 
 	@GetMapping("/datos")
 	public String showDatos(Model model, @ModelAttribute("usuarioActual") Usuario usuario) {
-//		Iterable<Habitacion> listaR = habitacionService.findHabitacionesReservadasPorMiUsuario(LoginController.usuario.getId());
+		if (LoginController.usuario == null) {
+			model.addAttribute("noUsuario", true);
+		}
+		if (LoginController.usuario != null) {
+			model.addAttribute("usuario", true);
+			if (LoginController.usuario.isAdmin()) {
+				model.addAttribute("panelAdmin", true);
+			}
+		}
 		Iterable<Reserva> listaR = reservaService.listaDeReservasDelUsuario(LoginController.usuario.getId());
 		model.addAttribute("listaReservas", listaR);
 		model.addAttribute("u", new Usuario());
@@ -101,5 +108,5 @@ public class EditRemoveController {
 		return "redirect:/usuarios#listaUsuarios";
 
 	}
-	
+
 }
