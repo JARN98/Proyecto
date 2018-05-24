@@ -4298,3 +4298,7 @@ Column "habitacion_id" not found [42122-197]
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Unknown Source)
+2018-05-24 13:07:59 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Error de Sintaxis en sentencia SQL "SELECT * FORM[*] USUARIO WHERE EMAIL LIKE '%arjones%'"
+Syntax error in SQL statement "SELECT * FORM[*] USUARIO WHERE EMAIL LIKE '%arjones%'"; SQL statement:
+SELECT * FORM USUARIO WHERE EMAIL LIKE '%arjones%' [42000-197]

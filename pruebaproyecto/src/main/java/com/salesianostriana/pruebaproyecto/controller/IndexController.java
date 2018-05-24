@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.salesianostriana.pruebaproyecto.formbean.FiltrarPorEmail;
 import com.salesianostriana.pruebaproyecto.model.Habitacion;
 import com.salesianostriana.pruebaproyecto.model.Usuario;
 import com.salesianostriana.pruebaproyecto.services.HabitacionService;
@@ -36,7 +37,7 @@ public class IndexController {
 	@Autowired
 	private HttpSession session;
 	
-	private Usuario user;
+	private FiltrarPorEmail email;
 
 	private static final int BUTTONS_TO_SHOW = 5;
 	private static final int INITIAL_PAGE = 0;
@@ -176,9 +177,8 @@ public class IndexController {
 		Iterable<Habitacion> lista = new HashSet<Habitacion>();
 		lista = habitacionService.findAll();
 		model.addAttribute("listaHabitaciones", lista);
-		Usuario us = new Usuario();
-		model.addAttribute("usuarioOrdenado", us);
-		user = us;
+		email = new FiltrarPorEmail();
+		model.addAttribute("usuarioOrdenado", email);
 		
 		
 
@@ -190,18 +190,20 @@ public class IndexController {
 		return "usuarios";
 	}
 	
-	@PostMapping("/ordenarLista")
-	public String ordenar(@ModelAttribute("usuarioOrdenado") Usuario usuario, Model model) {
-		System.out.println(user);
-		Iterable<Usuario> listaUOrd = new HashSet<Usuario>();
-		listaUOrd = usuarioService.buscarPorEmail(user.getEmail());
+	@GetMapping("/usuarios#listaOrdenada")
+	public String ordenar(Model model, @ModelAttribute("usuarioOrdenado") FiltrarPorEmail email1) {
+		System.out.println(email);
+		Iterable<Usuario> listaUOrd = usuarioService.buscarPorEmail(email1.getEmail());
+		System.out.println(email);
+		System.out.println(email1);
 		model.addAttribute("listaOrdenada", listaUOrd);
-		return "redirect:/listaUsuariosOrdenada";
+		
+		return "usuarios";
 	}
 	
-	@GetMapping("/listaUsuariosOrdenada")
-	public String showListaOrdenada(@ModelAttribute("listaOrdenada") Iterable<Usuario> listaOrd) {
-		return "usuarios#listaOrdenada";
-	}
+//	@GetMapping("/usuarios#listaOrdenada")
+//	public String showListaOrdenada(@ModelAttribute("usuarioOrdenado") FiltrarPorEmail email, Model model) {
+//		return "usuarios";
+//	}
 
 }
