@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.pruebaproyecto.formbean.FiltrarPorEmail;
+import com.salesianostriana.pruebaproyecto.formbean.FiltrarPorTipoHab;
 import com.salesianostriana.pruebaproyecto.model.Habitacion;
 import com.salesianostriana.pruebaproyecto.model.Usuario;
 import com.salesianostriana.pruebaproyecto.services.HabitacionService;
@@ -36,7 +37,7 @@ public class IndexController {
 
 	@Autowired
 	private HttpSession session;
-	
+
 	private FiltrarPorEmail email;
 
 	private static final int BUTTONS_TO_SHOW = 5;
@@ -148,7 +149,7 @@ public class IndexController {
 	@GetMapping("/usuarios")
 	public String showHabitacion(@RequestParam("pageSize") Optional<Integer> pageSize,
 			@RequestParam("page") Optional<Integer> page, Model model) {
-		
+
 		if (LoginController.usuario == null) {
 			model.addAttribute("noUsuario", true);
 		}
@@ -158,7 +159,7 @@ public class IndexController {
 				model.addAttribute("panelAdmin", true);
 			}
 		}
-		
+
 		int evalPageSize = pageSize.orElse(INITIAL_PAGE_SIZE);
 
 		int evalPage = (page.orElse(0) < 1) ? INITIAL_PAGE : page.get() - 1;
@@ -177,10 +178,8 @@ public class IndexController {
 		Iterable<Habitacion> lista = new HashSet<Habitacion>();
 		lista = habitacionService.findAll();
 		model.addAttribute("listaHabitaciones", lista);
-		email = new FiltrarPorEmail();
-		model.addAttribute("usuarioOrdenado", email);
-		
-		
+		model.addAttribute("usuarioOrdenado", new FiltrarPorEmail());
+		model.addAttribute("habitacionOrdenada", new FiltrarPorTipoHab());
 
 		Iterable<Usuario> listaU = new HashSet<Usuario>();
 		listaU = usuarioService.findAll();
@@ -189,21 +188,21 @@ public class IndexController {
 		model.addAttribute("usuarioAEditar", new Usuario());
 		return "usuarios";
 	}
-	
-	@GetMapping("/usuarios#listaOrdenada")
-	public String ordenar(Model model, @ModelAttribute("usuarioOrdenado") FiltrarPorEmail email1) {
-		System.out.println(email);
-		Iterable<Usuario> listaUOrd = usuarioService.buscarPorEmail(email1.getEmail());
-		System.out.println(email);
-		System.out.println(email1);
+
+	@PostMapping("/filtradoUsuarios")
+	public String filtradoUsuarios(@ModelAttribute("usuarioOrdenado") FiltrarPorEmail email, Model model) {
+		Iterable<Usuario> listaUOrd = usuarioService.buscarPorEmail(email.getEmail());
 		model.addAttribute("listaOrdenada", listaUOrd);
-		
-		return "usuarios";
+		return "/FiltradoUsuarios";
 	}
 	
-//	@GetMapping("/usuarios#listaOrdenada")
-//	public String showListaOrdenada(@ModelAttribute("usuarioOrdenado") FiltrarPorEmail email, Model model) {
-//		return "usuarios";
-//	}
+	@PostMapping("/filtradoHabitacion")
+	public String filtradoHabitacion(@ModelAttribute("habitacionOrdenada") FiltrarPorTipoHab tipoHab, Model model) {
+		Iterable<Habitacion> listaHOrd = habitacionService.habitacionesPorTipohab(tipoHab.getTipoHab());
+		model.addAttribute("listaHabitacionesO", listaHOrd);
+		return "/FiltradoHabitaciones";
+	}
+	
+	
 
 }

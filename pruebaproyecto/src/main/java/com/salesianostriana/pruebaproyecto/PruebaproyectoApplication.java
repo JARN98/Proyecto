@@ -26,6 +26,7 @@ public class PruebaproyectoApplication {
 			
 			Usuario usuario = new Usuario();
 			usuario.setNombre("usuario");
+			usuario.setEmail("arjones@gmail.com");
 			usuario.setContrasena("1234");
 			service.save(usuario);
 		};

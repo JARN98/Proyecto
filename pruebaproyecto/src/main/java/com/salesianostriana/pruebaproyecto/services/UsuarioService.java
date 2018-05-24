@@ -51,6 +51,6 @@ public class UsuarioService {
 	}
 	
 	public Iterable<Usuario> buscarPorEmail(String email){
-		return repositorio.buscarPorEmail(email);
+		return repositorio.findByEmailContainingIgnoreCase(email);
 	}
 }

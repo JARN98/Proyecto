@@ -13,4 +13,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	
 	@Query(nativeQuery=true, value="SELECT * FROM USUARIO WHERE EMAIL LIKE '%:email%'")
 	public Iterable<Usuario> buscarPorEmail(@Param("email") String email);
+	
+	public Iterable<Usuario> findByEmailContainingIgnoreCase(String email);
 }

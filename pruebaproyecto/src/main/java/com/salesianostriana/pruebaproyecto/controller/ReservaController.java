@@ -2,7 +2,6 @@ package com.salesianostriana.pruebaproyecto.controller;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.salesianostriana.pruebaproyecto.formbean.FiltrarPorPrecio;
 import com.salesianostriana.pruebaproyecto.formbean.ReservaDeHabitacion;
 import com.salesianostriana.pruebaproyecto.model.Habitacion;
 import com.salesianostriana.pruebaproyecto.model.Reserva;
@@ -98,6 +98,8 @@ public class ReservaController {
 				.findHabitacionesNoReservadas(fechaInicio, fechaFin, r.getTipoHab());
 
 		reservaDeHabitacion = new ReservaDeHabitacion(r.getFechaInicio(), r.getFechaFin(), r.getTipoHab());
+		
+		model.addAttribute("listaPorPrecio", new FiltrarPorPrecio());
 
 		if (fechaInicio.isAfter(fechaFin)) {
 			model.addAttribute("ErrorFecha1", "No puede poner una fecha de fin anterior a la de inicio");
@@ -114,6 +116,13 @@ public class ReservaController {
 			return "FilterUser/habitacionesReserva";
 		}
 
+	}
+	
+	@PostMapping("/habitacionesReservaPrecio")
+	public String habitacionesPorPrecio(@ModelAttribute("listaPorPrecio") FiltrarPorPrecio precio, Model model) {
+		Iterable<Habitacion> porPrecio = habitacionService.habitacionesPorPrecio(precio.getPrecio());
+		model.addAttribute("listaPrecio", porPrecio);
+		return "FilterUser/habitacionesReserva2";
 	}
 
 	@GetMapping("anadirReserva/{id}")

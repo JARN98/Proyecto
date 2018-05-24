@@ -198,20 +198,6 @@
 
 
 
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4"></div>
-				<div class="col-md-4">
-					<form method="POST" th:action="@{/habitacionesReservaPrecio}"
-					th:object="${listaPorPrecio}">
-						<input type="text" placeholder="Buscar por precio" th:field="*{precio}">
-					</form>
-				</div>
-			</div>
-		</div>
-
-
-
 
 
 
@@ -245,7 +231,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr th:each="habitacion : ${hPuedenReservarse}">
+							<tr th:each="habitacion : ${listaPrecio}">
 								<td th:text="${habitacion.id}">1</td>
 								<td th:text="${habitacion.tipoHab}">Mark</td>
 								<td th:text="${habitacion.precio}">Otto</td>
@@ -257,44 +243,6 @@
 					</table>
 				</div>
 			</div>
-
-
-
-
-			<div class="row">
-				<div class="form-group col-md-1">
-					<select class="form-control pagination" id="pageSizeSelect">
-						<option th:each="pageSize : ${pageSizes}" th:text="${pageSize}" th:value="${pageSize}" th:selected="${pageSize} == ${selectedPageSize}"></option>
-					</select>
-				</div>
-				<div th:if="${persons.totalPages != 1}" class="form-group col-md-11 pagination-centered">
-					<ul class="pagination" id="esto">
-						<!-- Si el número de página es cero, deshabilitamos el enlace -->
-						<li th:class="${persons.number == 0} ? disabled">
-							<!-- Este enlace nos debe llevar a la primera página, con el tamaño de página actual -->
-							<a class="pageLink" th:href="@{/habitacionesReserva/(pageSize=${selectedPageSize}, page=1)}">&laquo;</a>
-						</li>
-						<!-- Si el número de página es cero, deshabilitamos el enlace -->
-						<li th:class="${persons.number == 0} ? disabled">
-							<!-- Este enlace nos debe llevar a la página anterior, con el tamaño de página actual -->
-							<a class="pageLink" th:href="@{/habitacionesReserva/(pageSize=${selectedPageSize}, page=${persons.number})}">&larr;</a>
-						</li>
-						<!-- Este bucle genera los enlaces para las demás páginas -->
-						<li th:class="${persons.number == (page - 1)} ? 'active pointer-disabled'" th:each="page : ${#numbers.sequence(pager.startPage, pager.endPage)}">
-							<a class="pageLink" th:href="@{/habitacionesReserva/(pageSize=${selectedPageSize}, page=${page})}" th:text="${page}"></a>
-						</li>
-						<!-- Enlace a la siguiente página; si estamos en la última queda desabilitado  -->
-						<li th:class="${persons.number + 1 == persons.totalPages} ? disabled">
-							<a class="pageLink" th:href="@{/habitacionesReserva/(pageSize=${selectedPageSize}, page=${persons.number + 2})}">&rarr;</a>
-						</li>
-						<!-- Enlace a la última página; si estamos en la última queda desabilitado  -->
-						<li th:class="${persons.number + 1 == persons.totalPages} ? disabled">
-							<a class="pageLink" th:href="@{/habitacionesReserva/(pageSize=${selectedPageSize}, page=${persons.totalPages})}">&raquo;</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-
 		</div>
 
 

@@ -53,6 +53,15 @@ public class HabitacionService {
 		return repositorio.findAll(pageable);
 	}
 	
+	public Iterable<Habitacion> habitacionesPorPrecio (double precio){
+		return repositorio.buscarPorPrecio(precio);
+	}
+	
+	public Iterable<Habitacion> habitacionesPorTipohab(String tipoHab){
+		return repositorio.findByTipoHabContainingIgnoreCase(tipoHab);
+	}
+	
+	
 	
 	
 
