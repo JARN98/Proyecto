@@ -203,6 +203,12 @@ public class IndexController {
 		return "/FiltradoHabitaciones";
 	}
 	
+	@GetMapping("/loginE")
+	public String loginE(Model model) {
+		model.addAttribute("loginErrorReserva", true);
+		return "/login";
+	}
+	
 	
 
 }

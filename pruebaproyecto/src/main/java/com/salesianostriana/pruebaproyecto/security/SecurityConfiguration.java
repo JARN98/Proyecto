@@ -16,6 +16,8 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.salesianostriana.pruebaproyecto.model.Usuario;
+
 @Configuration
 public class SecurityConfiguration {
 	@Bean
@@ -32,12 +34,41 @@ public class SecurityConfiguration {
 		return new SecurityFilter();
 	}
 
+	@Bean
+	public FilterRegistrationBean<SecurityFilter> filterSecurityBean2() {
+		FilterRegistrationBean<SecurityFilter> registro = new FilterRegistrationBean<>();
+		registro.setFilter(securityFilter2());
+		registro.addUrlPatterns("/usuarios");
+		registro.setName("securityFilter2");
+		return registro;
+	}
+
+	@Bean("securityFilter")
+	public SecurityFilter securityFilter2() {
+		return new SecurityFilter();
+	}
+
 	class SecurityFilter implements Filter {
 
 		@Override
 		public void init(FilterConfig filterConfig) throws ServletException {
 			// TODO Auto-generated method stub
 
+		}
+
+		public void doFilter2(ServletRequest req, ServletResponse resp, FilterChain chain)
+				throws IOException, ServletException {
+			HttpServletRequest request = (HttpServletRequest) req;
+			HttpServletResponse response = (HttpServletResponse) resp;
+			HttpSession session = request.getSession();
+			Usuario user = (Usuario) session.getAttribute("usuarioActual");
+
+			if (user.isAdmin() == false) {
+				response.sendRedirect("/login");
+				return;
+			} else {
+				chain.doFilter(req, resp);
+			}
 		}
 
 		@Override

@@ -165,6 +165,9 @@
 					<!-- <div th:if="@{loginError}" class="alert alert-danger">Debe rellenar todos los campos</div>-->
 
 				</div>
+				<div class="alert alter-danger" th:if="${loginErrorReserva}">
+				Para reservar una habitación debe tener cuenta.
+				</div>
 			</div>
 		</div>
 
