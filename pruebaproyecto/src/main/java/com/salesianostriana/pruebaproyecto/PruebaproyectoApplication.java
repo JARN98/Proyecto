@@ -28,6 +28,7 @@ public class PruebaproyectoApplication {
 			usuario.setNombre("usuario");
 			usuario.setEmail("arjones@gmail.com");
 			usuario.setContrasena("1234");
+			usuario.setAdmin(false);
 			service.save(usuario);
 		};
 	}

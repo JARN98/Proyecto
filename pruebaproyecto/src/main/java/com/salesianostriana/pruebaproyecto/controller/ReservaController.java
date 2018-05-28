@@ -2,17 +2,11 @@ package com.salesianostriana.pruebaproyecto.controller;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +22,6 @@ import com.salesianostriana.pruebaproyecto.model.Reserva;
 import com.salesianostriana.pruebaproyecto.model.Usuario;
 import com.salesianostriana.pruebaproyecto.services.HabitacionService;
 import com.salesianostriana.pruebaproyecto.services.ReservaService;
-import com.salesianostriana.pruebaproyecto.utility.Pager;
 
 @Controller
 public class ReservaController {
@@ -40,14 +33,6 @@ public class ReservaController {
 	private HabitacionService habitacionService;
 	
 	private ReservaDeHabitacion nuevar;
-
-	@Autowired
-	private HttpSession session;
-
-	private static final int BUTTONS_TO_SHOW = 5;
-	private static final int INITIAL_PAGE = 0;
-	private static final int INITIAL_PAGE_SIZE = 5;
-	private static final int[] PAGE_SIZES = { 5, 10, 20 };
 
 	public ReservaDeHabitacion reservaDeHabitacion;
 
@@ -69,6 +54,7 @@ public class ReservaController {
 	@PostMapping("/habitacionesReserva")
 	public String showHab(Model model, @ModelAttribute("nuevaReserva") ReservaDeHabitacion r,
 			@RequestParam("pageSize") Optional<Integer> pageSize, @RequestParam("page") Optional<Integer> page) {
+		//th:if
 		nuevar = r;
 		if (LoginController.usuario == null) {
 			model.addAttribute("noUsuario", true);
@@ -79,26 +65,12 @@ public class ReservaController {
 				model.addAttribute("panelAdmin", true);
 			}
 		}
-
-		int evalPageSize = pageSize.orElse(INITIAL_PAGE_SIZE);
-
-		int evalPage = (page.orElse(0) < 1) ? INITIAL_PAGE : page.get() - 1;
-
-		Page<Habitacion> persons = habitacionService.findAllPageable(PageRequest.of(evalPage, evalPageSize));
-		Pager pager = new Pager(persons.getTotalPages(), persons.getNumber(), BUTTONS_TO_SHOW);
-
-		model.addAttribute("persons", persons);
-		model.addAttribute("selectedPageSize", evalPageSize);
-		model.addAttribute("pageSizes", PAGE_SIZES);
-		model.addAttribute("pager", pager);
+		
+		//Formateo de fechas
 
 		DateTimeFormatter formateoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate fechaInicio = LocalDate.parse(r.getFechaInicio(), formateoFecha);
 		LocalDate fechaFin = LocalDate.parse(r.getFechaFin(), formateoFecha);
-
-		System.out.println(fechaInicio);
-		System.out.println(fechaFin);
-		System.out.println(r.getTipoHab());
 		
 		model.addAttribute("precioFinal", reservaService.calcularPrecio(model, 1, r.getFechaInicio(), r.getFechaFin()));
 
@@ -106,8 +78,12 @@ public class ReservaController {
 				.findHabitacionesNoReservadas(fechaInicio, fechaFin, r.getTipoHab());
 
 		reservaDeHabitacion = new ReservaDeHabitacion(r.getFechaInicio(), r.getFechaFin(), r.getTipoHab());
+		
+		//Filtro
 
 		model.addAttribute("listaPorPrecio", new FiltrarPorPrecio());
+		
+		//Errores
 
 		if (fechaInicio.isAfter(fechaFin)) {
 			model.addAttribute("ErrorFecha1", "No puede poner una fecha de fin anterior a la de inicio");
@@ -138,7 +114,7 @@ public class ReservaController {
 				.findHabitacionesNoReservadas(fechaInicio, fechaFin, nuevar.getTipoHab());
 		List<Habitacion> filtroHab = habitacionesFiltradas.stream().filter((p) -> p.getPrecio() == precio1).collect(Collectors.toList());
 		model.addAttribute("listaPrecio", filtroHab);
-		return "FilterUser/habitacionesReserva2";
+		return "/FilterUser/habitacionesReserva2";
 	}
 
 	@GetMapping("anadirReserva/{id}")

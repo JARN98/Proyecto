@@ -61,8 +61,9 @@ public class EditRemoveController {
 	}
 
 	@PostMapping("/edit")
-	public String doEdit(@ModelAttribute("u") Usuario u) {
+	public String doEdit(@ModelAttribute("u") Usuario u, Model model) {
 		Usuario usuarioAnterior = (Usuario) session.getAttribute("usuarioActual");
+		model.addAttribute("usuarioAnterior", usuarioAnterior);
 
 		u.setId(usuarioAnterior.getId());
 

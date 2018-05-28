@@ -282,10 +282,10 @@
 
 					<label class="control-label" for="Email">Email</label>
 					<input th:field="*{email}" id="Email" name="Email" placeholder="Email" class="form-control input-md" required=""
-					 type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+					 type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" th:text="${u.email}">
 					<label class=" control-label" for="Nombre">Nombre</label>
 					<input th:field="*{nombre}" id="Nombre" name="Nombre" placeholder="Nombre" class="form-control input-md"
-					 required="" type="text">
+					 required="" type="text" th:text="${u.nombre}">
 					<label class=" control-label" for="Apellidos">Apellidos</label>
 					<input th:field="*{apellidos}" id="Apellidos" name="Apellidos" placeholder="Apellidos" class="form-control input-md" required=""
 					 type="text">

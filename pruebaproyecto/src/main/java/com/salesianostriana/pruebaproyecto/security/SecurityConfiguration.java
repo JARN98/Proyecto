@@ -16,6 +16,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.salesianostriana.pruebaproyecto.controller.LoginController;
 import com.salesianostriana.pruebaproyecto.model.Usuario;
 
 @Configuration
@@ -43,7 +44,7 @@ public class SecurityConfiguration {
 		return registro;
 	}
 
-	@Bean("securityFilter")
+	@Bean("securityFilter2")
 	public SecurityFilter securityFilter2() {
 		return new SecurityFilter();
 	}
@@ -63,7 +64,7 @@ public class SecurityConfiguration {
 			HttpSession session = request.getSession();
 			Usuario user = (Usuario) session.getAttribute("usuarioActual");
 
-			if (user.isAdmin() == false) {
+			if (LoginController.usuario.isAdmin() == false || LoginController.usuario == null) {
 				response.sendRedirect("/login");
 				return;
 			} else {
@@ -93,4 +94,5 @@ public class SecurityConfiguration {
 		}
 
 	}
+
 }
