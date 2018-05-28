@@ -249,41 +249,19 @@
 								<td th:text="${habitacion.tipoHab}">Mark</td>
 								<td th:text="${habitacion.precio}">Otto</td>
 								<td>
-									<a href="#">
-										<div data-toggle="modal" data-target="#myModal" class="btn btn-success">Reservar</div>
-								</td>
-								<td>
-									<div class="modal" id="myModal">
-										<div class="modal-dialog">
-											<div class="modal-content">
-
-												<!-- Modal Header -->
-												<div class="modal-header">
-													<h4 class="modal-title">Resumen de reserva</h4>
-													<button type="button" class="close" data-dismiss="modal">&times;</button>
-												</div>
-
-												<!-- Modal body -->
-												<div class="modal-body">
-													<p th:text="${habitacion.tipoHab}"></p>
-													<p th:text="${habitacion.precio} * ${precioFinal}"></p>
-												</div>
-
-												<!-- Modal footer -->
-												<div class="modal-footer">
-													<a th:href="@{/anadirReserva/{id}(id=${habitacion.id})}">
-														<div class="btn btn-success" th:href="@{/anadirReserva/{id}(id=${habitacion.id})}">
-															Reservar
-														</div>
-													</a>
-													<div class="btn btn-danger" data-dismiss="modal">
-														Close
-													</div>
-												</div>
-
-											</div>
+									<a href="#popup1">
+										<div class="btn btn-success">Reservar</div>
+									</a>
+									<div style="position: fixed;" id="popup1" class="overlay">
+										<div class="popup">
+											<br />
+											<h2>Reservar</h2>
+												<a class="close" href="#" style="color: red;">x</a>
+												<p th:text="${habitacion.tipoHab}"></p>
+												<p th:text="${habitacion.precio}"></p>
 										</div>
 									</div>
+
 								</td>
 							</tr>
 						</tbody>

@@ -73,6 +73,7 @@ public class ReservaController {
 		LocalDate fechaFin = LocalDate.parse(r.getFechaFin(), formateoFecha);
 		
 		model.addAttribute("precioFinal", reservaService.calcularPrecio(model, 1, r.getFechaInicio(), r.getFechaFin()));
+		
 
 		Iterable<Habitacion> habitacionesQueSePuedenReservar = habitacionService
 				.findHabitacionesNoReservadas(fechaInicio, fechaFin, r.getTipoHab());
