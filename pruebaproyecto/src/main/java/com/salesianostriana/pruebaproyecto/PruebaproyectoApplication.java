@@ -15,22 +15,4 @@ public class PruebaproyectoApplication {
 		SpringApplication.run(PruebaproyectoApplication.class, args);
 	}
 
-//	@Bean
-//	public CommandLineRunner insertInitialData(UsuarioService service) {
-//		return args -> {
-//			Usuario nuevoUsuario = new Usuario();
-//			nuevoUsuario.setNombre("admin");
-//			nuevoUsuario.setContrasena("admin");
-//			nuevoUsuario.setAdmin(true);
-//			nuevoUsuario.setEmail("admin@admin.com");
-//			service.save(nuevoUsuario);
-//			
-//			Usuario usuario = new Usuario();
-//			usuario.setNombre("usuario");
-//			usuario.setEmail("arjones@gmail.com");
-//			usuario.setContrasena("1234");
-//			usuario.setAdmin(false);
-//			service.save(usuario);
-//		};
-//	}
 }
