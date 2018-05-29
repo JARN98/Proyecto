@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import com.salesianostriana.pruebaproyecto.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
-	public Usuario findFirstByNombreAndContrasena(String nombre, String contrasena);
+	public Usuario findFirstByEmailAndContrasena(String nombre, String contrasena);
 	
 	public Usuario findFirstByEmail(String email);
 	

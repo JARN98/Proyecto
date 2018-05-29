@@ -249,19 +249,9 @@
 								<td th:text="${habitacion.tipoHab}">Mark</td>
 								<td th:text="${habitacion.precio}">Otto</td>
 								<td>
-									<a href="#popup1">
-										<div class="btn btn-success">Reservar</div>
+									<a th:href="@{/FilterUser/resumenReserva/{id}(id=${habitacion.id})}">
+										<div th:href="@{/FilterUser/resumenReserva/{id}(id=${habitacion.id})}" class="btn btn-success">Reservar</div>
 									</a>
-									<div style="position: fixed;" id="popup1" class="overlay">
-										<div class="popup">
-											<br />
-											<h2>Reservar</h2>
-												<a class="close" href="#" style="color: red;">x</a>
-												<p th:text="${habitacion.tipoHab}"></p>
-												<p th:text="${habitacion.precio}"></p>
-										</div>
-									</div>
-
 								</td>
 							</tr>
 						</tbody>

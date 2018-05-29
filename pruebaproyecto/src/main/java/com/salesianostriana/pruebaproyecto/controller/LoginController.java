@@ -16,6 +16,8 @@ import com.salesianostriana.pruebaproyecto.services.UsuarioService;
 
 @Controller
 public class LoginController {
+	
+	private boolean errorL;
 
 	@Autowired
 	private UsuarioService usuarioService;
@@ -37,6 +39,9 @@ public class LoginController {
 			}
 		}
 		model.addAttribute("loginUsuario", new LoginDeUsuario());
+		if(errorL) {
+			model.addAttribute("loginError", true);
+		}
 		return "login";
 	}
 
@@ -50,10 +55,11 @@ public class LoginController {
 			session.setAttribute("usuarioActual", u);
 			model.addAttribute("usuarioActual", u);
 			usuario = u;
+			errorL=false;
 			return "redirect:/";
 		} else {
-			model.addAttribute("loginError", "El usuario o contraseña no es válido");
-			return "login";
+			errorL=true;
+			return "redirect:/login";
 		}
 
 	}

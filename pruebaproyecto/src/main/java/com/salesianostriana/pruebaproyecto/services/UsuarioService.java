@@ -18,8 +18,8 @@ public class UsuarioService {
 		return repositorio.findFirstByEmail(email);
 	}
 
-	public Usuario login(String nombre, String contrasena) {
-		return repositorio.findFirstByNombreAndContrasena(nombre, contrasena);
+	public Usuario login(String email, String contrasena) {
+		return repositorio.findFirstByEmailAndContrasena(email, contrasena);
 	}
 
 	public Usuario findOne(Long id) {

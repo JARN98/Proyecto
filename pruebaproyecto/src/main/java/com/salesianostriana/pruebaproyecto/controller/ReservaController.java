@@ -118,6 +118,24 @@ public class ReservaController {
 		return "/FilterUser/habitacionesReserva2";
 	}
 
+	
+	@GetMapping("/FilterUser/resumenReserva/{id}")
+	public String showSummary(@PathVariable("id") Long id, Model model,
+			@ModelAttribute("usuarioActual") Usuario usuario, @ModelAttribute("nuevaReserva") ReservaDeHabitacion r) {
+		
+		Habitacion h = habitacionService.findOne(id);
+		
+		model.addAttribute("habitacionId", h.getId());
+		model.addAttribute("habitacionTipo", h.getTipoHab());
+		model.addAttribute("inicio", reservaDeHabitacion.getFechaInicio());
+		model.addAttribute("final", reservaDeHabitacion.getFechaFin());
+		model.addAttribute("precioFinal", reservaService.calcularPrecio(model, 1, reservaDeHabitacion.getFechaInicio(), reservaDeHabitacion.getFechaFin()));
+		model.addAttribute("precioHab", h.getPrecio());
+		
+		return "/FilterUser/resumenReserva";
+	}
+	
+	
 	@GetMapping("anadirReserva/{id}")
 	public String showHabReservadas(@PathVariable("id") Long id, Model model,
 			@ModelAttribute("usuarioActual") Usuario usuario, @ModelAttribute("nuevaReserva") ReservaDeHabitacion r) {
