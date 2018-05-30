@@ -166,9 +166,7 @@ public class IndexController {
 
 		Page<Habitacion> persons = habitacionService.findAllPageable(PageRequest.of(evalPage, evalPageSize));
 		Pager pager = new Pager(persons.getTotalPages(), persons.getNumber(), BUTTONS_TO_SHOW);
-		Page<Usuario> users = usuarioService.findAllPageable(PageRequest.of(evalPage, evalPageSize));
 
-		model.addAttribute("users", users);
 		model.addAttribute("persons", persons);
 		model.addAttribute("selectedPageSize", evalPageSize);
 		model.addAttribute("pageSizes", PAGE_SIZES);
@@ -191,24 +189,40 @@ public class IndexController {
 
 	@PostMapping("/filtradoUsuarios")
 	public String filtradoUsuarios(@ModelAttribute("usuarioOrdenado") FiltrarPorEmail email, Model model) {
+		if (LoginController.usuario == null) {
+			model.addAttribute("noUsuario", true);
+		}
+		if (LoginController.usuario != null) {
+			model.addAttribute("usuario", true);
+			if (LoginController.usuario.isAdmin()) {
+				model.addAttribute("panelAdmin", true);
+			}
+		}
 		Iterable<Usuario> listaUOrd = usuarioService.buscarPorEmail(email.getEmail());
 		model.addAttribute("listaOrdenada", listaUOrd);
 		return "/FiltradoUsuarios";
 	}
-	
+
 	@PostMapping("/filtradoHabitacion")
 	public String filtradoHabitacion(@ModelAttribute("habitacionOrdenada") FiltrarPorTipoHab tipoHab, Model model) {
+		if (LoginController.usuario == null) {
+			model.addAttribute("noUsuario", true);
+		}
+		if (LoginController.usuario != null) {
+			model.addAttribute("usuario", true);
+			if (LoginController.usuario.isAdmin()) {
+				model.addAttribute("panelAdmin", true);
+			}
+		}
 		Iterable<Habitacion> listaHOrd = habitacionService.habitacionesPorTipohab(tipoHab.getTipoHab());
 		model.addAttribute("listaHabitacionesO", listaHOrd);
 		return "/FiltradoHabitaciones";
 	}
-	
+
 	@GetMapping("/loginE")
 	public String loginE(Model model) {
 		model.addAttribute("loginErrorReserva", true);
 		return "/login";
 	}
-	
-	
 
 }

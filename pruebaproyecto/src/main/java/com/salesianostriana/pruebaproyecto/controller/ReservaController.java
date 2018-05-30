@@ -31,7 +31,7 @@ public class ReservaController {
 
 	@Autowired
 	private HabitacionService habitacionService;
-	
+
 	private ReservaDeHabitacion nuevar;
 
 	public ReservaDeHabitacion reservaDeHabitacion;
@@ -54,7 +54,7 @@ public class ReservaController {
 	@PostMapping("/habitacionesReserva")
 	public String showHab(Model model, @ModelAttribute("nuevaReserva") ReservaDeHabitacion r,
 			@RequestParam("pageSize") Optional<Integer> pageSize, @RequestParam("page") Optional<Integer> page) {
-		//th:if
+		// th:if
 		nuevar = r;
 		if (LoginController.usuario == null) {
 			model.addAttribute("noUsuario", true);
@@ -65,26 +65,25 @@ public class ReservaController {
 				model.addAttribute("panelAdmin", true);
 			}
 		}
-		
-		//Formateo de fechas
+
+		// Formateo de fechas
 
 		DateTimeFormatter formateoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate fechaInicio = LocalDate.parse(r.getFechaInicio(), formateoFecha);
 		LocalDate fechaFin = LocalDate.parse(r.getFechaFin(), formateoFecha);
-		
+
 		model.addAttribute("precioFinal", reservaService.calcularPrecio(model, 1, r.getFechaInicio(), r.getFechaFin()));
-		
 
 		Iterable<Habitacion> habitacionesQueSePuedenReservar = habitacionService
 				.findHabitacionesNoReservadas(fechaInicio, fechaFin, r.getTipoHab());
 
 		reservaDeHabitacion = new ReservaDeHabitacion(r.getFechaInicio(), r.getFechaFin(), r.getTipoHab());
-		
-		//Filtro
+
+		// Filtro
 
 		model.addAttribute("listaPorPrecio", new FiltrarPorPrecio());
-		
-		//Errores
+
+		// Errores
 
 		if (fechaInicio.isAfter(fechaFin)) {
 			model.addAttribute("ErrorFecha1", "No puede poner una fecha de fin anterior a la de inicio");
@@ -105,37 +104,46 @@ public class ReservaController {
 
 	@PostMapping("/habitacionesReservaPrecio")
 	public String habitacionesPorPrecio(@ModelAttribute("listaPorPrecio") FiltrarPorPrecio precio, Model model) {
-		
+		if (LoginController.usuario == null) {
+			model.addAttribute("noUsuario", true);
+		}
+		if (LoginController.usuario != null) {
+			model.addAttribute("usuario", true);
+			if (LoginController.usuario.isAdmin()) {
+				model.addAttribute("panelAdmin", true);
+			}
+		}
+
 		DateTimeFormatter formateoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate fechaInicio = LocalDate.parse(nuevar.getFechaInicio(), formateoFecha);
 		LocalDate fechaFin = LocalDate.parse(nuevar.getFechaFin(), formateoFecha);
-		
+
 		double precio1 = precio.getPrecio();
 		List<Habitacion> habitacionesFiltradas = (List<Habitacion>) habitacionService
 				.findHabitacionesNoReservadas(fechaInicio, fechaFin, nuevar.getTipoHab());
-		List<Habitacion> filtroHab = habitacionesFiltradas.stream().filter((p) -> p.getPrecio() == precio1).collect(Collectors.toList());
+		List<Habitacion> filtroHab = habitacionesFiltradas.stream().filter((p) -> p.getPrecio() == precio1)
+				.collect(Collectors.toList());
 		model.addAttribute("listaPrecio", filtroHab);
 		return "/FilterUser/habitacionesReserva2";
 	}
 
-	
 	@GetMapping("/FilterUser/resumenReserva/{id}")
 	public String showSummary(@PathVariable("id") Long id, Model model,
 			@ModelAttribute("usuarioActual") Usuario usuario, @ModelAttribute("nuevaReserva") ReservaDeHabitacion r) {
-		
+
 		Habitacion h = habitacionService.findOne(id);
-		
+
 		model.addAttribute("habitacionId", h.getId());
 		model.addAttribute("habitacionTipo", h.getTipoHab());
 		model.addAttribute("inicio", reservaDeHabitacion.getFechaInicio());
 		model.addAttribute("final", reservaDeHabitacion.getFechaFin());
-		model.addAttribute("precioFinal", reservaService.calcularPrecio(model, 1, reservaDeHabitacion.getFechaInicio(), reservaDeHabitacion.getFechaFin()));
+		model.addAttribute("precioFinal", reservaService.calcularPrecio(model, 1, reservaDeHabitacion.getFechaInicio(),
+				reservaDeHabitacion.getFechaFin()));
 		model.addAttribute("precioHab", h.getPrecio());
-		
+
 		return "/FilterUser/resumenReserva";
 	}
-	
-	
+
 	@GetMapping("anadirReserva/{id}")
 	public String showHabReservadas(@PathVariable("id") Long id, Model model,
 			@ModelAttribute("usuarioActual") Usuario usuario, @ModelAttribute("nuevaReserva") ReservaDeHabitacion r) {

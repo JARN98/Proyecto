@@ -62,7 +62,7 @@
 			<div class="top-menu">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-2" style="background-image: url(images/logo-hotel.png); background-repeat: no-repeat">
+						<div class="col-md-2" style="background-image: url(/images/logo-hotel.png); background-repeat: no-repeat">
 							<div id="colorlib-logo">
 								<a href="index"></a>
 							</div>
@@ -95,14 +95,25 @@
 								<li>
 									<a href="contact">Contacto</a>
 								</li>
-								<li class="btn-cta">
+								<li th:if="${noUsuario}" class="btn-cta">
 									<a href="login">
 										<span>Login</span>
 									</a>
 								</li>
 								<!-- <li class="btn-cta"><a href="#"><span>Sign Up</span></a></li> -->
-								<li>
-									<a href="Register">Registrarse</a>
+								<li th:if="${noUsuario}">
+									<a href="/Register">Registrarse</a>
+								</li>
+								<li th:if="${usuario}">
+									<a href="/datos">Mis Datos</a>
+								</li>
+								<li th:if="${panelAdmin}">
+									<a href="/usuarios">Pantalla Admin</a>
+								</li>
+								<li th:if="${usuario}" class="btn-cta">
+									<a href="/logout">
+										<span>LogOut</span>
+									</a>
 								</li>
 							</ul>
 						</div>

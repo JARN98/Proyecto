@@ -475,9 +475,6 @@
 					<thead>
 						<tr class="filters">
 							<th>
-								<input type="text" class="form-control" placeholder="id" disabled>
-							</th>
-							<th>
 								<input type="text" class="form-control" placeholder="Nombre" disabled>
 							</th>
 							<th>
@@ -496,7 +493,6 @@
 					</thead>
 					<tbody>
 						<tr th:each="usuario : ${listaUsuarios}">
-							<td th:text="${usuario.id}" id="esteValor">1</td>
 							<td th:text="${usuario.nombre}">Mark</td>
 							<td th:text="${usuario.apellidos}"></td>
 							<td th:text="${usuario.email}">Otto</td>
@@ -513,39 +509,6 @@
 						</tr>
 					</tbody>
 				</table>
-			</div>
-		</div>
-		<div class="row">
-			<div class="form-group col-md-1">
-				<select class="form-control pagination" id="pageSizeSelect1">
-					<option th:each="pageSize : ${pageSizes}" th:text="${pageSize}" th:value="${pageSize}" th:selected="${pageSize} == ${selectedPageSize}"></option>
-				</select>
-			</div>
-			<div th:if="${users.totalPages != 1}" class="form-group col-md-11 pagination-centered">
-				<ul class="pagination" id="esto">
-					<!-- Si el número de página es cero, deshabilitamos el enlace -->
-					<li th:class="${users.number == 0} ? disabled">
-						<!-- Este enlace nos debe llevar a la primera página, con el tamaño de página actual -->
-						<a class="pageLink" th:href="@{/usuarios#listaUsuarios/(pageSize=${selectedPageSize}, page=1)}">&laquo;</a>
-					</li>
-					<!-- Si el número de página es cero, deshabilitamos el enlace -->
-					<li th:class="${users.number == 0} ? disabled">
-						<!-- Este enlace nos debe llevar a la página anterior, con el tamaño de página actual -->
-						<a class="pageLink" th:href="@{/usuarios#listaUsuarios/(pageSize=${selectedPageSize}, page=${persons.number})}">&larr;</a>
-					</li>
-					<!-- Este bucle genera los enlaces para las demás páginas -->
-					<li th:class="${users.number == (page - 1)} ? 'active pointer-disabled'" th:each="page : ${#numbers.sequence(pager.startPage, pager.endPage)}">
-						<a class="pageLink" th:href="@{/usuarios#listaUsuarios/(pageSize=${selectedPageSize}, page=${page})}" th:text="${page}"></a>
-					</li>
-					<!-- Enlace a la siguiente página; si estamos en la última queda desabilitado  -->
-					<li th:class="${users.number + 1 == users.totalPages} ? disabled">
-						<a class="pageLink" th:href="@{/usuarios#listaUsuarios/(pageSize=${selectedPageSize}, page=${persons.number + 2})}">&rarr;</a>
-					</li>
-					<!-- Enlace a la última página; si estamos en la última queda desabilitado  -->
-					<li th:class="${users.number + 1 == users.totalPages} ? disabled">
-						<a class="pageLink" th:href="@{/usuarios#listaUsuarios/(pageSize=${selectedPageSize}, page=${persons.totalPages})}">&raquo;</a>
-					</li>
-				</ul>
 			</div>
 		</div>
 	</div>

@@ -50,6 +50,15 @@ public class EditRemoveController {
 
 	@GetMapping("/editarUsuario/{id}")
 	public String showFormEditU(@PathVariable("id") Long id, Model model) {
+		if (LoginController.usuario == null) {
+			model.addAttribute("noUsuario", true);
+		}
+		if (LoginController.usuario != null) {
+			model.addAttribute("usuario", true);
+			if (LoginController.usuario.isAdmin()) {
+				model.addAttribute("panelAdmin", true);
+			}
+		}
 		Usuario u = usuarioService.findOne(id);
 
 		if (u == null) {
@@ -72,13 +81,31 @@ public class EditRemoveController {
 	}
 
 	@PostMapping("/editUserAdmin")
-	public String doEditAdmin(@ModelAttribute Usuario usuario) {
+	public String doEditAdmin(@ModelAttribute Usuario usuario, Model model) {
+		if (LoginController.usuario == null) {
+			model.addAttribute("noUsuario", true);
+		}
+		if (LoginController.usuario != null) {
+			model.addAttribute("usuario", true);
+			if (LoginController.usuario.isAdmin()) {
+				model.addAttribute("panelAdmin", true);
+			}
+		}
 		usuarioService.edit(usuario);
 		return "redirect:/usuarios#listaUsuarios";
 	}
 
 	@GetMapping("/editarHabitacion/{id}")
 	public String showFormEditH(@PathVariable("id") Long id, Model model) {
+		if (LoginController.usuario == null) {
+			model.addAttribute("noUsuario", true);
+		}
+		if (LoginController.usuario != null) {
+			model.addAttribute("usuario", true);
+			if (LoginController.usuario.isAdmin()) {
+				model.addAttribute("panelAdmin", true);
+			}
+		}
 		Habitacion h = habitacionService.findOne(id);
 
 		if (h == null) {
@@ -90,7 +117,16 @@ public class EditRemoveController {
 	}
 
 	@PostMapping("/editRoomAdmin")
-	public String doEditAdminH(@ModelAttribute Habitacion habitacion) {
+	public String doEditAdminH(@ModelAttribute Habitacion habitacion, Model model) {
+		if (LoginController.usuario == null) {
+			model.addAttribute("noUsuario", true);
+		}
+		if (LoginController.usuario != null) {
+			model.addAttribute("usuario", true);
+			if (LoginController.usuario.isAdmin()) {
+				model.addAttribute("panelAdmin", true);
+			}
+		}
 		habitacionService.edit(habitacion);
 		return "redirect:/usuarios#listaHabitaciones";
 	}
