@@ -123,14 +123,12 @@
 			</div>
 		</nav>
 
-
-
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8">
 					<form method="POST" th:action="@{/habitacionesReservaPrecio}" th:object="${listaPorPrecio}">
-						<input type="text" placeholder="Buscar por precio" th:field="*{precio}">
-						<input type="submit" value="Buscar por precio" class="btn btn-primary">
+						<input type="text" placeholder="Buscar por precio" th:field="*{precio}" id="numero">
+						<input type="submit" value="Buscar por precio" class="btn btn-primary" id="esto">
 					</form>
 				</div>
 			</div>

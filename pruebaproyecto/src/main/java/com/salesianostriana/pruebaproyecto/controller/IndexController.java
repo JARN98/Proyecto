@@ -176,7 +176,9 @@ public class IndexController {
 		Iterable<Habitacion> lista = new HashSet<Habitacion>();
 		lista = habitacionService.findAll();
 		model.addAttribute("listaHabitaciones", lista);
+
 		model.addAttribute("usuarioOrdenado", new FiltrarPorEmail());
+
 		model.addAttribute("habitacionOrdenada", new FiltrarPorTipoHab());
 
 		Iterable<Usuario> listaU = new HashSet<Usuario>();

@@ -24,5 +24,4 @@ public class FiltrarPorPrecio {
 	public String toString() {
 		return "FiltrarPorPrecio [precio=" + precio + "]";
 	}
-
 }
