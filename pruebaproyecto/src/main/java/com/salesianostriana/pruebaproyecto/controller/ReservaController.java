@@ -117,11 +117,17 @@ public class ReservaController {
 		DateTimeFormatter formateoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate fechaInicio = LocalDate.parse(nuevar.getFechaInicio(), formateoFecha);
 		LocalDate fechaFin = LocalDate.parse(nuevar.getFechaFin(), formateoFecha);
-
-		double precio1 = precio.getPrecio();
+		double precio1;
+		try {
+			precio1 = Double.parseDouble(precio.getPrecio());
+		}catch(NumberFormatException n) {
+			precio1 = 0;
+		}
+		
 		List<Habitacion> habitacionesFiltradas = (List<Habitacion>) habitacionService
 				.findHabitacionesNoReservadas(fechaInicio, fechaFin, nuevar.getTipoHab());
-		List<Habitacion> filtroHab = habitacionesFiltradas.stream().filter((p) -> p.getPrecio() == precio1)
+		double precio2 = precio1;
+		List<Habitacion> filtroHab = habitacionesFiltradas.stream().filter((p) -> p.getPrecio() == precio2)
 				.collect(Collectors.toList());
 		model.addAttribute("listaPrecio", filtroHab);
 		return "/FilterUser/habitacionesReserva2";

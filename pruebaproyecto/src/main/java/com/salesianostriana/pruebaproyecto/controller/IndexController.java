@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.salesianostriana.pruebaproyecto.formbean.CrearHabitacion;
 import com.salesianostriana.pruebaproyecto.formbean.FiltrarPorEmail;
 import com.salesianostriana.pruebaproyecto.formbean.FiltrarPorTipoHab;
 import com.salesianostriana.pruebaproyecto.model.Habitacion;
@@ -171,11 +172,14 @@ public class IndexController {
 		model.addAttribute("selectedPageSize", evalPageSize);
 		model.addAttribute("pageSizes", PAGE_SIZES);
 		model.addAttribute("pager", pager);
-
-		model.addAttribute("crearHabitacion", new Habitacion());
+		
+		model.addAttribute("crearHabitacion", new CrearHabitacion());
 		Iterable<Habitacion> lista = new HashSet<Habitacion>();
 		lista = habitacionService.findAll();
 		model.addAttribute("listaHabitaciones", lista);
+		
+		//error 4
+		model.addAttribute("Error4", HabitacionController.error4);
 
 		model.addAttribute("usuarioOrdenado", new FiltrarPorEmail());
 

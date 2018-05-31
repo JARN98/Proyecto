@@ -21,6 +21,9 @@ import com.salesianostriana.pruebaproyecto.model.Usuario;
 
 @Configuration
 public class SecurityConfiguration {
+	
+	public static boolean error6 = false;
+	
 	@Bean
 	public FilterRegistrationBean<SecurityFilter> filterSecurityBean() {
 		FilterRegistrationBean<SecurityFilter> registro = new FilterRegistrationBean<>();
@@ -36,8 +39,8 @@ public class SecurityConfiguration {
 	}
 
 	@Bean
-	public FilterRegistrationBean<SecurityFilter> filterSecurityBean2() {
-		FilterRegistrationBean<SecurityFilter> registro = new FilterRegistrationBean<>();
+	public FilterRegistrationBean<SecurityFilter2> filterSecurityBean2() {
+		FilterRegistrationBean<SecurityFilter2> registro = new FilterRegistrationBean<>();
 		registro.setFilter(securityFilter2());
 		registro.addUrlPatterns("/usuarios");
 		registro.setName("securityFilter2");
@@ -45,11 +48,11 @@ public class SecurityConfiguration {
 	}
 
 	@Bean("securityFilter2")
-	public SecurityFilter securityFilter2() {
-		return new SecurityFilter();
+	public SecurityFilter2 securityFilter2() {
+		return new SecurityFilter2();
 	}
 
-	class SecurityFilter implements Filter {
+	class SecurityFilter2 implements Filter {
 
 		@Override
 		public void init(FilterConfig filterConfig) throws ServletException {
@@ -57,19 +60,36 @@ public class SecurityConfiguration {
 
 		}
 
-		public void doFilter2(ServletRequest req, ServletResponse resp, FilterChain chain)
+		@Override
+		public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
 				throws IOException, ServletException {
 			HttpServletRequest request = (HttpServletRequest) req;
 			HttpServletResponse response = (HttpServletResponse) resp;
 			HttpSession session = request.getSession();
-			Usuario user = (Usuario) session.getAttribute("usuarioActual");
 
-			if (LoginController.usuario.isAdmin() == false || LoginController.usuario == null) {
-				response.sendRedirect("/login");
+			if (session.getAttribute("usuarioActual") == null || LoginController.usuario.isAdmin() == false) {
+				response.sendRedirect("/");	
 				return;
 			} else {
 				chain.doFilter(req, resp);
 			}
+				
+
+		}
+
+		@Override
+		public void destroy() {
+			// TODO Auto-generated method stub
+
+		}
+
+	}
+
+	class SecurityFilter implements Filter {
+		@Override
+		public void init(FilterConfig filterConfig) throws ServletException {
+			// TODO Auto-generated method stub
+
 		}
 
 		@Override
@@ -81,9 +101,14 @@ public class SecurityConfiguration {
 
 			if (session.getAttribute("usuarioActual") == null) {
 				response.sendRedirect("/login");
+				error6 = true;
 				return;
-			} else
+			} else {
+				error6=false;
 				chain.doFilter(req, resp);
+				
+			}
+				
 
 		}
 
@@ -92,7 +117,6 @@ public class SecurityConfiguration {
 			// TODO Auto-generated method stub
 
 		}
-
 	}
 
 }

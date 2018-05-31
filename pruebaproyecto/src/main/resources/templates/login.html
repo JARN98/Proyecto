@@ -181,11 +181,11 @@
 
 					</form>
 					<div th:if="${loginError}">
-						<div class="alert alert-danger">Debe rellenar todos los campos</div>
+						<div class="alert alert-danger">Email o contraseña incorrectas.</div>
 					</div>
-				</div>
-				<div class="alert alter-danger" th:if="${loginErrorReserva}">
-					Para reservar una habitación debe tener cuenta.
+					<div class="alert alert-danger" th:if="${Error6}">
+						Para reservar una habitación debe tener cuenta.
+					</div>
 				</div>
 			</div>
 		</div>

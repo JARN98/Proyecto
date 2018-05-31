@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.pruebaproyecto.formbean.LoginDeUsuario;
 import com.salesianostriana.pruebaproyecto.model.Usuario;
+import com.salesianostriana.pruebaproyecto.security.SecurityConfiguration;
 import com.salesianostriana.pruebaproyecto.services.UsuarioService;
 
 @Controller
 public class LoginController {
 	
-	private boolean errorL;
+	private boolean errorL = false;
 
 	@Autowired
 	private UsuarioService usuarioService;
@@ -42,6 +43,11 @@ public class LoginController {
 		if(errorL) {
 			model.addAttribute("loginError", true);
 		}
+		
+		if(SecurityConfiguration.error6) {
+			model.addAttribute("Error6", true);
+		}
+		
 		return "login";
 	}
 

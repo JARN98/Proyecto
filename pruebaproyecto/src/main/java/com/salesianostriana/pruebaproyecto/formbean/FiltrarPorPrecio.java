@@ -1,22 +1,22 @@
 package com.salesianostriana.pruebaproyecto.formbean;
 
 public class FiltrarPorPrecio {
-	private double precio;
+	private String precio;
 
-	public FiltrarPorPrecio(double precio) {
+	public FiltrarPorPrecio(String precio) {
 		super();
 		this.precio = precio;
 	}
-
+	
 	public FiltrarPorPrecio() {
-
+		
 	}
 
-	public double getPrecio() {
+	public String getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(double precio) {
+	public void setPrecio(String precio) {
 		this.precio = precio;
 	}
 
@@ -24,4 +24,5 @@ public class FiltrarPorPrecio {
 	public String toString() {
 		return "FiltrarPorPrecio [precio=" + precio + "]";
 	}
+
 }

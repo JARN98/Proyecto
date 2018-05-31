@@ -46,6 +46,7 @@
 
 	<!-- Modernizr JS -->
 	<script src="/js/modernizr-2.6.2.min.js"></script>
+	<script src="/js/editcheck.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -127,7 +128,7 @@
 			<div class="row">
 				<div class="col-md-8">
 					<form method="POST" th:action="@{/habitacionesReservaPrecio}" th:object="${listaPorPrecio}">
-						<input type="text" placeholder="Buscar por precio" th:field="*{precio}" id="numero">
+						<input type="text" placeholder="Buscar por precio" th:field="*{precio}" id="numero" editcheck="type=NUM=Este campo debe ser rellenado con un número">
 						<input type="submit" value="Buscar por precio" class="btn btn-primary" id="esto">
 					</form>
 				</div>

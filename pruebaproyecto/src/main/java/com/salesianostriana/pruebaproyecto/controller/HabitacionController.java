@@ -1,41 +1,50 @@
 package com.salesianostriana.pruebaproyecto.controller;
 
 import java.util.HashSet;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import com.salesianostriana.pruebaproyecto.formbean.CrearHabitacion;
 import com.salesianostriana.pruebaproyecto.model.Habitacion;
-import com.salesianostriana.pruebaproyecto.model.Usuario;
 import com.salesianostriana.pruebaproyecto.services.HabitacionService;
-import com.salesianostriana.pruebaproyecto.services.ReservaService;
 
 @Controller
 public class HabitacionController {
+	
+	public static boolean error4;
 
 	@Autowired
 	private HabitacionService habitacionService;
 
-	@Autowired
-	private ReservaService reservaService;
-
 	@PostMapping("/registerHabitacion")
-	public String doHabitacion(@ModelAttribute("crearHabitacion") Habitacion habitacion, Model model,
+	public String doHabitacion(Model model,@ModelAttribute("crearHabitacion") CrearHabitacion h2form,
 			@ModelAttribute("listaHabitaciones") HashSet<Habitacion> listaHabitaciones) {
-
-		habitacionService.save(habitacion);
-		listaHabitaciones.add(habitacion);
-		// Iterable<Habitacion> lista = new HashSet<Habitacion>();
-		// lista = habitacionService.findAll();
-		// model.addAttribute("listaHabitaciones", lista);
+		
+		Habitacion h2 = new Habitacion();
+		h2.setTipoHab(h2form.getTipoHab());
+		double price = 0;
+		try {
+			price = Double.parseDouble(h2form.getPrecio());
+		}catch(NumberFormatException n) {
+			price = 0;
+		}
+		h2.setPrecio(price);
+		
+		
+		
+		if(h2.getPrecio() > 0 && h2.getPrecio() < 100000000) {
+			habitacionService.save(h2);
+			listaHabitaciones.add(h2);
+			error4 = false;
+		}else {
+			error4 = true;
+		}
+		
 
 		return "redirect:/usuarios#listaHabitaciones";
 	}
@@ -51,6 +60,8 @@ public class HabitacionController {
 				model.addAttribute("panelAdmin", true);
 			}
 		}
+		
+		model.addAttribute("error4", error4);
 		return "usuarios#listaHabitacion";
 	}
 

@@ -224,7 +224,7 @@
 						<div class="alert alert-danger" style="display: none;"
 							id="alerta1">La contraseña debe contener más de 5
 							caracteres</div>
-						<div class="alert alert-danger" th:if="@{registerError}"></div>
+						<div class="alert alert-danger" th:if="${registerError}"> El email ya ha sido registrado</div>
 					</div>
 				</div>
 			</fieldset>
