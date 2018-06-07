@@ -8,7 +8,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.pruebaproyecto.model.Habitacion;
-import com.salesianostriana.pruebaproyecto.model.Usuario;
 import com.salesianostriana.pruebaproyecto.repository.HabitacionRepository;
 
 @Service
@@ -16,8 +15,8 @@ public class HabitacionService {
 
 	@Autowired
 	HabitacionRepository repositorio;
-	
-	public Iterable<Habitacion> findHabitacionesReservadasPorMiUsuario(Long usuario_id){
+
+	public Iterable<Habitacion> findHabitacionesReservadasPorMiUsuario(Long usuario_id) {
 		return repositorio.findHabitacionesReservadasPorMiUsuario(usuario_id);
 	}
 
@@ -48,22 +47,17 @@ public class HabitacionService {
 
 		return deleteHab;
 	}
-	
+
 	public Page<Habitacion> findAllPageable(Pageable pageable) {
 		return repositorio.findAll(pageable);
 	}
-	
-	public Iterable<Habitacion> habitacionesPorPrecio (double precio){
+
+	public Iterable<Habitacion> habitacionesPorPrecio(double precio) {
 		return repositorio.buscarPorPrecio(precio);
 	}
-	
-	public Iterable<Habitacion> habitacionesPorTipohab(String tipoHab){
+
+	public Iterable<Habitacion> habitacionesPorTipohab(String tipoHab) {
 		return repositorio.findByTipoHabContainingIgnoreCase(tipoHab);
 	}
-	
-	
-	
-	
-
 
 }

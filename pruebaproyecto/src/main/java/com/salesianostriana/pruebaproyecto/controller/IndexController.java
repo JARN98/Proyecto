@@ -3,8 +3,6 @@ package com.salesianostriana.pruebaproyecto.controller;
 import java.util.HashSet;
 import java.util.Optional;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -27,19 +25,11 @@ import com.salesianostriana.pruebaproyecto.utility.Pager;
 @Controller
 public class IndexController {
 
-	// @Autowired
-	// private HttpSession session;
-
 	@Autowired
 	private HabitacionService habitacionService;
 
 	@Autowired
 	private UsuarioService usuarioService;
-
-	@Autowired
-	private HttpSession session;
-
-	private FiltrarPorEmail email;
 
 	private static final int BUTTONS_TO_SHOW = 5;
 	private static final int INITIAL_PAGE = 0;
@@ -48,7 +38,10 @@ public class IndexController {
 
 	@GetMapping({ "/", "/index" })
 	public String showIndex(Model model, @ModelAttribute("usuarioActual") Usuario usuario) {
-		// Usuario u = (Usuario) session.getAttribute("usuarioActual");
+		/*
+		 * Esto sirve para que en el nav salgan distintas cosas si estás logueado o no y
+		 * si el usuario que está logueado sea administrador o no.
+		 */
 		if (LoginController.usuario == null) {
 			model.addAttribute("noUsuario", true);
 		}
@@ -172,13 +165,13 @@ public class IndexController {
 		model.addAttribute("selectedPageSize", evalPageSize);
 		model.addAttribute("pageSizes", PAGE_SIZES);
 		model.addAttribute("pager", pager);
-		
+
 		model.addAttribute("crearHabitacion", new CrearHabitacion());
 		Iterable<Habitacion> lista = new HashSet<Habitacion>();
 		lista = habitacionService.findAll();
 		model.addAttribute("listaHabitaciones", lista);
-		
-		//error 4
+
+		// error 4
 		model.addAttribute("Error4", HabitacionController.error4);
 
 		model.addAttribute("usuarioOrdenado", new FiltrarPorEmail());
@@ -220,6 +213,9 @@ public class IndexController {
 				model.addAttribute("panelAdmin", true);
 			}
 		}
+		/*
+		 * Esto es un ejemplo de búsqueda por consulta utilizando sql.
+		 */
 		Iterable<Habitacion> listaHOrd = habitacionService.habitacionesPorTipohab(tipoHab.getTipoHab());
 		model.addAttribute("listaHabitacionesO", listaHOrd);
 		return "/FiltradoHabitaciones";

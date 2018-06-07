@@ -15,8 +15,8 @@ import com.salesianostriana.pruebaproyecto.repository.ReservaRepository;
 public class ReservaService {
 	@Autowired
 	ReservaRepository repo;
-	
-	public Iterable<Reserva> listaDeReservasDelUsuario(Long id){
+
+	public Iterable<Reserva> listaDeReservasDelUsuario(Long id) {
 		return repo.findHabitacionesReservadasPorMiUsuario(id);
 	}
 
@@ -44,6 +44,13 @@ public class ReservaService {
 		return deleteRes;
 	}
 
+	/*
+	 * Método para que al elegir fecha de inicio y de salida junto al precio de la
+	 * habitación por noche se calcule el precio final que costará la reserva,
+	 * funciona multiplicando el precio de la habitación por el número de dias y se
+	 * le añade un 40% si alguno de las fechas está dentro del periodo de Temporada
+	 * Alta.
+	 */
 	public double calcularPrecio(Model model, double precio, String fechaInicio, String fechaFin) {
 
 		DateTimeFormatter formateoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -58,7 +65,7 @@ public class ReservaService {
 
 		int mesInicioTA = 6;
 		int mesFinTA = 7;
-		if (diaInicio.getMonthValue() >= mesInicioTA && diaFin.getMonthValue() <= mesFinTA) {
+		if (diaInicio.getMonthValue() >= mesInicioTA || diaFin.getMonthValue() <= mesFinTA) {
 			precio = precio * 1.4;
 		}
 

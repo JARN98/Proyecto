@@ -38,6 +38,10 @@ public class ReservaController {
 
 	@GetMapping("/FilterUser/reservas")
 	public String showReserva(Model model) {
+		/*
+		 * Esto sirve para que en el nav salgan distintas cosas si estás logueado o no y
+		 * si el usuario que está logueado sea administrador o no.
+		 */
 		if (LoginController.usuario == null) {
 			model.addAttribute("noUsuario", true);
 		}
@@ -117,16 +121,27 @@ public class ReservaController {
 		DateTimeFormatter formateoFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		LocalDate fechaInicio = LocalDate.parse(nuevar.getFechaInicio(), formateoFecha);
 		LocalDate fechaFin = LocalDate.parse(nuevar.getFechaFin(), formateoFecha);
+		/*
+		 * Esto lo hago para que cuando ponga el usuario en un campo donde va un double,
+		 * un string no de error. (Sé que poniendo un type="number" en el input no te
+		 * dejaría poner letras, lohago para demostrar que sé hacerlo).
+		 */
 		double precio1;
 		try {
 			precio1 = Double.parseDouble(precio.getPrecio());
-		}catch(NumberFormatException n) {
+		} catch (NumberFormatException n) {
 			precio1 = 0;
 		}
-		
+
 		List<Habitacion> habitacionesFiltradas = (List<Habitacion>) habitacionService
 				.findHabitacionesNoReservadas(fechaInicio, fechaFin, nuevar.getTipoHab());
 		double precio2 = precio1;
+		/*
+		 * Esto es una búsqueda por precio la cual está hecha por un filtrado de la
+		 * clase stream utilizando expresión lambda, en el proyecto hay dos tipos de
+		 * búsqueda, por filter y por consulta, hechas queriendo para mostrar la
+		 * utilización tanto de java 8 como de consultas sql de base de datos.
+		 */
 		List<Habitacion> filtroHab = habitacionesFiltradas.stream().filter((p) -> p.getPrecio() == precio2)
 				.collect(Collectors.toList());
 		model.addAttribute("listaPrecio", filtroHab);

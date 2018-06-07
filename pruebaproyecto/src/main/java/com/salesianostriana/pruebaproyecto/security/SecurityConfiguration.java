@@ -17,13 +17,18 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.salesianostriana.pruebaproyecto.controller.LoginController;
-import com.salesianostriana.pruebaproyecto.model.Usuario;
 
 @Configuration
 public class SecurityConfiguration {
-	
+
 	public static boolean error6 = false;
-	
+
+	/*
+	 * Tengos dos filtros, el primero sirve para que un usuario que no esté
+	 * registrado no pueda reservar una habitación y el segundo sirve para que solo
+	 * pueda entrar a la pantalla de administrador un usuario administrador.
+	 */
+
 	@Bean
 	public FilterRegistrationBean<SecurityFilter> filterSecurityBean() {
 		FilterRegistrationBean<SecurityFilter> registro = new FilterRegistrationBean<>();
@@ -68,12 +73,11 @@ public class SecurityConfiguration {
 			HttpSession session = request.getSession();
 
 			if (session.getAttribute("usuarioActual") == null || LoginController.usuario.isAdmin() == false) {
-				response.sendRedirect("/");	
+				response.sendRedirect("/");
 				return;
 			} else {
 				chain.doFilter(req, resp);
 			}
-				
 
 		}
 
@@ -104,11 +108,10 @@ public class SecurityConfiguration {
 				error6 = true;
 				return;
 			} else {
-				error6=false;
+				error6 = false;
 				chain.doFilter(req, resp);
-				
+
 			}
-				
 
 		}
 

@@ -1,9 +1,5 @@
 package com.salesianostriana.pruebaproyecto.formbean;
 
-import java.time.LocalDateTime;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 public class ReservaDeHabitacion {
 
 	private String fechaInicio;

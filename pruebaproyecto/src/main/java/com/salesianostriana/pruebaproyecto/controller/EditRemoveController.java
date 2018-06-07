@@ -33,6 +33,10 @@ public class EditRemoveController {
 
 	@GetMapping("/datos")
 	public String showDatos(Model model, @ModelAttribute("usuarioActual") Usuario usuario) {
+		/*
+		 * Esto sirve para que en el nav salgan distintas cosas si estás logueado o no y
+		 * si el usuario que está logueado sea administrador o no.
+		 */
 		if (LoginController.usuario == null) {
 			model.addAttribute("noUsuario", true);
 		}
@@ -44,7 +48,8 @@ public class EditRemoveController {
 		}
 		Iterable<Reserva> listaR = reservaService.listaDeReservasDelUsuario(LoginController.usuario.getId());
 		model.addAttribute("listaReservas", listaR);
-		model.addAttribute("u", new Usuario());
+		model.addAttribute("u", LoginController.usuario);
+
 		return "datos";
 	}
 
@@ -60,6 +65,7 @@ public class EditRemoveController {
 			}
 		}
 		Usuario u = usuarioService.findOne(id);
+		
 
 		if (u == null) {
 			return "redirect:/";

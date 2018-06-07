@@ -26,6 +26,10 @@ public class RegistroController {
 
 	@GetMapping("/Register")
 	public String showRegister(Model model) {
+		/*
+		 * Esto sirve para que en el nav salgan distintas cosas si estás logueado o no y
+		 * si el usuario que está logueado sea administrador o no.
+		 */
 		if (LoginController.usuario == null) {
 			model.addAttribute("noUsuario", true);
 		}
@@ -42,6 +46,11 @@ public class RegistroController {
 	@PostMapping("/checkRegister")
 	public String doRegister(@ModelAttribute("registroUsuario") RegistroDeUsuario registroDeUsuario,
 			BindingResult bindingResult, Model model) {
+
+		/*
+		 * Esto lo utilizamos para que no se pueda registrar un usuario que ya lo esté,
+		 * se comprueba por el email.
+		 */
 		Usuario u = usuarioService.registro(registroDeUsuario.getEmail());
 
 		if (u == null) {

@@ -27,6 +27,10 @@ public class HabitacionController {
 		
 		Habitacion h2 = new Habitacion();
 		h2.setTipoHab(h2form.getTipoHab());
+		/*
+		 * Esto lo hago para que cuando ponga el usuario en un campo donde va un double,
+		 * un string no de error.
+		 */
 		double price = 0;
 		try {
 			price = Double.parseDouble(h2form.getPrecio());
@@ -51,6 +55,10 @@ public class HabitacionController {
 
 	@GetMapping("usuarios/#listaHabitacion")
 	public String showListH(Model model) {
+		/*
+		 * Esto sirve para que en el nav salgan distintas cosas si estás logueado o no y
+		 * si el usuario que está logueado sea administrador o no.
+		 */
 		if (LoginController.usuario == null) {
 			model.addAttribute("noUsuario", true);
 		}

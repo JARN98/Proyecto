@@ -17,7 +17,7 @@ import com.salesianostriana.pruebaproyecto.services.UsuarioService;
 
 @Controller
 public class LoginController {
-	
+
 	private boolean errorL = false;
 
 	@Autowired
@@ -30,6 +30,10 @@ public class LoginController {
 
 	@GetMapping("/login")
 	public String showLogin(Model model) {
+		/*
+		 * Esto sirve para que en el nav salgan distintas cosas si estás logueado o no y
+		 * si el usuario que está logueado sea administrador o no.
+		 */
 		if (LoginController.usuario == null) {
 			model.addAttribute("noUsuario", true);
 		}
@@ -40,14 +44,14 @@ public class LoginController {
 			}
 		}
 		model.addAttribute("loginUsuario", new LoginDeUsuario());
-		if(errorL) {
+		if (errorL) {
 			model.addAttribute("loginError", true);
 		}
-		
-		if(SecurityConfiguration.error6) {
+
+		if (SecurityConfiguration.error6) {
 			model.addAttribute("Error6", true);
 		}
-		
+
 		return "login";
 	}
 
@@ -55,16 +59,20 @@ public class LoginController {
 	public String doLogin(@ModelAttribute("loginDeUsuario") LoginDeUsuario loginDeUsuario, BindingResult bindingResult,
 			Model model) {
 
+		/*
+		 * Esto lo utilizamos para que no se loguee un usuario que no exista.
+		 */
+
 		Usuario u = usuarioService.login(loginDeUsuario.getNombreUsuario(), loginDeUsuario.getContrasena());
 
 		if (u != null) {
 			session.setAttribute("usuarioActual", u);
 			model.addAttribute("usuarioActual", u);
 			usuario = u;
-			errorL=false;
+			errorL = false;
 			return "redirect:/";
 		} else {
-			errorL=true;
+			errorL = true;
 			return "redirect:/login";
 		}
 

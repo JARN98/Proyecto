@@ -132,7 +132,12 @@
 
 		});
 	</script>
-
+<style>
+	footer{
+		margin-top: 15%;
+		position: relative;	
+	}
+</style>
 
 
 </head>
@@ -271,7 +276,7 @@
 
 
 
-		<div style="position: fixed;" id="popup1" class="overlay">
+		<div style="position: absolute;" id="popup1" class="overlay">
 			<div class="popup">
 				<br />
 				<h2>Editar datos</h2>
@@ -282,16 +287,16 @@
 
 					<label class="control-label" for="Email">Email</label>
 					<input th:field="*{email}" id="Email" name="Email" placeholder="Email" class="form-control input-md" required=""
-					 type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" th:text="${u.email}">
+					 type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" >
 					<label class=" control-label" for="Nombre">Nombre</label>
 					<input th:field="*{nombre}" id="Nombre" name="Nombre" placeholder="Nombre" class="form-control input-md"
-					 required="" type="text" th:text="${u.nombre}">
+					 required="" type="text">
 					<label class=" control-label" for="Apellidos">Apellidos</label>
 					<input th:field="*{apellidos}" id="Apellidos" name="Apellidos" placeholder="Apellidos" class="form-control input-md" required=""
 					 type="text">
 					<label class=" control-label" for="Contrasena">Contraseña</label>
 					<input th:field="*{contrasena}" id="Contrasena" name="Contrasena" placeholder="Contraseña" class="form-control input-md"
-					 required="" type="password">
+					 required="" type="text">
 					<br />
 					<input type="submit" class="btn btn-success" value="Editar">
 
